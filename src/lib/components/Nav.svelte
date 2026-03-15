@@ -14,7 +14,8 @@
 
 	const navLinks = [
 		{ href: '/', labelFn: () => m.nav_home() },
-		{ href: '/apps', labelFn: () => m.nav_apps() },
+		{ href: '/trisactions', labelFn: () => m.nav_apps() },
+		{ href: '/pantrypreneur', labelFn: () => m.nav_preneur() },
 		{ href: '/news', labelFn: () => m.nav_news() }
 	];
 

@@ -2,10 +2,11 @@
     "$schema": "https://inlang.com/schema/inlang-message-format",
     "tagline": "Tagline",
     "nav_home": "Home",
-    "nav_apps": "Apps",
+    "nav_apps": "Pantrypoints",
     "nav_news": "News",
     "nav_admin": "Admin",
-    "nav_tagline": "A Moneyless Economy",
+    "nav_preneur": "Pantrypreneur",
+    "nav_tagline": "Points-based Economic System",
 
     "hero_title": "The Circular Economy that Solves",
     "hero_title_accent": "Inflation",

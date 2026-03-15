@@ -13,6 +13,27 @@
 	let submitting = $state(false);
 	let submitted = $state(form?.success ?? false);
 
+	const mySteps = [
+		{ 
+			id: 1, 
+			img: "/screens/po1.jpg", 
+			title: "Step 1: Post your item", 
+			sub: "Post your item using a points price instead of a money price" 
+		},
+		{ 
+			id: 2, 
+			img: "/graphics/meetup.jpg", 
+			title: "Step 2: Meetup", 
+			sub: "Meet up with the buyers of your item" 
+		},
+		{ 
+			id: 3, 
+			img: "/screens/pay.jpg", 
+			title: "Step 3: Give your item", 
+			sub: "Give your item and record the debt using the cards or the app" 
+		}
+	];
+
 	const features = [
 		{ icon: BanknoteX,  color: '#3c95d3', titleFn: () => m.feat_points_title(),    descFn: () => m.feat_points_desc()    },
 		{ icon: CircleDollarSign,  color: '#00BD6C', titleFn: () => m.feat_community_title(), descFn: () => m.feat_community_desc() },
@@ -212,6 +233,7 @@
 	</div>
 </section>
 
+
 <!-- How it works -->
 <section class="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
 	<div class="mx-auto max-w-4xl">
@@ -225,13 +247,18 @@
 						class="font-display mb-3 text-5xl font-800"
 						style="color: {step.color}22; letter-spacing: -0.02em"
 					>
-						{step.step}
+						Step {step.step}
 					</div>
 					<h3 class="font-display mb-2 text-lg font-600 text-slate-900">{step.titleFn()}</h3>
 					<p class="text-sm leading-relaxed text-slate-500">{step.descFn()}</p>
 				</div>
 			{/each}
 		</div>
+		<Carousel 
+			steps={mySteps} 
+			textPosition="top"
+		/>
+
 	</div>
 </section>
 
@@ -300,7 +327,7 @@
 			Current Locations
 		</h2>
 		<p class="text-white/80 text-base max-w-xl mx-auto leading-relaxed">
-			Here are where we have deployed
+			Here are where we have deployed our test prototypes
 		</p>
 	<Locations />
 	</div>
