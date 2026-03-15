@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+.svelte-kit/
+build/
+dist/
+.wrangler/
+
+# Paraglide — generated on dev/build, do not commit
+src/lib/paraglide/
+!src/lib/paraglide/.gitkeep
+
+# Env
+.env
+.env.*
+!.env.example

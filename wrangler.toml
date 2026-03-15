@@ -1,0 +1,10 @@
+name = "pantrypoints"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+[vars]
+# Set these in Cloudflare dashboard under Settings > Environment Variables
+# TURSO_URL = "libsql://your-db.turso.io"
+# TURSO_AUTH_TOKEN = "your-auth-token"
+# ADMIN_PASSWORD = "your-admin-password"
