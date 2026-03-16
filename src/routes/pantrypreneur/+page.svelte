@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import { Search, ArrowRight, Zap } from 'lucide-svelte';
-	import { searchApps } from '$lib/apps';
+	import { searchApps } from '$lib/preneur';
 	import * as m from '$lib/paraglide/messages';
 	import { languageTag } from '$lib/paraglide/runtime';
 
@@ -35,27 +35,46 @@
 </svelte:head>
 
 <div class="page-transition">
-	<!-- Header -->
-	<div class="border-b border-slate-100 bg-white px-4 py-14 text-center sm:px-6 lg:px-8">
+
+
+<!-- Header with Video Background -->
+<div class="relative border-b border-slate-100 overflow-hidden">
+	<!-- Background Video -->
+	<video 
+		autoplay 
+		muted 
+		loop 
+		playsinline
+		class="absolute inset-0 w-full h-full object-cover">
+		<source src="/app.mp4" type="video/mp4">
+	</video>
+	
+	<!-- Dark overlay for text readability -->
+	<div class="absolute inset-0 bg-black/50 z-0"></div>
+	
+	<!-- Content -->
+	<div class="relative z-10 px-4 py-20 text-center sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl">
-			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-sm font-medium text-brand-blue">
+			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-white">
 				<Zap size={13} />
-				{m.apps_badge()}
+				{m.saas()}
 			</div>
-			<h1 class="font-display mb-3 text-4xl font-800 text-slate-900 sm:text-5xl">{m.apps_title()}</h1>
-			<p class="mb-8 text-lg text-slate-500">{m.apps_subtitle()}</p>
+			<h1 class="font-display mb-3 text-4xl font-800 text-white sm:text-5xl drop-shadow-lg">{m.preneurapps()}</h1>
+			<p class="mb-8 text-lg text-white/90 drop-shadow">{m.preneurdesc()}</p>
 
 			<div class="relative mx-auto max-w-md">
-				<Search size={17} class="absolute top-1/2 left-4 -translate-y-1/2 text-slate-400" />
+				<Search size={17} class="absolute top-1/2 left-4 -translate-y-1/2 text-white/70" />
 				<input
 					type="search"
 					bind:value={query}
 					placeholder={m.apps_search_placeholder()}
-					class="w-full rounded-xl border border-slate-200 py-3 pl-11 pr-4 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
+					class="w-full rounded-xl border border-white/30 bg-white/20 backdrop-blur-sm py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 transition-colors focus:border-white focus:ring-2 focus:ring-white/30 focus:outline-none"
 				/>
 			</div>
 		</div>
 	</div>
+</div>
+
 
 	<!-- Apps grid -->
 	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
@@ -69,25 +88,22 @@
 				{#each results as app, i (app.slug)}
 					<a
 						in:fly={{ y: 20, duration: 350, delay: i * 60 }}
-						href="/apps/{app.slug}"
-						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
-					>
+						href="/pantrypreneur/{app.slug}"
+						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
 						<div class="mb-4 flex items-start justify-between">
 							<div
 								class="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
-								style="background: {app.color}18"
-							>
-								{app.icon}
+								style="background: {app.color}18">
+								<img src="{app.icon}" alt="Icon">
 							</div>
 							<span
 								class="rounded-full px-2.5 py-0.5 text-xs font-medium"
-								style="background: {statusColors[app.status]}18; color: {statusColors[app.status]}"
-							>
+								style="background: {statusColors[app.status]}18; color: {statusColors[app.status]}">
 								{statusLabel(app.status)}
 							</span>
 						</div>
 
-						<h3 class="font-display mb-1.5 font-700 text-slate-900 transition-colors group-hover:text-brand-blue">
+						<h3 class="font-display mb-1.5 font-700 text-2xl text-slate-900 transition-colors group-hover:text-brand-blue">
 							{appName(app)}
 						</h3>
 						<p class="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-500">

@@ -7,6 +7,10 @@
     "nav_admin": "Admin",
     "nav_preneur": "Pantrypreneur",
     "nav_tagline": "Points-based Economic System",
+    "nav_docs": "Docs",
+
+    "docs_title": "Documentation",
+    "docs_sub": "Documentation for Pantrypoints and Superphysics Applications",
 
     "hero_title": "The Circular Economy that Solves",
     "hero_title_accent": "Inflation",
@@ -66,7 +70,7 @@
     "err_server_error": "Something went wrong. Please try again.",
 
     "apps_title": "Pantrypoints Apps",
-    "apps_subtitle": "Pantrypoints Apps are for the community",
+    "apps_subtitle": "Pantrypoints Apps facilitate the Economy as a Service or EaaS. Think of it as Economic SaaS for society",
     "apps_search_placeholder": "Search applications...",
     "apps_learn_more": "Learn More",
     "apps_none_found": "No applications found",
@@ -139,7 +143,7 @@
     "persona_government": "I'm with the Government",
     "persona_governmentDesc": "We need to earn more revenue for public services",
     "what": "Wealth Creation Without Money",
-    "ppis": "Pantrypoints is a new economic system that uses points instead of money.",
+    "ppis": "The blog 'One Red Paper Clip' proved a paperclip can be traded into a house without any money. We systematize it so that everyone can get wealthy without money.",
     "how": "How it Works",
     "country": "Country",
     "moneyless_first": "Moneyless First",
@@ -153,5 +157,14 @@
     "which": "Which are you?",
     "ppisfor": "Pantrypoints is for everyone",
     "news_back_to_list": "Back",
+    "ppservices": "Pantrypoints Services facilitate the points-based economic system",
+    "services": "Services",
+    "trisactions": "Trisactions",
+    "preneurapps": "Pantrypreneur Apps",
+    "preneurdesc": "Pantrypreneur Apps are SaaS for micro-small businesses",
+    "saas": "Software-as-a-Service for Everyone",
+    "eaas": "Economy-as-a-Service for Society",
+    "search": "Search..",
+    "reference": "Reference",
     "select": "select"
 }

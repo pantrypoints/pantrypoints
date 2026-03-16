@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide && vite build",
+    "build": "vite build",
+    "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -12,13 +13,11 @@
     "format": "prettier --write .",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:migrate": "drizzle-kit migrate",
-    "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide"
+    "db:migrate": "drizzle-kit migrate"
   },
   "type": "module",
   "devDependencies": {
-    "@inlang/paraglide-js": "1.7.0",
-    "@inlang/paraglide-js-adapter-sveltekit": "^0.6.7",
+    "@inlang/paraglide-sveltekit": "^0.16.1",
     "@libsql/client": "^0.17.0",
     "@sveltejs/adapter-cloudflare": "^7.2.8",
     "@sveltejs/kit": "^2.50.2",

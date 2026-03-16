@@ -8,10 +8,24 @@
 	import Locations from '$lib/components/Locations.svelte';
 	import { cubicOut } from 'svelte/easing';
 
+
+  	import { languageTag } from '$lib/paraglide/runtime';
+
+
 	let { data, form } = $props();
+
+  // Force reactivity — re-evaluates all messages when lang changes
+  let lang = $derived(data.lang);
+
 
 	let submitting = $state(false);
 	let submitted = $state(form?.success ?? false);
+
+	  let heroTitle     = $derived((lang, m.hero_title()));
+	  let heroAccent    = $derived((lang, m.hero_title_accent()));
+	  let heroBadge     = $derived((lang, m.hero_badge()));
+	  let heroSubtitle  = $derived((lang, m.hero_subtitle()));
+	  let navTagline    = $derived((lang, m.nav_tagline()));
 
 	const mySteps = [
 		{ 
@@ -56,10 +70,10 @@
 
 	const personas = [
 		{ titleFn: () => m.persona_businessOwner(),    descFn: () => m.persona_businessOwnerDesc(),    avatar: '/icons/shop.jpg',     url: '/services/build/' },
-		{ titleFn: () => m.persona_frequentShopper(),  descFn: () => m.persona_frequentShopperDesc(),  avatar: '/icons/shopper.jpg',  url: '/services/rewards/' },
+		{ titleFn: () => m.persona_frequentShopper(),  descFn: () => m.persona_frequentShopperDesc(),  avatar: '/icons/shopper.jpg',  url: '/pantrypreneur/rewards/' },
 		{ titleFn: () => m.persona_unemployed(),       descFn: () => m.persona_unemployedDesc(),       avatar: '/icons/bum.jpg',      url: 'https://circle.pantrypoints.com/' },
 		{ titleFn: () => m.persona_teacher(),          descFn: () => m.persona_teacherDesc(),          avatar: '/icons/teacher.jpg',  url: '/pantrypreneur/educate' },
-		{ titleFn: () => m.persona_healthConscious(),  descFn: () => m.persona_healthConsciousDesc(),  avatar: '/icons/yoga.jpg',     url: '/trisactions/health/' },
+		{ titleFn: () => m.persona_healthConscious(),  descFn: () => m.persona_healthConsciousDesc(),  avatar: '/icons/yoga.jpg',     url: '/pantrypreneur/health/' },
 		{ titleFn: () => m.persona_investor(),         descFn: () => m.persona_investorDesc(),         avatar: '/icons/investor.jpg', url: '/trisactions/invesure/' },
 		{ titleFn: () => m.persona_banker(),           descFn: () => m.persona_bankerDesc(),           avatar: '/icons/banker.jpg',   url: '/trisactions/banking' },
 		{ titleFn: () => m.persona_farmer(),           descFn: () => m.persona_farmerDesc(),           avatar: '/icons/farmer.jpg',   url: '/pantrypreneur/farm/' },
@@ -129,14 +143,14 @@
 
 		<div in:fly={{ y: 20, duration: 500, delay: 350 }} class="flex flex-wrap justify-center gap-3">
 			<a
-				href="#register"
+				href="/trisactions"
 				class="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-all hover:gap-3"
 				style="background: linear-gradient(135deg, #3c95d3, #2a7ab8)"
 			>
 				{m.hero_cta()} <ArrowRight size={16} />
 			</a>
 			<a
-				href="/apps"
+				href="#register"
 				class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-brand-blue hover:text-brand-blue"
 			>
 				{m.hero_learn_more()}
@@ -215,12 +229,11 @@
 					<!-- Fixed: Apply color as style, not class -->
 					<div 
 						class="w-12 h-12 mx-auto rounded-2xl flex items-center justify-center mb-4 text-white"
-						style="background-color:{feat.color}"
-					>
+						style="background-color:{feat.color}">
 						<svelte:component this={feat.icon} size={22} />
 					</div>
 
-					<h3 class="font-display font-800 text-base text-gray-900 dark:text-white mb-2">
+					<h3 class="font-display font-800 text-xl text-gray-900 dark:text-white mb-2">
 						{feat.titleFn()}
 					</h3>
 
@@ -334,7 +347,7 @@
 	
 
 
-	<div class="max-w-3xl mx-auto px-4 text-center">
+	<div id="register" class="max-w-3xl mx-auto px-4 text-center">
 		<h2 class="font-display font-900 text-4xl sm:text-5xl mb-5 text-white">
 			Ready to join the<br />moneyless economy?
 		</h2>
@@ -351,18 +364,10 @@
 				<p class="text-slate-600">{m.register_success_msg()}</p>
 			</div>
 		{:else}
-			<form
-				method="POST"
-				action="?/register"
-				use:enhance={() => {
-					submitting = true;
-					return async ({ result, update }) => {
-						submitting = false;
-						if (result.type === 'success') submitted = true;
-						await update();
-					};
-				}}
-				class="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm">
+		<!-- action="?/register" use:enhance={() => {submitting = true; return async ({ result, update }) => {submitting = false; if (result.type === 'success') submitted = true; await update(); }; }} -->
+			<form method="POST"  
+				action="https://usebasin.com/f/fe409f5e1e78"
+				class="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm" target="_blank">
 				{#if form?.error}
 					<div
 						in:fly={{ y: -8, duration: 200 }}
@@ -411,7 +416,7 @@
 						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="email">
 							{m.register_email_label()} <span class="text-brand-red">*</span>
 						</label>				
-						<input id="email" name="email" type="email" required placeholder={m.register_email_placeholder()} value={form?.email ?? ''} class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-gray-900 dark:text-white bg-white dark:bg-gray-800 transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none" />
+						<input id="email" name="email" type="email" required placeholder={m.register_email_placeholder()} value={form?.email ?? ''} class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none" />
 
 					</div>
 
@@ -423,8 +428,7 @@
 							id="age" name="age" type="number"
 							placeholder="21"
 							value={form?.age ?? ''}
-							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
-						/>
+							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-gray-900 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none" />
 					</div>
 
 					<div class="text-left">
@@ -435,7 +439,7 @@
 							id="country" name="country" type="text"
 							placeholder="USA"
 							value={form?.country ?? ''}
-							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
+							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
 						/>
 					</div>
 
@@ -444,16 +448,12 @@
 							City
 						</label>
 						<input
-							id="age" name="age" type="number"
-							placeholder="21"
+							id="city" name="city" type="text"
+							placeholder="New York"
 							value={form?.city ?? ''}
-							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
-						/>
+							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-gray-900 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"/>
 					</div>
-
 				</div>
-
-
 
 				<button
 					type="submit"
@@ -470,5 +470,3 @@
 	</div>
 	</div>
 </section>
-
-

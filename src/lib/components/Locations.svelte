@@ -15,20 +15,21 @@
 	
 		<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 			{#each locations as location}
-				<a 
+				<div class="group text-center">
+				<!-- <a 
 					href={location.url}
 					target="_blank"
 					rel="noopener noreferrer"
 					class="group text-center"
-				>
+				> -->
 					<div class="relative w-32 h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-pastel-blue-light shadow-lg group-hover:scale-105 transition-transform">
 						<img src={location.flag} alt={location.country} class="w-full h-full object-cover">
 					</div>
 					<h3 class="font-bold text-lg group-hover:text-pastel-blue-dark transition-colors">
 						{m[location.cityKey]}
 					</h3>
-					<p class="text-sm text-gray-500">{location.country}</p>
-				</a>
+					<p class="text-sm text-white">{location.country}</p>
+				</div>
 			{/each}
 		</div>
 		

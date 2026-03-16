@@ -35,6 +35,7 @@
 </svelte:head>
 
 <div class="page-transition">
+
 <!-- Header with Video Background -->
 <div class="relative border-b border-slate-100 overflow-hidden">
 	<!-- Background Video -->
@@ -43,8 +44,7 @@
 		muted 
 		loop 
 		playsinline
-		class="absolute inset-0 w-full h-full object-cover"
-	>
+		class="absolute inset-0 w-full h-full object-cover">
 		<source src="/app.mp4" type="video/mp4">
 	</video>
 	
@@ -56,7 +56,7 @@
 		<div class="mx-auto max-w-3xl">
 			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-white">
 				<Zap size={13} />
-				{m.apps_badge()}
+				{m.trisactions()}
 			</div>
 			<h1 class="font-display mb-3 text-4xl font-800 text-white sm:text-5xl drop-shadow-lg">{m.apps_title()}</h1>
 			<p class="mb-8 text-lg text-white/90 drop-shadow">{m.apps_subtitle()}</p>
@@ -74,6 +74,8 @@
 	</div>
 </div>
 
+
+
 	<!-- Apps grid -->
 	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
 		{#if results.length === 0}
@@ -86,20 +88,17 @@
 				{#each results as app, i (app.slug)}
 					<a
 						in:fly={{ y: 20, duration: 350, delay: i * 60 }}
-						href="/apps/{app.slug}"
-						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
-					>
+						href="/trisactions/{app.slug}"
+						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
 						<div class="mb-4 flex items-start justify-between">
 							<div
 								class="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
-								style="background: {app.color}18"
-							>
-								{app.icon}
+								style="background: {app.color}18">
+								<img src="{app.icon}" alt="Icon">								
 							</div>
 							<span
 								class="rounded-full px-2.5 py-0.5 text-xs font-medium"
-								style="background: {statusColors[app.status]}18; color: {statusColors[app.status]}"
-							>
+								style="background: {statusColors[app.status]}18; color: {statusColors[app.status]}">
 								{statusLabel(app.status)}
 							</span>
 						</div>

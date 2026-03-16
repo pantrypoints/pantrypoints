@@ -70,4 +70,3 @@ export function formatDate(dateStr: string, lang: string): string {
 		return dateStr;
 	}
 }
-

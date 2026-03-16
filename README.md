@@ -1,5 +1,10 @@
 # Pantrypoints
 
+Pantrypoints is a new economic system that uses points instead of money.
+
+"build": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide && vite build",
+
+
 A moneyless economy webapp built with SvelteKit 5, Tailwind CSS v4, Paraglide JS (i18n), Drizzle ORM + Turso, and deployed to Cloudflare Pages.
 
 ## Tech Stack

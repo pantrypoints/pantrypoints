@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-cloudflare';
+import { paraglide } from '@inlang/paraglide-sveltekit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
@@ -23,3 +24,4 @@ const config = {
 };
 
 export default config;
+
