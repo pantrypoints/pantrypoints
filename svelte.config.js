@@ -3,6 +3,7 @@ import { paraglide } from '@inlang/paraglide-sveltekit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md', '.svelte.md'],
