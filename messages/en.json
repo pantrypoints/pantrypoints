@@ -166,5 +166,83 @@
     "eaas": "Economy-as-a-Service for Society",
     "search": "Search..",
     "reference": "Reference",
-    "select": "select"
+    "select": "select",
+
+  "faq_badge": "FAQ",
+  "faq_title": "Frequently Asked Questions",
+  "faq_subtitle": "Everything you need to know about Pantrypoints",
+  
+  "q1": "What is Pantrypoints?",
+  "a1": "It's a points-based economic system that implements the **grain-based valuation** proposal of Adam Smith in 'The Wealth of Nations'.",
+
+  "q2": "What's wrong with the current economic system?",
+  "a2": "It's based on selfishness. This leads to a growing gap between the rich and the poor.",
+
+  "q3": "What's the problem with inequality? I'm already rich. Why should the poverty of others be my problem?",
+  "a3": "The increase of poor people leads to crime, malnutrition, low-intellect, unemployment, overcrowding in cities where the poor gather to find work, etc. These affect everyone, even the rich. Poverty increases during economic crises, like the current global inflation.",
+
+  "q4": "How can Pantrypoints solve poverty, inflation, and economic crises?",
+  "a4": "Pantrypoints deploys a points-based economic system as an 'Economy-as-a-Service' (EaaS). This service facilitates moneyless 'barter-credits' as an alternative to money so that you have an option to either buy with money or purchase with points.",
+
+  "q5": "Why would people pay in points? Money already works.",
+  "a5": "Money is expensive. It is a material thing that needs to be printed or stored in vaults, and guarded and carried in your pocket. It loses value because of inflation. Credit cards are liable to fraud, fees, and interest rates. Cryptocurrencies try to reduce this cost by being totally electronic, but are even more subject to scams and hacking than credit cards. Plus, they add to global warming which leads to more natural disasters. Money supply is ultimately controlled by banks, not by people.",
+
+  "q6": "Are points cheaper?",
+  "a6": "Yes, of course. Points are stored online or on paper-cards that cannot be used by third parties. It does not need expensive vaults nor ATMs. The value of each point is pegged to 1 kilogram of rice which 'inflates' far less than money. With Pantrypoints, you can go to a store and purchase things on barter-credit by relying on the trust between you and the seller.",
+
+  "q7": "How are you sure that barter-credits will work?",
+  "a7": "We have been using the system since 2017 to reduce our money expenses as we establish our startup, and from 2022 as a recording tool for a circular food rescue system that provides compost for urban vegetable gardens. So it already works. Historically, it was used in a large scale by the Inca Empire, Khmer Empire, Arabia, the Mongols, and most countries before they were colonized by the Europeans who imposed the use of money.",
+
+  "q8": "How many users have you had?",
+  "a8": "We have a limited budget which allows us a cost of $20-100 per server, depending on configuration on Python, Ruby, or Elixir. Moreover, data privacy laws require registration if there are more 1,000 users. So we have a maximum of 1,000 registered users or around 30 concurrent users per server. After it goes over, the server crashes. This means the experiment worked. This happened a lot during the pandemic when a lot of people suddenly went online to look for jobs or to barter. We then spin up a new server for a new town with new features as a new experiment. At our peak when we were supported by incubators that allowed us to have staff, we had 7 servers. There is no problem getting users. The problem is the server cost associated with each user. We are mitigating that by going serverless.",
+
+  "q9": "There's a rice crisis now. Rice prices are shooting up in most countries. Won't the sudden higher grain prices make the points system suddenly expensive too?",
+  "a9": "The value is based on the common or usual price of grains, not their price during crises. In the 2024 Asian Development Bank Food Security Forum, it was revealed that of all crops, rice has the most stable prices. This proves Adam Smith correct.",
+
+  "q10": "Who administers the points?",
+  "a10": "They are administered by a points-banker. He checks if the points match the real productivity of the people who claim to produce such points.",
+
+  "q11": "I'm a career banker. Does Pantrypoints want to replace money-banking and finance?",
+  "a11": "No. The points work side by side with money to circulate value. This is similar to mobile data working side by side with wifi. You can choose between money or points just as you can choose between connecting to the internet by wifi or by mobile data. The points are for people you know. Money is for people you don't know.",
+
+  "q12": "How will the government earn, if there is no money in Pantrypoints?",
+  "a12": "The government can earn a points-tax per transaction which can be claimed as the goods and services of the person taxed. In this way, Pantrypoints becomes an employment system as well. So a potato farmer literally pays potatoes to the government which it then pays to its employees or uses for welfare services, reducing the use of money for such purposes. The revenue that would have gone to the banker to finance that money then goes to the farmer to incentivize his productivity, increasing the real wealth of nations.",
+
+  "q13": "So you want the whole economy to be dominated by the government?",
+  "a13": "No. In liberal countries, people can deploy their own Pantrypoints EaaS and remit the in-kind taxes themselves to the government. This is the modern version of tax farming in kind.",
+
+  "q14": "You said that Pantrypoints is scalable can be used to solve economic crises globally. How can this be done when each Pantrypoints only works for each country, and not all countries?",
+  "a14": "Each country's Pantrypoints will be connected to others through Pool Clearing.",
+
+  "q15": "What's Pool Clearing?",
+  "a15": "It's a world trade system proposed by British economist EF Schumacher wherein the trading countries act as one pool. The members of the pool constantly coordinate with each other to make world trade efficient. This is very different from the current world trade system established by Bretton Woods wherein the United States has a superior position and the US dollar is the international reserve currency. In Pool Clearing, the price of grains is the common measure.",
+
+  "q16": "How will grains be the alternative to the US dollar as international reserve currency?",
+  "a16": "We are working on a global ledger that has the record of the ratios of grains to each other. For example, the cheapest price of 1 kilo rice in Saigon is 10,000 VND and in Manila is 50 pesos. So 10,000 VND and 50 pesos represents 1 point, and everything is relative to that. In a cross-border transaction, the points-valuation of the selling country is used. This favors countries with stable grain production, and ties the economic system directly with environmental protection.",
+
+  "q17": "So a points-based system inherently protects the environment?",
+  "a17": "Yes. It is totally different from the current money-and-gold-based economic system which mines for precious metals and crypto at the expense of the environment. A grain-based system was used by the Khmer Empire (Cambodia) to grow wealthy through foreign trade. But they got greedy and maxed out their rice production by destroying their forests which ironically caused a drought which killed the system.",
+
+  "q18": "How do I sign up?",
+  "a18": "You can register in [the waitlist](/register), or send us a message [here](/contact/), or send us an email at pantrypoints@gmail.com or hello@pantrypoints.com.",
+
+  "q19": "What is the current status?",
+  "a19": "Our correct prediction of the 2020 Stagflation means that its underlying science, called Superphysics is correct. So from 2024 we have shifted resources to that, and have transferred Pantrypoints to a coconut cooperative to test using coconut oil instead of grains as the basis of valuation, as well as offline barter-credit cards. They tried to pitch it in 2024 as a moneyless free trade system to counteract tariffs but didn't get support.",
+
+  "q20": "So that was your version of a non-capitalist exit?",
+  "a20": "Not yet. We exit when that cooperative becomes fully capable to deploy and maintain Pantrypoints. We then consolidate the findings into building Supereconomics (Economic Superphysics), which is the science behind the system.",
+
+  "asker": "Asker",
+  "banker": "Banker",
+  "pantrypoints": "Pantrypoints",
+  "watch_video": "Watch Video",
+  "barter_credits": "Barter Credits",
+  "pool_clearing": "Pool Clearing",
+  "try_it": "Try It",
+  "contact_us": "Contact Us",
+  "still_have_questions": "Still have questions?",
+  "well_be_happy_to_help": "We'll be happy to help you",
+  "get_in_touch": "Get in Touch"
+}
+
 }
