@@ -104,3 +104,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Theme toggle transition */
 html { transition: background-color 0.2s ease; }
 
+
+img {
+  border-radius: 12px;
+}
+

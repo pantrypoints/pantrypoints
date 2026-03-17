@@ -19,6 +19,7 @@
     { href: '/services', labelFn: () => m.services() },
     { href: '/news',          labelFn: () => m.nav_news()  },
     { href: '/docs',          labelFn: () => m.nav_docs()  },
+    { href: '/about',          labelFn: () => m.about()  }
   ];
 
   function isActive(href: string) {

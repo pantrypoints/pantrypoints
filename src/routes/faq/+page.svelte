@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { HelpCircle, Mail, MessageCircle, ChevronDown } from 'lucide-svelte';
-	import * as m from '$paraglide/messages.js';
-	import { languageTag } from '$paraglide/runtime.js';
+	import * as m from '$lib/paraglide/messages';
+	import { languageTag } from '$lib/paraglide/runtime.js';
 	
 	let { data } = $props();
 	let openSections = $state<Record<number, boolean>>({});
@@ -119,17 +119,7 @@
 				<!-- Answer -->
 				{#if openSections[index]}
 					<div class="border-t border-slate-100 bg-slate-50/50 px-6 py-5 animate-fadeIn">
-						<div class="prose prose-slate max-w-none">
-							<!-- Speaker tags -->
-							{#if index === 0 || index === 1 || index === 2 || index === 3 || index === 4 || index === 5 || index === 6 || index === 7 || index === 8 || index === 9 || index === 10 || index === 11 || index === 12 || index === 13 || index === 14 || index === 15 || index === 16 || index === 17 || index === 18 || index === 19}
-								<div class="mb-3 flex items-center gap-2">
-									<span class="inline-flex items-center gap-1.5 rounded-full bg-brand-blue/10 px-3 py-1 text-xs font-medium text-brand-blue">
-										<MessageCircle size={12} />
-										{index % 2 === 0 ? m.asker() : m.pantrypoints()}
-									</span>
-								</div>
-							{/if}
-							
+						<div class="prose prose-slate max-w-none">							
 							<!-- Answer content with markdown-like formatting -->
 							<div class="text-slate-600 leading-relaxed">
 								{@html section.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-brand-blue hover:underline">$1</a>')}

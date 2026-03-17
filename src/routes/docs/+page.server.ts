@@ -1,7 +1,12 @@
-import { loadNewsArticles } from '$lib/docs';
+import { loadContent } from '$lib/content';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	const articles = await loadNewsArticles(locals.lang);
-	return { articles };
+export const load: PageServerLoad = async ({ params }) => {
+	const lang = params.lang || 'en';
+	const articles = await loadContent('docs', lang);
+	
+	return {
+		articles,
+		lang
+	};
 };

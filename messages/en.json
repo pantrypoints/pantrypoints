@@ -242,7 +242,39 @@
   "contact_us": "Contact Us",
   "still_have_questions": "Still have questions?",
   "well_be_happy_to_help": "We'll be happy to help you",
-  "get_in_touch": "Get in Touch"
-}
+  "get_in_touch": "Get in Touch",
+  "about": "About",
+  "terms_title": "Terms and Conditions",
+  "terms_description": "Please read these terms carefully before using our services",
+  "terms_placeholder": "Terms and conditions will be available soon.",
+  "back_to_home": "Back to Home",
+  "lang_en": "English",
+  "lang_zh": "Chinese",
 
+  "about_badge": "Platform Info",
+  "about_title": "Inside Pantrypoints",
+  "about_subtitle": "Our mission, our people, and our network.",
+  
+  "about_heading": "About Pantrypoints",
+  "about_description": "Pantrypoints is more than a platform; it's a movement toward localized economic resilience. We focus on points-based exchange systems that empower communities.",
+  
+  "about_mission_heading": "Our Mission",
+  "about_mission_text": "To create a moneyless economic system that empowers communities to trade based on trust and real value, not speculation.",
+  
+  "about_vision_heading": "Our Vision",
+  "about_vision_text": "A world where every community has access to a resilient, points-based economy that operates alongside traditional currency.",
+  
+  "about_values_heading": "Our Values",
+  "about_value_1_title": "Community First",
+  "about_value_1_desc": "We prioritize the needs of communities over profit.",
+  "about_value_2_title": "Transparency",
+  "about_value_2_desc": "Open ledger, clear rules, and democratic governance.",
+  "about_value_3_title": "Sustainability",
+  "about_value_3_desc": "Environmental protection through grain-based valuation.",
+  "about_value_4_title": "Accessibility",
+  "about_value_4_desc": "Making economic participation available to everyone.",
+  
+  "team_heading": "Our Team",
+  "partners_heading": "Our Partners"
+ 
 }

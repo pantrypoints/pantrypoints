@@ -89,7 +89,7 @@
 					<a
 						in:fly={{ y: 20, duration: 350, delay: i * 60 }}
 						href="/pantrypreneur/{app.slug}"
-						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+						class="card-hover group block rounded-2xl border border-slate-100 bg-gray-100 dark:bg-gray-800 p-6 shadow-sm">
 						<div class="mb-4 flex items-start justify-between">
 							<div
 								class="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
@@ -103,7 +103,7 @@
 							</span>
 						</div>
 
-						<h3 class="font-display mb-1.5 font-700 text-2xl text-slate-900 transition-colors group-hover:text-brand-blue">
+						<h3 class="font-display mb-1.5 font-700 text-2xl text-slate-500 transition-colors group-hover:text-brand-blue">
 							{appName(app)}
 						</h3>
 						<p class="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-500">

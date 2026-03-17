@@ -1,18 +1,24 @@
+import { loadContentBySlug } from '$lib/content';
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import { render } from 'svelte/server';
 
 
+
 export const load: PageServerLoad = async ({ params }) => {
-	const slug = params.slug;
-	const lang = params.lang || 'en';
+	// const slug = params.slug;
+	// const lang = params.lang || 'en';
+
+	const { lang, slug } = params;
+	const article = await loadContentBySlug('privacy', slug, lang);
+
 	
 	try {
 		const modules = import.meta.glob('/src/content/**/*.md');
 		
 		const path = Object.keys(modules).find(p => 
-			p.includes(`/${lang}/docs/${slug}.md`) || 
-			p.includes(`/en/docs/${slug}.md`)
+			p.includes(`/${lang}/privacy/${slug}.md`) || 
+			p.includes(`/en/privacy/${slug}.md`)
 		);
 		
 		if (!path) throw error(404, 'Article not found');
@@ -30,6 +36,7 @@ export const load: PageServerLoad = async ({ params }) => {
 				title: mod.metadata.title,
 				description: mod.metadata.description || '',
 				date: mod.metadata.date,
+				image: mod.metadata.image,
 				// Fallback for your specific 'writer' metadata structure
 				author: mod.metadata.writer?.name || mod.metadata.author || 'Pantrypoints Team',
 				tags: mod.metadata.tags || [],
@@ -41,4 +48,3 @@ export const load: PageServerLoad = async ({ params }) => {
 		throw error(404, 'Article not found');
 	}
 };
-

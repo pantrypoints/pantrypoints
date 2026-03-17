@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import { Search, Newspaper, Calendar, Tag } from 'lucide-svelte';
-	import { searchNews, formatDate } from '$lib/news';
+	import { searchContent, formatDate } from '$lib/content';
 	import * as m from '$lib/paraglide/messages';
 	import { languageTag } from '$lib/paraglide/runtime';
 
 	let { data } = $props();
 
 	let query = $state('');
-	let results = $derived(searchNews(data.articles, query));
+	let results = $derived(searchContent(data.articles, query));
 </script>
 
 <svelte:head>
@@ -48,40 +48,64 @@
 		{:else}
 			<div class="space-y-6">
 				{#each results as article, i (article.slug)}
-					<a
-						in:fly={{ y: 15, duration: 350, delay: i * 60 }}
+
+					<a in:fly={{ y: 15, duration: 350, delay: i * 60 }}
 						href="/news/{article.slug}"
-						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-7 shadow-sm"
-					>
-						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-							<div class="flex-1">
+						class="card-hover group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all sm:flex-row">
+						<div class="relative h-48 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48 md:w-64">
+							{#if article.image}
+								<img
+									src={article.image}
+									alt={article.title}
+									class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+								/>
+							{:else}
+								<div class="flex h-full w-full items-center justify-center bg-teal-500/10">
+									<img
+										src={article.icon || '/icons/pantry.png'}
+										alt="icon"
+										class="h-16 w-16 object-contain opacity-80 transition-transform group-hover:scale-110"
+									/>
+								</div>
+							{/if}
+						</div>
+
+						<div class="flex flex-1 flex-col justify-between p-6 sm:p-7">
+							<div>
 								<h2 class="font-display mb-2 text-xl font-700 text-slate-900 transition-colors group-hover:text-brand-green">
 									{article.title}
 								</h2>
 								<p class="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-500">
 									{article.description}
 								</p>
+							</div>
+
+							<div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
 								<div class="flex flex-wrap items-center gap-3 text-xs text-slate-400">
 									<span class="flex items-center gap-1">
 										<Calendar size={12} />
 										{formatDate(article.date, languageTag())}
 									</span>
-									{#each article.tags.slice(0, 3) as tag}
-										<span class="flex items-center gap-1 rounded-md bg-green-50 px-2 py-0.5 text-brand-green">
-											<Tag size={10} />
-											{tag}
-										</span>
-									{/each}
+									{#if article.tags}
+										{#each article.tags.slice(0, 3) as tag}
+											<span class="flex items-center gap-1 rounded-md bg-green-50 px-2 py-0.5 text-brand-green">
+												<Tag size={10} />
+												{tag}
+											</span>
+										{/each}
+									{/if}
 								</div>
-							</div>
-							<div
-								class="shrink-0 self-center rounded-xl px-4 py-2 text-sm font-semibold transition-colors group-hover:bg-brand-green group-hover:text-white sm:self-start"
-								style="background: #00BD6C12; color: #00BD6C"
-							>
-								{m.news_read_more()}
+
+								<div
+									class="shrink-0 self-start rounded-xl px-4 py-2 text-sm font-semibold transition-all group-hover:bg-brand-green group-hover:text-white"
+									style="background: #00BD6C12; color: #00BD6C"
+								>
+									{m.news_read_more()}
+								</div>
 							</div>
 						</div>
 					</a>
+
 				{/each}
 			</div>
 		{/if}

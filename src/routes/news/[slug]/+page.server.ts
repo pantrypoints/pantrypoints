@@ -1,10 +1,17 @@
+import { loadContentBySlug } from '$lib/content';
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import { render } from 'svelte/server';
 
+
+
 export const load: PageServerLoad = async ({ params }) => {
-	const slug = params.slug;
-	const lang = params.lang || 'en';
+	// const slug = params.slug;
+	// const lang = params.lang || 'en';
+
+	const { lang, slug } = params;
+	const article = await loadContentBySlug('news', slug, lang);
+
 	
 	try {
 		const modules = import.meta.glob('/src/content/**/*.md');
@@ -29,6 +36,7 @@ export const load: PageServerLoad = async ({ params }) => {
 				title: mod.metadata.title,
 				description: mod.metadata.description || '',
 				date: mod.metadata.date,
+				image: mod.metadata.image,
 				// Fallback for your specific 'writer' metadata structure
 				author: mod.metadata.writer?.name || mod.metadata.author || 'Pantrypoints Team',
 				tags: mod.metadata.tags || [],

@@ -30,6 +30,7 @@ export const load: PageServerLoad = async ({ params }) => {
 				title: mod.metadata.title,
 				description: mod.metadata.description || '',
 				date: mod.metadata.date,
+				image: mod.metadata.image,
 				// Fallback for your specific 'writer' metadata structure
 				author: mod.metadata.writer?.name || mod.metadata.author || 'Pantrypoints Team',
 				tags: mod.metadata.tags || [],
