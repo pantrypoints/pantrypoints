@@ -8,6 +8,7 @@ export interface ContentArticle {
 	author: string;
 	tags: string[];
 	lang: string;
+	draft?: boolean; // Add draft field
 	content?: string; // Optional for when you need the full content
 }
 
@@ -17,6 +18,8 @@ export interface ContentMetadata {
 	date: string;
 	author: string;
 	tags: string[];
+	image?: string;
+	draft?: boolean; // Add draft to metadata
 }
 
 export type ContentType = 'news' | 'docs' | 'privacy' | 'faq' | 'terms';
@@ -30,17 +33,15 @@ const contentPaths: Record<ContentType, string> = {
 	terms: '/src/content/{lang}/terms.md'
 };
 
-
 /**
  * Load all articles of a specific content type for a given language
+ * Filters out articles with draft: true
  */
 export async function loadContent(
 	type: ContentType, 
-	lang: string = 'en'
+	lang: string = 'en',
+	includeDrafts: boolean = false // Option to include drafts (for preview)
 ): Promise<ContentArticle[]> {
-	// Convert the path pattern to a glob pattern
-	const pathPattern = contentPaths[type].replace('{lang}', lang);
-	
 	// Dynamic import based on language
 	const modules = import.meta.glob('/src/content/**/*.md');
 	
@@ -62,6 +63,11 @@ export async function loadContent(
 			const metadata = (mod as unknown as { metadata: ContentMetadata }).metadata;
 			
 			if (metadata) {
+				// Skip drafts unless explicitly included
+				if (metadata.draft && !includeDrafts) {
+					continue;
+				}
+				
 				articles.push({
 					slug,
 					title: metadata.title ?? slug,
@@ -70,7 +76,8 @@ export async function loadContent(
 					date: metadata.date ?? '',
 					author: metadata.author ?? '',
 					tags: metadata.tags ?? [],
-					lang
+					lang,
+					draft: metadata.draft ?? false
 				});
 			}
 		} catch (e) {
@@ -83,11 +90,13 @@ export async function loadContent(
 
 /**
  * Load a single article by slug
+ * Returns null if article is a draft (unless includeDrafts is true)
  */
 export async function loadContentBySlug(
 	type: ContentType,
 	slug: string,
-	lang: string = 'en'
+	lang: string = 'en',
+	includeDrafts: boolean = false
 ): Promise<ContentArticle | null> {
 	try {
 		const modules = import.meta.glob('/src/content/**/*.md', { eager: false });
@@ -99,6 +108,11 @@ export async function loadContentBySlug(
 				const content = (mod as unknown as { default: string }).default;
 				
 				if (metadata) {
+					// Return null if draft and not explicitly included
+					if (metadata.draft && !includeDrafts) {
+						return null;
+					}
+					
 					return {
 						slug,
 						title: metadata.title ?? slug,
@@ -108,6 +122,7 @@ export async function loadContentBySlug(
 						author: metadata.author ?? '',
 						tags: metadata.tags ?? [],
 						lang,
+						draft: metadata.draft ?? false,
 						content
 					};
 				}
@@ -121,7 +136,29 @@ export async function loadContentBySlug(
 }
 
 /**
- * Search through articles
+ * Load only published articles (not drafts)
+ * Convenience wrapper around loadContent
+ */
+export async function loadPublishedContent(
+	type: ContentType,
+	lang: string = 'en'
+): Promise<ContentArticle[]> {
+	return loadContent(type, lang, false);
+}
+
+/**
+ * Load all articles including drafts
+ * Useful for preview environments
+ */
+export async function loadContentWithDrafts(
+	type: ContentType,
+	lang: string = 'en'
+): Promise<ContentArticle[]> {
+	return loadContent(type, lang, true);
+}
+
+/**
+ * Search through articles (automatically filters drafts)
  */
 export function searchContent(
 	articles: ContentArticle[], 
@@ -132,9 +169,10 @@ export function searchContent(
 	
 	return articles.filter(
 		(a) =>
-			a.title.toLowerCase().includes(q) ||
+			!a.draft && // Ensure we don't search drafts
+			(a.title.toLowerCase().includes(q) ||
 			a.description.toLowerCase().includes(q) ||
-			a.tags.some((tag) => tag.toLowerCase().includes(q))
+			a.tags.some((tag) => tag.toLowerCase().includes(q)))
 	);
 }
 
@@ -162,7 +200,7 @@ export function getContentTypes(): ContentType[] {
 }
 
 /**
- * Get content counts per language/type
+ * Get content counts per language/type (published only)
  */
 export async function getContentStats() {
 	const stats: Record<string, Record<ContentType, number>> = {
@@ -172,11 +210,18 @@ export async function getContentStats() {
 	
 	for (const lang of ['en', 'zh'] as const) {
 		for (const type of getContentTypes()) {
-			const articles = await loadContent(type, lang);
+			const articles = await loadPublishedContent(type, lang);
 			stats[lang][type] = articles.length;
 		}
 	}
 	
 	return stats;
+}
+
+/**
+ * Check if an article is published (not a draft)
+ */
+export function isPublished(article: ContentArticle): boolean {
+	return !article.draft;
 }
 

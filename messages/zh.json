@@ -247,20 +247,25 @@
   "about_mission_heading": "我们的使命",
   "about_mission_text": "创建一个无货币经济系统，让社区能够基于信任和真实价值进行交易，而非投机。",
   
-  "about_vision_heading": "我们的愿景",
-  "about_vision_text": "每个社区都能获得一个有韧性的、基于积分的经济系统，与传统货币并行运作的世界。",
+  "about_heading": "About Pantrypoints",
+  "about_description": "Pantrypoints is built by Pantrypoints Technologies, a small dedicated team specializing in transitioning the money system into the points system based on the priniples of Economic Superphysics (Supereconomics).",
   
-  "about_values_heading": "我们的价值观",
-  "about_value_1_title": "社区优先",
-  "about_value_1_desc": "我们将社区需求置于利润之上。",
-  "about_value_2_title": "透明度",
-  "about_value_2_desc": "开放账本、明确规则、民主治理。",
-  "about_value_3_title": "可持续性",
-  "about_value_3_desc": "通过基于谷物的估值保护环境。",
-  "about_value_4_title": "可及性",
-  "about_value_4_desc": "让每个人都能参与经济活动。",
+  "about_mission_heading": "Our Mission",
+  "about_mission_text": "To implement the principles of Supereconomics and realize a sustainable economic system based on the invisible hand of human dharma.",
   
+  "about_vision_heading": "Our Vision",
+  "about_vision_text": "A world that realizes the vision of Socrates, Adam Smith, and the Bhagavad Gita where everyone follows their dharma: brewers brew and bakers bake, instead of bakers brewing and brewers baking.",
+  
+  "about_values_heading": "Our Values",
+  "about_value_3_title": "Anti Capitalist, Anti Communist",
+  "about_value_3_desc": "We are anti-materialism and pro-spirituality. We recognize the importance of matter, but realize that they are ultimately illusions. Why base economic activity on an illusion? This is consistent with being within the Dharma",
+  "about_value_1_title": "Dharma",
+  "about_value_1_desc": "This is front and center of what we do. If you don't know what Dharma is, go ask a guru, yogi, shifu, bikkhu, swami, or sadhu",
+  "about_value_2_title": "Morality and Productivity",
+  "about_value_2_desc": "Morality supports Dharma. Productivity supports physicality. We are in the middle connecting both. In the conflict between morality and productivity, morality comes first, since our focus is Dharma",
+  "about_value_4_title": "Constitutional Virtues",
+  "about_value_4_desc": "We align with the Constitutional Virtues of the areas where we operate. Constitutional Virtues is a proposed concept of our proposed science of Supersociology. For example, if a society is Islamic, then we tweak the Pantrypoints for that society to match the most dharmic version of Islamic philosophy",
+    
   "team_heading": "我们的团队",
   "partners_heading": "我们的合作伙伴"
-
 }

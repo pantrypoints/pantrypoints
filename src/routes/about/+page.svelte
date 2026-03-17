@@ -16,12 +16,43 @@
 		{ name: 'Adrian', role: { en: 'App Developer', zh: 'App Developer' }, image: '/avatars/adrian.jpg' }
 	];
 
-	// Sample partners data - replace with your actual partners
-	const partners = [
-		{ name: 'Partner Org 1', sector: { en: 'Logistics', zh: '物流' }, icon: Handshake },
-		{ name: 'Partner Org 2', sector: { en: 'Technology', zh: '技术' }, icon: Handshake },
-		{ name: 'Partner Org 3', sector: { en: 'Community Network', zh: '社区网络' }, icon: Users }
+
+
+	interface Partner {
+		name: string;
+		sector: { en: string; zh: string };
+		image?: string;
+		showname?: boolean;
+	}
+
+	const partners: Partner[] = [
+		{ name: 'Angels Shelter', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/angels.jpg', showname: false},
+		{ name: 'Ayus', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/ayus.jpg', showname: false },
+		{ name: 'Capri Island Cafe', sector: { en: 'Food Service', zh: '技术' }, image: '/graphics/capri.jpg', showname: false },
+		{ name: 'FINAC', sector: { en: 'Association', zh: '物流' }, image: '/graphics/finac.jpg', showname: false},
+		{ name: 'Food Rescue Philippines', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/foodrescue.jpg', showname: true},
+		{ name: 'Greenlife Coconut Products', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/greenlife.jpg', showname: false },
+		{ name: 'Himalayan Asia', sector: { en: 'Engineering', zh: '物流' }, image: '/graphics/hima.jpg', showname: false},
+		{ name: 'Yoga Hoa Sen', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/hoasen.jpg', showname: false },
+		{ name: 'Venezuela Gente Excelente', sector: { en: 'Association', zh: '技术' }, image: '/graphics/vge.jpg', showname: false },
+		{ name: 'San Pedro CAO', sector: { en: 'Government', zh: '社区网络' }, image: '/graphics/cao.jpg', showname: false },
+		{ name: 'Unlad Saka', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/unlad.jpg', showname: false }
 	];
+
+	function getCardStyle(partner: Partner): string {
+		if (!partner.image) return 'bg-teal-600';
+		if (partner.image && partner.showname) return 'bg-cover bg-center';
+		return 'bg-cover bg-center';
+	}
+
+	function getOverlay(partner: Partner): string {
+		if (!partner.image) return '';
+		if (partner.showname) return 'bg-black/50';
+		return 'bg-black/10'; // Subtle overlay for image-only cards
+	}
+
+
+
 
 	const tabs = [
 		// Internal Content Tabs
@@ -50,6 +81,10 @@
 	// Helper to get localized label
 	function getLabel(tab: typeof tabs[0]): string {
 		return tab.label[languageTag()] || tab.label.en;
+	}
+
+	function getSectorText(partner: Partner): string {
+		return partner.sector[languageTag()] || partner.sector.en;
 	}
 </script>
 
@@ -152,21 +187,56 @@
 		{:else if activeTab === 'partners'}
 			<div in:fade>
 				<h2 class="mb-8 text-2xl font-700 text-slate-900">{m.partners_heading()}</h2>
+
 				<div class="grid gap-4 sm:grid-cols-2">
 					{#each partners as partner}
-						<div class="flex items-center gap-4 rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all hover:shadow-md">
-							<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-50 text-brand-green">
-								<partner.icon size={24} />
-							</div>
-							<div>
-								<h4 class="font-bold text-slate-900">{partner.name}</h4>
-								<p class="text-sm text-slate-500">
-									{partner.sector[languageTag()] || partner.sector.en}
-								</p>
-							</div>
-						</div>
+
+						{@const sectorText = getSectorText(partner)}
+								
+								<!-- Case 1: No image - show teal bg with name centered -->
+								{#if !partner.image}
+									<div class="relative flex items-center justify-center rounded-xl bg-teal-600 p-6 shadow-sm transition-all hover:shadow-md aspect-video">
+										<!-- Sector badge -->
+										<div class="absolute left-3 top-3 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+											{sectorText}
+										</div>
+										<div class="text-center">
+											<h4 class="text-xl font-bold text-white">{partner.name}</h4>
+										</div>
+									</div>
+								
+								<!-- Case 2: Has image and showname is false - show full image only -->
+								{:else if partner.image && !partner.showname}
+									<div class="relative overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-md">
+										<!-- Sector badge -->
+										<div class="absolute left-3 top-3 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+											{sectorText}
+										</div>
+										<img src={partner.image} alt={partner.name} class="h-auto w-full object-cover" />
+									</div>
+								
+								<!-- Case 3: Has image and showname is true - show image with overlay -->
+								{:else if partner.image && partner.showname}
+									<div class="relative overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-md">
+										<!-- Sector badge (higher z-index to appear above overlay) -->
+										<div class="absolute left-3 top-3 z-20 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+											{sectorText}
+										</div>
+										<img src={partner.image} alt={partner.name} class="h-auto w-full object-cover" />
+										<div class="absolute inset-0 bg-black/50"></div>
+										<div class="absolute inset-0 flex items-center justify-center p-6">
+											<div class="text-center">
+												<h4 class="text-4xl font-bold text-white">{partner.name}</h4>
+											</div>
+										</div>
+									</div>
+								{/if}
+
+
 					{/each}
 				</div>
+
+
 			</div>
 		{/if}
 	</main>
@@ -176,3 +246,7 @@
 	.no-scrollbar::-webkit-scrollbar { display: none; }
 	.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>
+
+
+
+
