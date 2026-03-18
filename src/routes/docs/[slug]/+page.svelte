@@ -21,8 +21,7 @@
 <div class="page-transition">
 	<div 
 		class="relative flex min-h-[400px] items-end overflow-hidden px-4 py-16 text-white sm:px-6 lg:px-8"
-		style:background-color={hasImage ? '#008080' : '#008000'}
-	>
+		style:background-color={hasImage ? '#008080' : '#008000'}>
 		{#if hasImage}
 			<div 
 				class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
@@ -39,20 +38,24 @@
 			</div>
 		{/if}
 
-		<div class="relative z-20 mx-auto w-full max-w-3xl">
-			<a	
-				href="/news"	
-				class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
-			>
+		<div class="relative bg-black/80 p-4 rounded-xl z-20 mx-auto w-full max-w-3xl">
+			<a	href="/docs"	
+				class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white">
 				<ArrowLeft size={16} />
 				{m.news_back_to_list()}
 			</a>
 
-			<h1 class="font-display mb-6 text-4xl font-800 text-white sm:text-5xl lg:text-6xl">
+			<h1 class="font-display text-4xl font-800 text-white sm:text-5xl lg:text-6xl">
 				{article.title}
 			</h1>
 
-			<div class="flex flex-wrap items-center gap-6 text-sm font-medium text-white/90">
+		{#if article.description}
+			<div class="text-xl text-white">
+				<p>{article.description}</p>
+			</div>
+		{/if}
+
+			<div class="flex flex-wrap items-center pt-6 gap-6 text-sm font-medium text-white/90">
 				<span class="flex items-center gap-1.5">
 					<Calendar size={16} class="text-white/70" />
 					{formatDate(article.date, languageTag())}
@@ -77,11 +80,6 @@
 	</div>
 
 	<article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-		{#if article.description}
-			<div class="mb-12 border-l-4 border-brand-green bg-slate-50 p-6 text-lg text-slate-600 dark:bg-slate-800/50 dark:text-slate-300">
-				<p class="italic">"{article.description}"</p>
-			</div>
-		{/if}
 
 		<div class="prose prose-slate prose-green max-w-none dark:prose-invert md:prose-lg">
 			{@html content}

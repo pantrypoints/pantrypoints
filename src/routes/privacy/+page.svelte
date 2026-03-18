@@ -17,21 +17,16 @@
 
 <div class="page-transition">
 	<!-- Header -->
-	<div class="border-b border-slate-100 bg-white px-4 py-14 text-center sm:px-6 lg:px-8">
+	<div class="border-b border-slate-100 dark:bg-slate-800 bg-white px-4 py-14 text-center sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl">
-			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-green-100 bg-green-50 px-4 py-1.5 text-sm font-medium text-brand-green">
-				<Newspaper size={13} />
-				{m.news_badge()}
-			</div>
-			<h1 class="font-display mb-3 text-4xl font-800 text-slate-900 sm:text-5xl">Privacy Policies</h1>
-			<p class="mb-8 text-lg text-slate-500">{m.news_subtitle()}</p>
-
+			<h1 class="font-display mb-3 text-4xl font-800 dark:text-white text-slate-900 sm:text-5xl">Privacy Policies</h1>
+			
 			<div class="relative mx-auto max-w-md">
 				<Search size={17} class="absolute top-1/2 left-4 -translate-y-1/2 text-slate-400" />
 				<input
 					type="search"
 					bind:value={query}
-					placeholder={m.news_search_placeholder()}
+					placeholder={m.search()}
 					class="w-full rounded-xl border border-slate-200 py-3 pl-11 pr-4 text-sm transition-colors focus:border-brand-green focus:ring-2 focus:ring-green-100 focus:outline-none"
 				/>
 			</div>
@@ -51,14 +46,14 @@
 					<a
 						in:fly={{ y: 15, duration: 350, delay: i * 60 }}
 						href="/privacy/{article.slug}"
-						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-7 shadow-sm"
+						class="card-hover group block rounded-2xl border border-slate-100 dark:bg-slate-800 bg-white p-7 shadow-sm"
 					>
 						<div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 							<div class="flex-1">
-								<h2 class="font-display mb-2 text-xl font-700 text-slate-900 transition-colors group-hover:text-brand-green">
+								<h2 class="font-display mb-2 text-xl font-700 dark:text-white text-black transition-colors group-hover:text-brand-green">
 									{article.title}
 								</h2>
-								<p class="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-500">
+								<p class="mb-4 line-clamp-2 text-sm leading-relaxed dark:text-slate-200 text-slate-500">
 									{article.description}
 								</p>
 								<div class="flex flex-wrap items-center gap-3 text-xs text-slate-400">
