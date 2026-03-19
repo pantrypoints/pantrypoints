@@ -7,6 +7,10 @@
     "nav_admin": "Admin",
     "nav_preneur": "Pantrypreneur",
     "nav_tagline": "Points-based Economic System",
+    "nav_docs": "Docs",
+
+    "docs_title": "Documentation",
+    "docs_sub": "Documentation for Pantrypoints and Superphysics Applications",
 
     "hero_title": "The Circular Economy that Solves",
     "hero_title_accent": "Inflation",
@@ -39,6 +43,7 @@
     "step_offer_desc": "Meet up with the buyers of your item",
     "step_exchange_title": "Give your item",
     "step_exchange_desc": "Give your item and record the debt using the cards or the app",
+ 
 
     "stat_members": "Community Members",
     "stat_networks": "Active Networks",
@@ -271,14 +276,6 @@
   "about_value_4_desc": "We align with the Constitutional Virtues of the areas where we operate. Constitutional Virtues is a proposed concept of our proposed science of Supersociology. For example, if a society is Islamic, then we tweak the Pantrypoints for that society to match the most dharmic version of Islamic philosophy",
   
   "team_heading": "Our Team",
-  "partners_heading": "Our Partners",
-  "services": "Services",
-
-"nav_docs": "Docs",
-
-"docs_title": "Documentation",
-"docs_sub": "Documentation for Pantrypoints and Superphysics Applications"
-
-
+  "partners_heading": "Our Partners"
  
 }

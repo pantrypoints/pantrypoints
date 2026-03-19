@@ -6,7 +6,7 @@
   import * as m from '$lib/paraglide/messages';
   import { theme } from '$lib/stores/theme';
 
-  let { lang }: { lang: 'en' | 'zh' } = $props();
+  let { lang }: { lang: 'en' | 'zh' | 'es' | 'fr' | 'vi' } = $props();
 
   let mobileOpen = $state(false);
   let langOpen = $state(false);
@@ -16,36 +16,46 @@
     { href: '/',              labelFn: () => m.nav_home()  },
     { href: '/trisactions',   labelFn: () => m.nav_apps()  },
     { href: '/pantrypreneur', labelFn: () => m.nav_preneur() },
-    { href: '/services', labelFn: () => m.services() },
+    { href: '/services',      labelFn: () => m.services() },
     { href: '/news',          labelFn: () => m.nav_news()  },
     { href: '/docs',          labelFn: () => m.nav_docs()  },
-    { href: '/about',          labelFn: () => m.about()  }
+    { href: '/about',         labelFn: () => m.about()  }
   ];
+
+  // Map of language codes to display text and flags
+  const languages = {
+    en: { flag: '🇬🇧', label: () => 'English', display: 'EN' },
+    zh: { flag: '🇨🇳', label: () => '中文', display: '中文' },
+    es: { flag: '🇪🇸', label: () => 'Spanish', display: 'ES' },
+    fr: { flag: '🇫🇷', label: () => 'French', display: 'FR' },
+    vi: { flag: '🇻🇳', label: () => 'Tieng Viet', display: 'VI' }
+  } as const;
 
   function isActive(href: string) {
     const pathname = $page.url.pathname;
     // Strip any leading lang prefix before comparing
-    const bare = pathname.replace(/^\/(zh|en)(?=\/|$)/, '') || '/';
+    const bare = pathname.replace(/^\/(en|zh|es|fr|vi)(?=\/|$)/, '') || '/';
     if (href === '/') return bare === '/';
     return bare.startsWith(href);
   }
 
+  async function setLang(newLang: 'en' | 'zh' | 'es' | 'fr' | 'vi') {
+    // Set cookie directly on client so it's guaranteed available before reload
+    document.cookie = `lang=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
 
-async function setLang(newLang: 'en' | 'zh') {
-  // Set cookie directly on client so it's guaranteed available before reload
-  document.cookie = `lang=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
+    // Also notify server (fire and forget)
+    fetch('/api/lang', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lang: newLang }),
+    });
 
-  // Also notify server (fire and forget)
-  fetch('/api/lang', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ lang: newLang }),
-  });
+    langOpen = false;
+    window.location.reload();
+  }
 
-  langOpen = false;
-  window.location.reload();
-}
-
+  // Get current language display
+  const currentLang = $derived(languages[lang] || languages.en);
 </script>
 
 <nav class="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
@@ -53,13 +63,13 @@ async function setLang(newLang: 'en' | 'zh') {
     <div class="flex h-16 items-center justify-between">
 
       <!-- Logo -->
-<a 
-  href={'/'} 
-  class="flex items-center gap-2 font-display text-lg font-700 text-slate-900 dark:text-white"
->
-  <img src="/icons/pantry50.png" alt="Pantrypoints icon" class="h-8 w-auto">
-  <span>Pantrypoints</span>
-</a>
+      <a 
+        href={'/'} 
+        class="flex items-center gap-2 font-display text-lg font-700 text-slate-900 dark:text-white"
+      >
+        <img src="/icons/pantry50.png" alt="Pantrypoints icon" class="h-8 w-auto">
+        <span>Pantrypoints</span>
+      </a>
 
       <!-- Desktop nav -->
       <div class="hidden items-center gap-1 md:flex">
@@ -77,14 +87,6 @@ async function setLang(newLang: 'en' | 'zh') {
             {/if}
           </a>
         {/each}
-
-<!--         <a
-          href={'/admin'}
-          class="ml-2 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-500 transition-colors
-            hover:border-brand-blue hover:text-brand-blue
-            dark:border-slate-700 dark:text-slate-400 dark:hover:border-brand-blue dark:hover:text-brand-blue">
-          {m.nav_admin()}
-        </a> -->
       </div>
 
       <!-- Right controls -->
@@ -114,28 +116,23 @@ async function setLang(newLang: 'en' | 'zh') {
               dark:border-slate-700 dark:text-slate-400 dark:hover:border-brand-blue dark:hover:text-brand-blue"
           >
             <Globe size={14} />
-            <span>{lang === 'zh' ? '中文' : 'EN'}</span>
+            <span>{currentLang.display}</span>
           </button>
 
           {#if langOpen}
             <div
               transition:fly={{ y: -8, duration: 150 }}
-              class="absolute top-full right-0 mt-1.5 w-32 overflow-hidden rounded-xl border border-slate-100 bg-white shadow-xl dark:border-slate-700 dark:bg-slate-800"
+              class="absolute top-full right-0 mt-1.5 w-36 overflow-hidden rounded-xl border border-slate-100 bg-white shadow-xl dark:border-slate-700 dark:bg-slate-800"
             >
-              <button
-                onclick={() => setLang('en')}
-                class="flex w-full items-center gap-2 px-4 py-2.5 text-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-700
-                  {lang === 'en' ? 'font-semibold text-brand-blue' : 'text-slate-700 dark:text-slate-300'}"
-              >
-                <span>🇬🇧</span> {m.lang_en()}
-              </button>
-              <button
-                onclick={() => setLang('zh')}
-                class="flex w-full items-center gap-2 px-4 py-2.5 text-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-700
-                  {lang === 'zh' ? 'font-semibold text-brand-blue' : 'text-slate-700 dark:text-slate-300'}"
-              >
-                <span>🇨🇳</span> {m.lang_zh()}
-              </button>
+              {#each Object.entries(languages) as [code, { flag, label }]}
+                <button
+                  onclick={() => setLang(code as 'en' | 'zh' | 'es' | 'fr' | 'vi')}
+                  class="flex w-full items-center gap-2 px-4 py-2.5 text-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-700
+                    {lang === code ? 'font-semibold text-brand-blue' : 'text-slate-700 dark:text-slate-300'}"
+                >
+                  <span>{flag}</span> {label()}
+                </button>
+              {/each}
             </div>
           {/if}
         </div>
@@ -197,3 +194,4 @@ async function setLang(newLang: 'en' | 'zh') {
     aria-label="Close dropdown"
   ></button>
 {/if}
+

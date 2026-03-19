@@ -116,8 +116,11 @@
     "footer_contact": "Contacto",
     "footer_copyright": "© 2025 Pantrypoints. Todos los derechos reservados.",
 
-    "lang_en": "Inglés",
-    "lang_zh": "Chino",
+    "lang_en": "English",
+    "lang_zh": "中文",
+    "lang_fr": "French",
+    "lang_es": "Spanish",
+    "lang_vi": "Tieng Viet",    
     "common_loading": "Cargando...",
     "persona_businessOwner": "Soy dueño de una microempresa",
     "persona_businessOwnerDesc": "Necesito presencia en línea como sitio web, aplicación web, aplicación móvil o redes sociales",
@@ -152,6 +155,15 @@
     "which": "¿Cuál eres?",
     "ppisfor": "Pantrypoints es para todos",
     "news_back_to_list": "Volver",
+    "ppservices": "Pantrypoints Services facilitate the points-based economic system",
+    "services": "Services",
+    "trisactions": "Trisactions",
+    "preneurapps": "Pantrypreneur Apps",
+    "preneurdesc": "Pantrypreneur Apps are SaaS for micro-small businesses",
+    "saas": "Software-as-a-Service for Everyone",
+    "eaas": "Economy-as-a-Service for Society",
+    "search": "Search..",
+    "reference": "Reference",
     "select": "seleccionar",
 
   "faq_badge": "FAQ",
@@ -234,6 +246,32 @@
   "terms_description": "Please read these terms carefully before using our services",
   "terms_placeholder": "Terms and conditions will be available soon.",
   "back_to_home": "Back to Home",
-  "lang_en": "English",
-  "lang_zh": "Chinese"
+
+  "about_badge": "Platform Info",
+  "about_title": "Inside Pantrypoints",
+  "about_subtitle": "Our mission, our people, and our network.",
+  
+  "about_heading": "About Pantrypoints",
+  "about_description": "Pantrypoints is built by Pantrypoints Technologies, a small dedicated team specializing in transitioning the money system into the points system based on the priniples of Economic Superphysics (Supereconomics).",
+  
+  "about_mission_heading": "Our Mission",
+  "about_mission_text": "To implement the principles of Supereconomics and realize a sustainable economic system based on the invisible hand of human dharma.",
+  
+  "about_vision_heading": "Our Vision",
+  "about_vision_text": "A world that realizes the vision of Socrates, Adam Smith, and the Bhagavad Gita where everyone follows their dharma: brewers brew and bakers bake, instead of bakers brewing and brewers baking. Everyone has a purpose in Existence. Our economic system helps you find it by trial and error which slowly exposes the 'relationality' in the data",
+  
+  "about_values_heading": "Our Values",
+  "about_value_3_title": "Anti Capitalist, Anti Communist",
+  "about_value_3_desc": "We are anti-materialism and pro-spirituality. We recognize the importance of matter, but realize that they are ultimately illusions. Why base economic activity on an illusion? This is consistent with being within the Dharma",
+  "about_value_1_title": "Dharma",
+  "about_value_1_desc": "This is front and center of what we do. If you don't know what Dharma is, go ask a guru, yogi, shifu, bikkhu, swami, or sadhu",
+  "about_value_2_title": "Morality and Productivity",
+  "about_value_2_desc": "Morality supports Dharma. Productivity supports physicality. We are in the middle connecting both. In the conflict between morality and productivity, morality comes first, since our focus is Dharma",
+  "about_value_4_title": "Constitutional Virtues",
+  "about_value_4_desc": "We align with the Constitutional Virtues of the areas where we operate. Constitutional Virtues is a proposed concept of our proposed science of Supersociology. For example, if a society is Islamic, then we tweak the Pantrypoints for that society to match the most dharmic version of Islamic philosophy",
+  
+  "team_heading": "Our Team",
+  "partners_heading": "Our Partners",
+  "services": "Services"
+
 }

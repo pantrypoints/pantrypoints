@@ -6,7 +6,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--font-display: "Nunito", sans-serif;
+	--font-display: "Varela Round", sans-serif;
 	--font-body: "DM Sans", sans-serif;
 
 	--color-brand-blue: #3c95d3;

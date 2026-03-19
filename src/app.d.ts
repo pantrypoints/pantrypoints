@@ -13,7 +13,7 @@ declare global {
 			caches: CacheStorage & { default: Cache };
 		}
 		interface Locals {
-			lang: 'en' | 'zh';
+		  lang: 'en' | 'zh' | 'fr' | 'es' | 'vi';
 		}
 	}
 }

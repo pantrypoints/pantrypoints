@@ -31,27 +31,26 @@ export const apps: App[] = [
 		icon: '/icons/build.png',
 		color: '#3c95d3',
 		youtube: 'zIrblIJF4Nk',
-		tags: ['coordination', 'network', 'admin'],
+		tags: ['digitization', 'digitalization', 'online'],
 		features: [
-			'Network-wide points ledger',
-			'Multi-stakeholder coordination',
-			'Dispute resolution tools'
+			'Public-facing Website and Apps', 'Moneyless', 'Tech Consultancy'
 		],
-		featuresZh: ['全网络积分账本', '多方利益相关者协调', '纠纷解决工具', '分析仪表板', '基于角色的访问控制', '集成API'],
+		featuresZh: ['Public-facing Website and Apps', 'Moneyless', 'Tech Consultancy'],
 		status: 'live',
+		url: '/services/build',
 		screenshots: []
 	},
 	{
 		slug: 'cards',
 		name: 'Point Cards',
 		shortName: 'Point Cards',
-		nameZh: '市场版',
+		nameZh: 'Point Cards',
 		description: 'Point Cards implement Pantrypoints offline',
-		descriptionZh: '用积分交易商品和服务的本地市场',
+		descriptionZh: 'Point Cards implement Pantrypoints offline',
 		longDescription:
 			'Point Cards implement Pantrypoints offline',
 		longDescriptionZh:
-			'Pantrypoints Market 是一个充满活力的本地市场，社区成员可以使用积分列出、发现和交换商品和服务。从手工艺品到专业服务，一切价值都由社区决定。',
+			'Point Cards implement Pantrypoints offline',
 		icon: '/icons/cards.png',
 		color: '#5a5a5c',
 		youtube: 'ZErxZt4V2t4',
@@ -63,8 +62,13 @@ export const apps: App[] = [
 			'Circular Economy',
 			'Donations'
 		],
-		featuresZh: ['产品和服务列表', '智能积分定价', '评价和信誉', '基于位置的发现', '类别过滤', '心愿单和收藏'],
+		featuresZh: ['Product & service exchange',
+			'Points accounting',
+			'Barter Credits',
+			'Circular Economy',
+			'Donations'],
 		status: 'live',
+		url: '/services/cards',
 		screenshots: []
 	},
 	{
@@ -97,27 +101,32 @@ export const apps: App[] = [
 	{
 		slug: 'tax',
 		name: 'Tax',
-		shortName: 'World',
-		nameZh: '贸易版',
-		description: 'Cross-border trade',
-		descriptionZh: '社区间商品交换和贸易平台',
+		shortName: 'Tax',
+		nameZh: 'Tax',
+		description: 'Moneyless Taxation',
+		descriptionZh: 'Moneyless Taxation',
 		longDescription:
-			'Pantrypoints World extends the moneyless economy beyond individual communities, enabling trade between different Pantrypoints networks. Using a universal points exchange rate, communities can trade surplus goods and specialized services, creating a web of mutual support.',
+			'Pantrypoints Tax allows taxation in kind in order to allow people to pay with their productivity instead of being stifled by the financial system that requires money as tax payments.',
 		longDescriptionZh:
-			'Pantrypoints Trade 将无货币经济扩展到个别社区之外，使不同 Pantrypoints 网络之间能够进行贸易。使用通用积分汇率，社区可以交易剩余商品和专业服务，创建相互支持的网络。',
+			'Pantrypoints Tax allows taxation in kind in order to allow people to pay with their productivity instead of being stifled by the financial system that requires money as tax payments.',
+		longDescriptionEs: 'Pantrypoints Tax permite la tributación en especie para que las personas puedan pagar con su productividad, en lugar de ser sofocadas por el sistema financiero que exige pagos de impuestos en dinero.',
+		longDescriptionFr: 'Pantrypoints Tax permet limposition en nature afin que les gens puissent payer avec leur productivité au lieu dêtre étouffés par le système financier qui exige des paiements dimpôts en argent.',
+		longDescriptionVi: 'Pantrypoints Tax cho phép nộp thuế bằng hiện vật, giúp mọi người có thể thanh toán bằng năng suất lao động của mình thay vì bị hệ thống tài chính bóp nghẹt khi yêu cầu nộp thuế bằng tiền mặt.',
+		longDescriptionZh: 'Pantrypoints Tax 允许以实物形式纳税，让人们可以用自己的生产力来支付税款，而不是被需要以货币纳税的金融体系所扼杀。',
 		icon: '/icons/t.png',
 		color: '#00BD6C',
 		youtube: 'HOtK8qR7LYI',
-		tags: ['trade', 'inter-community', 'exchange'],
+		tags: ['tax', 'government', 'moneyless'],
 		features: [
-			'Cross-network trading',
-			'Points exchange rates',
+			'Points Banking',
 			'Surplus goods matching',
-			'Trade agreements',
-			'Customs & import tracking',
-			'Trade analytics'
+			'Moneyless',
+			'Tax analytics'
 		],
-		featuresZh: ['跨网络交易', '积分汇率', '剩余商品匹配', '贸易协议', '海关和进口追踪', '贸易分析'],
+		featuresZh: ['Points Banking',
+			'Surplus goods matching',
+			'Moneyless',
+			'Tax analytics'],
 		status: 'coming-soon',
 		screenshots: []
 	}

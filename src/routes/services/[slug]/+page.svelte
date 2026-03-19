@@ -42,9 +42,9 @@
 		></div>
 
 		<div class="relative mx-auto max-w-5xl">
-			<a href="/pantrypreneur"
+			<a href="/services"
 				class="mb-8 inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white">
-				<ArrowLeft size={15} /> {m.nav_apps()}
+				<ArrowLeft size={15} /> {m.services()}
 			</a>
 
 			<div class="flex flex-col gap-6 md:flex-row md:items-center">
@@ -143,12 +143,11 @@
 					<div class="mt-8 space-y-3">
 						{#if app.status !== 'coming-soon'}
 							<a
-								href="https://pantrypoints.com/{app.slug}"
+								href="{app.url}"
 								target="_blank"
 								rel="noopener"
 								class="flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold text-white transition-all hover:opacity-90"
-								style="background: {app.color}"
-							>
+								style="background: {app.color}">
 								<ExternalLink size={15} />
 								{m.apps_visit()}
 							</a>
@@ -156,7 +155,7 @@
 						<a href="/services"
 							class="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-slate-300">
 							<ArrowLeft size={15} />
-							{m.apps_back()}
+							{m.services()}
 						</a>
 					</div>
 				</div>

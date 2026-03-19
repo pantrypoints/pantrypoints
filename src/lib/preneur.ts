@@ -98,28 +98,34 @@ export const apps: Preneur[] = [
 	},
 	{
 		slug: 'health',
-		name: 'Pantrypoints Health',
+		name: 'Pantrypreneur Health',
 		shortName: 'Health',
-		nameZh: '健康版',
-		description: 'Healthcare economy management using community points',
-		descriptionZh: '使用社区积分的医疗经济管理',
+		nameZh: 'Health',
+		description: 'Personal health management using points and Bio Superphysics',
+		descriptionZh: 'Personal health management using points and Bio Superphysics',
 		longDescription:
-			'Pantrypoints Health reimagines healthcare access through community solidarity. Members earn and spend health points for preventive care, wellness services, and community health support. Practitioners offer services in exchange for points, creating a healthcare network accessible to all.',
+			'The idea for Pantrypreneur Health arose during the pandemic when people were looking for Covid solutions, and health services were strained. Our solution integrates an offline disease and nutrition reference that focuses on alternative medicine, as well as a points marketplace for herbal remedies',
 		longDescriptionZh:
-			'Pantrypoints Health 通过社区团结重新构想医疗服务获取。成员为预防性护理、健康服务和社区健康支持赚取和花费健康积分。从业者通过积分提供服务，创建所有人都能获得的医疗网络。',
+			'The idea for Pantrypreneur Health arose during the pandemic when people were looking for Covid solutions, and health services were strained. Our solution integrates an offline disease and nutrition reference that focuses on alternative medicine, as well as a points marketplace for herbal remedies',
 		icon: '/icons/health.png',
 		color: '#FF6666',
 		youtube: 'M8ztGBQOVDM',
 		tags: ['health', 'wellness', 'community'],
 		features: [
-			'Health service marketplace',
-			'Preventive care rewards',
+			'Health service points marketplace',
+			'Alternative medicine points marketplace',
+			'Offline Disease and Nutrition Reference',
 			'Community health fund',
 			'Practitioner profiles',
-			'Appointment scheduling',
-			'Health records summary'
+			'Disease Profiling'
 		],
-		featuresZh: ['健康服务市场', '预防保健奖励', '社区健康基金', '从业者档案', '预约日程安排', '健康记录摘要'],
+		featuresZh: [			
+			'Health service points marketplace',
+			'Alternative medicine points marketplace',
+			'Offline Disease and Nutrition Reference',
+			'Community health fund',
+			'Practitioner profiles',
+			'Disease Profiling'],
 		status: 'beta',
 		screenshots: []
 	},
@@ -127,22 +133,27 @@ export const apps: Preneur[] = [
 		slug: 'work',
 		name: 'Pantrypreneur Work',
 		shortName: 'Work',
-		nameZh: '基本收入版',
+		nameZh: 'Work',
 		description: 'Your own jobs site and HR Platform',
-		descriptionZh: '由社区积分驱动的全民基本收入系统',
+		descriptionZh: 'Your own jobs site and HR Platform',
 		longDescription:
 			'Pantrypreneur work is an HR platform for small and micro businesses.',
 		longDescriptionZh:
-			'为每位社区成员提供有保障的月度积分分配——无需货币的全民基本收入。这些积分可用于社区网络内的食物、服务、教育等，确保没有人被遗漏。',
+			'Pantrypreneur work is an HR platform for small and micro businesses.',
 		icon: '/icons/work.png',
 		color: '#3c95d3',
-		tags: ['ubi', 'social', 'equity'],
+		tags: ['jobs', 'hr', 'timesheet'],
 		features: [
-			'Monthly points distribution',
-			'Eligibility verification',
-			'Transparent allocation rules'
+			'Timesheet',
+			'Points Compensation',
+			'Jobs site',
+			'Basic HR Tools'
 		],
-		featuresZh: ['月度积分分配', '资格验证', '透明的分配规则', '社区治理', '影响报告', '防囤积机制'],
+		featuresZh: [			
+			'Timesheet',
+			'Points Compensation',
+			'Jobs site',
+			'Basic HR Tools'],
 		status: 'coming-soon',
 		youtube: 'H83IsXa2tPk',
 		img: 'https://placehold.co/600x400'

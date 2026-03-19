@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request, cookies }) => {
 	const { lang } = await request.json();
-	if (lang === 'en' || lang === 'zh') {
+	if (lang === 'en' || lang === 'zh' || lang === 'fr' || lang === 'es' || lang === 'vi') {
 		cookies.set('lang', lang, {
 			path: '/',
 			maxAge: 60 * 60 * 24 * 365,

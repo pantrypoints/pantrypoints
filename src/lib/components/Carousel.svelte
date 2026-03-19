@@ -87,12 +87,11 @@ const textPositionClasses = {
 								relative w-16 h-16 rounded-2xl font-display font-800 text-2xl
 								flex items-center justify-center transition-all duration-300 group
 								${index === currentIndex 
-									? 'bg-pastel-blue-dark dark:bg-pastel-blue-light text-white scale-110 shadow-xl' 
+									? 'bg-gray-500 dark:bg-pastel-blue-light text-white scale-110 shadow-xl' 
 									: 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 hover:scale-105'
 								}
 							`}
-							aria-label={`Go to step ${step.id}`}
-						>
+							aria-label={`Go to step ${step.id}`}>
 							{step.id}
 							
 							<!-- Tooltip on hover -->
@@ -142,13 +141,13 @@ const textPositionClasses = {
 									
 									<!-- Step number badge (always visible) -->
 									<div class="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-display font-800 text-2xl border-2 border-white/50 shadow-lg">
-										{step.id}
+										{step.id} zz
 									</div>
 								</div>
 								
 								<!-- Alternative: Text below image (if overlay is disabled) -->
 								{#if !overlayText}
-									<div class="p-8 bg-white dark:bg-gray-800">
+									<div class="p-8 bg-gray-200 dark:bg-gray-800">
 										<span class="inline-block px-3 py-1 rounded-full bg-pastel-blue-light dark:bg-pastel-blue-dark/20 text-pastel-blue-dark dark:text-pastel-blue text-xs font-display font-700 uppercase tracking-wider mb-3">
 											Step {step.id}
 										</span>

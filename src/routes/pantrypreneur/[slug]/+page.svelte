@@ -44,7 +44,7 @@
 		<div class="relative mx-auto max-w-5xl">
 			<a href="/pantrypreneur"
 				class="mb-8 inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white">
-				<ArrowLeft size={15} /> {m.nav_apps()}
+				<ArrowLeft size={15} /> Pantrypreneur
 			</a>
 
 			<div class="flex flex-col gap-6 md:flex-row md:items-center">
