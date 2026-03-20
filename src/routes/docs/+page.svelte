@@ -16,27 +16,50 @@
 </svelte:head>
 
 <div class="page-transition">
-	<!-- Header -->
-	<div class="border-b border-slate-100 bg-white px-4 py-14 text-center sm:px-6 lg:px-8">
+
+
+<div class="relative overflow-hidden border-b border-slate-100">
+	<video 
+		autoplay 
+		muted 
+		loop 
+		playsinline
+		class="absolute inset-0 h-full w-full object-cover"
+	>
+		<source src="/vid.mp4" type="video/mp4">
+	</video>
+	
+	<div class="absolute inset-0 z-0 bg-black/50"></div>
+	
+	<div class="relative z-10 px-4 py-20 text-center sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl">
-			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-green-100 bg-green-50 px-4 py-1.5 text-sm font-medium text-brand-green">
-				<Newspaper size={13} />
+			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
+				<Newspaper size={13} class="text-brand-green" />
 				{m.reference()}
 			</div>
-			<h1 class="font-display mb-3 text-4xl font-800 text-slate-900 sm:text-5xl">{m.docs_title()}</h1>
-			<p class="mb-8 text-lg text-slate-500">{m.docs_sub()}</p>
+			
+			<h1 class="font-display mb-3 text-4xl font-800 text-white drop-shadow-lg sm:text-5xl">
+				{m.docs_title()}
+			</h1>
+			
+			<p class="mb-8 text-lg text-white/90 drop-shadow-md">
+				{m.docs_sub()}
+			</p>
 
 			<div class="relative mx-auto max-w-md">
-				<Search size={17} class="absolute top-1/2 left-4 -translate-y-1/2 text-slate-400" />
+				<Search size={17} class="absolute top-1/2 left-4 -translate-y-1/2 text-white/70" />
 				<input
 					type="search"
 					bind:value={query}
-					placeholder={m.search()}
-					class="w-full rounded-xl border border-slate-200 py-3 pl-11 pr-4 text-sm transition-colors focus:border-brand-green focus:ring-2 focus:ring-green-100 focus:outline-none"
+					placeholder={m.news_search_placeholder()}
+					class="w-full rounded-xl border border-white/30 bg-white/20 py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 backdrop-blur-md transition-colors focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30"
 				/>
 			</div>
 		</div>
 	</div>
+</div>
+
+
 
 	<!-- Articles -->
 	<div class="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
@@ -52,7 +75,8 @@
 
 <a in:fly={{ y: 15, duration: 350, delay: i * 60 }}
 	href="/docs/{article.slug}"
-	class="card-hover group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all sm:flex-row">
+	class="card-hover group flex flex-col overflow-hidden rounded-2xl border border-2 border-slate-400 dark:bg-gray-800 bg-white shadow-sm transition-all sm:flex-row">
+
 	<div class="relative h-48 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48 md:w-64">
 		{#if article.image}
 			<img
@@ -73,9 +97,9 @@
 
 	<div class="flex flex-1 flex-col justify-between p-6 sm:p-7">
 		<div>
-			<h2 class="font-display mb-2 text-xl font-700 text-slate-900 transition-colors group-hover:text-brand-green">
-				{article.title}
-			</h2>
+			<h2 class="font-display mb-2 text-xl font-700 dark:text-white text-slate-900 transition-colors group-hover:text-brand-green">
+									{article.title}
+								</h2>
 			<p class="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-500">
 				{article.description}
 			</p>

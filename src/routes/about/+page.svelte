@@ -146,7 +146,7 @@
 		{#if activeTab === 'about'}
 			<div in:fade={{ duration: 200 }} class="prose prose-slate prose-green max-w-none">
 				<h2>{m.about_heading()}</h2>
-				<p class="text-lg leading-relaxed text-slate-600">
+				<p class="text-lg leading-relaxed">
 					{m.about_description()}
 				</p>
 				
@@ -248,43 +248,43 @@
 		</div>
 	{/if}
 
-<!-- Case 3: Has image and showname is true - show image with overlay -->
-{:else if partner.image && partner.showname}
-	{#if partner.url}
-		<a 
-			href={partner.url}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="relative block overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-md hover:scale-[1.02] group"
-		>
-			<!-- Sector badge (higher z-index to appear above overlay) -->
-			<div class="absolute left-3 top-3 z-20 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm group-hover:bg-black/70">
-				{sectorText}
-			</div>
-			<img src={partner.image} alt={partner.name} class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105" />
-			<div class="absolute inset-0 bg-black/50 transition-colors duration-300 group-hover:bg-black/60"></div>
-			<div class="absolute inset-0 flex items-center justify-center p-6">
-				<div class="text-center">
-					<h4 class="text-4xl font-bold text-white group-hover:underline">{partner.name}</h4>
+	<!-- Case 3: Has image and showname is true - show image with overlay -->
+	{:else if partner.image && partner.showname}
+		{#if partner.url}
+			<a 
+				href={partner.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="relative block overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-md hover:scale-[1.02] group"
+			>
+				<!-- Sector badge (higher z-index to appear above overlay) -->
+				<div class="absolute left-3 top-3 z-20 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm group-hover:bg-black/70">
+					{sectorText}
+				</div>
+				<img src={partner.image} alt={partner.name} class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+				<div class="absolute inset-0 bg-black/50 transition-colors duration-300 group-hover:bg-black/60"></div>
+				<div class="absolute inset-0 flex items-center justify-center p-6">
+					<div class="text-center">
+						<h4 class="text-4xl font-bold text-white group-hover:underline">{partner.name}</h4>
+					</div>
+				</div>
+			</a>
+		{:else}
+			<div class="relative block overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-md hover:scale-[1.02] group">
+				<!-- Sector badge (higher z-index to appear above overlay) -->
+				<div class="absolute left-3 top-3 z-20 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm group-hover:bg-black/70">
+					{sectorText}
+				</div>
+				<img src={partner.image} alt={partner.name} class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+				<div class="absolute inset-0 bg-black/50 transition-colors duration-300 group-hover:bg-black/60"></div>
+				<div class="absolute inset-0 flex items-center justify-center p-6">
+					<div class="text-center">
+						<h4 class="text-4xl font-bold text-white group-hover:underline">{partner.name}</h4>
+					</div>
 				</div>
 			</div>
-		</a>
-	{:else}
-		<div class="relative block overflow-hidden rounded-xl shadow-sm transition-all hover:shadow-md hover:scale-[1.02] group">
-			<!-- Sector badge (higher z-index to appear above overlay) -->
-			<div class="absolute left-3 top-3 z-20 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm group-hover:bg-black/70">
-				{sectorText}
-			</div>
-			<img src={partner.image} alt={partner.name} class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105" />
-			<div class="absolute inset-0 bg-black/50 transition-colors duration-300 group-hover:bg-black/60"></div>
-			<div class="absolute inset-0 flex items-center justify-center p-6">
-				<div class="text-center">
-					<h4 class="text-4xl font-bold text-white group-hover:underline">{partner.name}</h4>
-				</div>
-			</div>
-		</div>
+		{/if}
 	{/if}
-{/if}
 
 					{/each}
 				</div>

@@ -89,7 +89,7 @@
 					<a
 						in:fly={{ y: 20, duration: 350, delay: i * 60 }}
 						href="/trisactions/{app.slug}"
-						class="card-hover group block rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+						class="card-hover group block rounded-2xl dark:hover:bg-gray-700 rounded-2xl border border-2 border-slate-400 bg-gray-100 dark:bg-gray-800 p-6 shadow-sm">
 						<div class="mb-4 flex items-start justify-between">
 							<div
 								class="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
