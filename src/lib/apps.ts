@@ -131,21 +131,22 @@ export const apps: App[] = [
 		longDescription:
 			'Pantrylitics is the analytics for the Pantrypoints system',
 		longDescriptionZh:
-			'Pantrypoints Trade 将无货币经济扩展到个别社区之外，使不同 Pantrypoints 网络之间能够进行贸易。使用通用积分汇率，社区可以交易剩余商品和专业服务，创建相互支持的网络。',
+			'Pantrypoints Match 是一套应用“超级物理学”（Superphysics）原理的匹配系统，可用于恋爱、健康、教育、就业及政治领域。',
 		icon: '/icons/pantrylitics.png',
 		color: '#a62100',
 		youtube: 'KOl-RwPLXxY',
-		tags: ['trade', 'inter-community', 'exchange'],
+		tags: ['analytics', 'economic mapping'],
 		features: [
-			'Cross-network trading',
-			'Business Intelligence',
-			'Trade analytics'
+			'Points Analytics',
+			'Supply and Demand Map',
+			'Basic Economic Prediction'
 		],
-		featuresZh: ['跨网络交易', '积分汇率', '剩余商品匹配', '贸易协议', '海关和进口追踪', '贸易分析'],
+		featuresZh: ['性格画像', '疾病预测', '政治倾向画像','职业匹配','约会服务'],
 		status: 'coming-soon',
 		screenshots: []
 	}	
 ];
+
 
 export function getApp(slug: string): App | undefined {
 	return apps.find((a) => a.slug === slug);

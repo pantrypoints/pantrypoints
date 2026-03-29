@@ -76,23 +76,22 @@ export const apps: App[] = [
 		name: 'Pantrypoints Match',
 		shortName: 'Match',
 		nameZh: '健康版',
-		description: 'Pantrypoints Match',
-		descriptionZh: '使用社区积分的医疗经济管理',
+		description: 'Pantrypoints Match is our matching system',
+		descriptionZh: '',
 		longDescription:
-			'Pantrypoints Match is a matching system using the principles of Superphysics',
+			'Pantrypoints Match is a matching system using the principles of Superphysics. It can be used for love, health, education, employment, and politics',
 		longDescriptionZh:
-			'Pantrypoints Health 通过社区团结重新构想医疗服务获取。成员为预防性护理、健康服务和社区健康支持赚取和花费健康积分。从业者通过积分提供服务，创建所有人都能获得的医疗网络。',
+			'',
 		icon: '/icons/match.png',
 		color: '#FF6666',
 		youtube: 'oBQO5xWr4',
 		tags: ['health', 'wellness', 'community'],
 		features: [
-			'Health service marketplace',
-			'Preventive care rewards',
-			'Community health fund',
-			'Practitioner profiles',
-			'Appointment scheduling',
-			'Health records summary'
+			'Personality Profiling',
+			'Disease Prediction',
+			'Political Profiling',
+			'Career Matching',
+			'Dating Service'
 		],
 		featuresZh: ['健康服务市场', '预防保健奖励', '社区健康基金', '从业者档案', '预约日程安排', '健康记录摘要'],
 		status: 'beta',

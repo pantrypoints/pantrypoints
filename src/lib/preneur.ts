@@ -72,27 +72,25 @@ export const apps: Preneur[] = [
 	{
 		slug: 'rewards',
 		name: 'Pantrypreneur Rewards',
-		shortName: 'Hub',
+		shortName: 'Rewards',
 		nameZh: '中心版',
-		description: 'Central coordination platform for points economy networks',
+		description: 'Pantrypreneur Rewards 是面向微型和小型企业的忠诚度系统',
 		descriptionZh: '积分经济网络的中央协调平台',
 		longDescription:
-			'The Hub is the backbone of any Pantrypoints network. It coordinates exchanges between members, manages the points ledger, resolves disputes, and provides analytics for community administrators. Perfect for municipalities, cooperatives, and community groups.',
+			'Pantrypreneur Rewards lets your customers earn points that they can redeem in the products and services of your business',
 		longDescriptionZh:
-			'Hub 是任何 Pantrypoints 网络的骨干。它协调成员之间的交换、管理积分账本、解决纠纷，并为社区管理员提供分析。非常适合市政机构、合作社和社区团体。',
+			'通过 Pantrypreneur Rewards，您的客户可以赚取积分，并用于兑换您业务中的产品和服务',
 		icon: '/icons/rewards.png',
 		color: '#c75904',
 		youtube: '8dUlVl-ApdM',
 		tags: ['coordination', 'network', 'admin'],
 		features: [
-			'Network-wide points ledger',
-			'Multi-stakeholder coordination',
-			'Dispute resolution tools',
-			'Analytics dashboard',
-			'Role-based access control',
-			'API for integrations'
+			'Loyalty points',
+			'Discounts',
+			'Mailing Blast',
+			'Points Analytics'
 		],
-		featuresZh: ['全网络积分账本', '多方利益相关者协调', '纠纷解决工具', '分析仪表板', '基于角色的访问控制', '集成API'],
+		featuresZh: ['忠诚度积分', '折扣优惠', '群发邮件营销', '积分数据分析'],
 		status: 'beta',
 		screenshots: []
 	},
