@@ -1,6 +1,10 @@
-import { apps } from '$lib/services';
-import type { PageServerLoad } from './$types';
+import { getRegistry } from '$lib/registry';
+export const load = () => ({ items: getRegistry('services') });
 
-export const load: PageServerLoad = async () => {
-	return { apps };
-};
+
+// import { apps } from '$lib/services';
+// import type { PageServerLoad } from './$types';
+
+// export const load: PageServerLoad = async () => {
+// 	return { apps };
+// };

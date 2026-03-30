@@ -363,9 +363,9 @@
 				<p class="text-slate-600">{m.register_success_msg()}</p>
 			</div>
 		{:else}
-		<!-- action="?/register" use:enhance={() => {submitting = true; return async ({ result, update }) => {submitting = false; if (result.type === 'success') submitted = true; await update(); }; }} -->
+		<!-- action="https://usebasin.com/f/fe409f5e1e78"  -->
 			<form method="POST"  
-				action="https://usebasin.com/f/fe409f5e1e78"
+				action="?/register" use:enhance={() => {submitting = true; return async ({ result, update }) => {submitting = false; if (result.type === 'success') submitted = true; await update(); }; }}
 				class="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm" target="_blank">
 				{#if form?.error}
 					<div
@@ -384,13 +384,20 @@
 							id="name" name="name" type="text" required
 							placeholder={m.register_name_placeholder()}
 							value={form?.name ?? ''}
-							class="w-full text-gray-900 rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
-						/>
+							class="w-full text-gray-900 rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"/>
 					</div>
 
 					<div>
+						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="email">
+							{m.register_email_label()} <span class="text-brand-red">*</span>
+						</label>				
+						<input id="email" name="email" type="email" required placeholder={m.register_email_placeholder()} value={form?.email ?? ''} class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none" />
+					</div>
+
+
+					<div>
 						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="gender">
-							{m.gender()}
+							{m.gender()} <span class="text-brand-red">*</span>
 						</label>
 						<div class="relative">
 							<select
@@ -411,23 +418,27 @@
 						</div>
 					</div>
 
-					<div>
-						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="email">
-							{m.register_email_label()} <span class="text-brand-red">*</span>
-						</label>				
-						<input id="email" name="email" type="email" required placeholder={m.register_email_placeholder()} value={form?.email ?? ''} class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none" />
-
-					</div>
-
 					<div class="text-left">
 						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="organization">
-							{m.age()}
+							{m.age()} <span class="text-brand-red">*</span>
 						</label>
 						<input
-							id="age" name="age" type="number"
+							id="age" name="age" type="number" required
 							placeholder="21"
 							value={form?.age ?? ''}
 							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-gray-900 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none" />
+					</div>
+
+					<div>
+						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="gender">
+							{m.preflang()}
+						</label>
+						<input
+							id="lang" name="lang" type="text" 
+							placeholder="English"
+							value={form?.lang ?? ''}
+							class="w-full text-gray-900 rounded-xl border border-slate-200 px-4 py-2.5 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"
+						/>
 					</div>
 
 					<div class="text-left">

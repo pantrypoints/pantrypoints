@@ -59,11 +59,12 @@ export const load: PageServerLoad = async ({ cookies, platform }) => {
 	}
 };
 
+
 export const actions: Actions = {
 	login: async ({ request, cookies, platform }) => {
 		const formData = await request.formData();
 		const password = formData.get('password') as string;
-		const adminPassword = platform?.env?.ADMIN_PASSWORD ?? 'admin123';
+		const adminPassword = platform?.env?.ADMIN_PASSWORD ?? 'pantypoints';
 
 		if (password !== adminPassword) {
 			return fail(401, { error: 'wrong_password' });

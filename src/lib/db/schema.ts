@@ -4,8 +4,10 @@ export const registrations = sqliteTable('registrations', {
 	id: integer('id').primaryKey({ autoIncrement: true }),
 	name: text('name').notNull(),
 	email: text('email').notNull().unique(),
-	organization: text('organization'),
-	interest: text('interest'),
+	country: text('country'),
+	city: text('city'),
+	gender: text('gender'),
+	age: integer('age'),
 	lang: text('lang').notNull().default('en'),
 	createdAt: text('created_at').notNull()
 });

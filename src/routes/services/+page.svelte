@@ -1,4 +1,22 @@
 <script lang="ts">
+	import AppGridView from '$lib/components/Applist.svelte';
+	import * as m from '$lib/paraglide/messages';
+	let { data } = $props();
+</script>
+
+<AppGridView 
+	items={data.items}
+	title={m.nav_preneur()}
+	subtitle={m.ppservices()}
+	badgeLabel={m.services()}
+	basePath="/services"
+	videoSrc="/quipu.mp4" 
+/>
+
+
+
+
+<!-- <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import { Search, ArrowRight, Zap } from 'lucide-svelte';
 	import { searchApps } from '$lib/services';
@@ -37,17 +55,17 @@
 <div class="page-transition">
 
 
-<!-- Header with Video Background -->
+
 <div class="relative border-b border-slate-100 overflow-hidden">
-	<!-- Background Video -->
+
 	<video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover" >
 		<source src="/quipu.mp4" type="video/mp4">
 	</video>
 	
-	<!-- Dark overlay for text readability -->
+
 	<div class="absolute inset-0 bg-black/50 z-0"></div>
 	
-	<!-- Content -->
+
 	<div class="relative z-10 px-4 py-20 text-center sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl">
 			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-white">
@@ -71,8 +89,6 @@
 </div>
 
 
-
-	<!-- Apps grid -->
 	<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
 		{#if results.length === 0}
 			<div in:fade={{ duration: 200 }} class="py-20 text-center text-slate-400">
@@ -126,3 +142,4 @@
 		{/if}
 	</div>
 </div>
+ -->
