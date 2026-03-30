@@ -138,7 +138,7 @@
     "persona_government": "我在政府工作",
     "persona_governmentDesc": "我们需要增加公共服务收入",
     "what": "无货币创造财富",
-    "ppis": "The blog 'One Red Paper Clip' proved a paperclip can be traded into a house without any money. We systematize it so that everyone can get wealthy without money.",
+    "ppis": "博客《一枚红色回形针》证明了一个回形针可以在不花钱的情况下换成一套房子。我们将其系统化，让每个人都能在不使用金钱的情况下变得富有。",
     "how": "运作方式",
     "country": "国家",
     "moneyless_first": "先无货币",
@@ -152,6 +152,16 @@
     "which": "您属于哪一类？",
     "ppisfor": "Pantrypoints适合所有人",
     "news_back_to_list": "返回",
+
+    "ppservices": "Pantrypoints Services facilitate the points-based economic system",
+    "trisactions": "Trisactions",
+    "preneurapps": "Pantrypreneur Apps",
+    "preneurdesc": "Pantrypreneur Apps are SaaS for micro-small businesses",
+    "saas": "Software-as-a-Service for Everyone",
+    "eaas": "Economy-as-a-Service for Society",
+    "search": "Search..",
+    "reference": "参考资料",
+
     "select": "选择",
 
       "faq_badge": "常见问题",
@@ -245,25 +255,46 @@
   "about_mission_heading": "我们的使命",
   "about_mission_text": "创建一个无货币经济系统，让社区能够基于信任和真实价值进行交易，而非投机。",
   
-  "about_heading": "About Pantrypoints",
-  "about_description": "Pantrypoints is built by Pantrypoints Technologies, a small dedicated team specializing in transitioning the money system into the points system based on the priniples of Economic Superphysics (Supereconomics).",
-  
-  "about_mission_heading": "Our Mission",
-  "about_mission_text": "To implement the principles of Supereconomics and realize a sustainable economic system based on the invisible hand of human dharma.",
-  
-  "about_vision_heading": "Our Vision",
-  "about_vision_text": "A world that realizes the vision of Socrates, Adam Smith, and the Bhagavad Gita where everyone follows their dharma: brewers brew and bakers bake, instead of bakers brewing and brewers baking.",
-  
-  "about_values_heading": "Our Values",
-  "about_value_3_title": "Anti Capitalist, Anti Communist",
-  "about_value_3_desc": "We are anti-materialism and pro-spirituality. We recognize the importance of matter, but realize that they are ultimately illusions. Why base economic activity on an illusion? This is consistent with being within the Dharma",
-  "about_value_1_title": "Dharma",
-  "about_value_1_desc": "This is front and center of what we do. If you don't know what Dharma is, go ask a guru, yogi, shifu, bikkhu, swami, or sadhu",
-  "about_value_2_title": "Morality and Productivity",
-  "about_value_2_desc": "Morality supports Dharma. Productivity supports physicality. We are in the middle connecting both. In the conflict between morality and productivity, morality comes first, since our focus is Dharma",
-  "about_value_4_title": "Constitutional Virtues",
-  "about_value_4_desc": "We align with the Constitutional Virtues of the areas where we operate. Constitutional Virtues is a proposed concept of our proposed science of Supersociology. For example, if a society is Islamic, then we tweak the Pantrypoints for that society to match the most dharmic version of Islamic philosophy",
-    
+  "about_heading": "关于 Pantrypoints",
+  "about_description": "Pantrypoints 由 Pantrypoints Technologies 构建，这是一支小而专注的团队，致力于根据经济超级物理学（Supereconomics）的原则，将货币体系转变为积分体系。",
+
+  "about_mission_heading": "我们的使命",
+  "about_mission_text": "践行超级经济学的原则，实现一个基于人类法（Dharma）无形之手的可持续经济体系。",
+
+  "about_vision_heading": "我们的愿景",
+  "about_vision_text": "一个实现苏格拉底、亚当·斯密和《薄伽梵歌》愿景的世界，每个人都遵循自己的法：酿酒师酿酒，面包师烤面包，而不是面包师酿酒，酿酒师烤面包。",
+
+  "about_values_heading": "我们的价值观",
+  "about_value_3_title": "反资本主义，反共产主义",
+  "about_value_3_desc": "我们反物质主义，崇尚灵性。我们承认物质的重要性，但也认识到它们最终只是幻象。为什么要将经济活动建立在幻象之上？这符合处于法之中的理念。",
+  "about_value_1_title": "法（Dharma）",
+  "about_value_1_desc": "这是我们一切工作的核心。如果你不了解什么是法，请去请教一位上师、瑜伽士、师父、比丘、斯瓦米或苦行僧。",
+  "about_value_2_title": "道德与生产力",
+  "about_value_2_desc": "道德支撑着法。生产力支撑着物质层面。我们处于二者之间，连接彼此。在道德与生产力的冲突中，道德优先，因为我们的核心是法。",
+  "about_value_4_title": "宪政美德",
+  "about_value_4_desc": "我们与所在地区的宪政美德保持一致。宪政美德是我们提出的超级社会学这门科学中的一个概念。例如，如果一个社会是伊斯兰社会，那么我们会调整 Pantrypoints 以适应那个社会，使其符合伊斯兰哲学中最契合法的版本。",
+
   "team_heading": "我们的团队",
-  "partners_heading": "我们的合作伙伴"
+  "partners_heading": "我们的合作伙伴",
+
+  "nav_docs": "文档",
+
+"docs_title": "文档",
+"docs_sub": "Pantrypoints 与 Superphysics 应用文档",
+"current_locations": "当前试点地点",
+"deployed": "以下是我们部署测试原型的地方",
+"ph": "菲律宾",
+"bt": "不丹",
+"pk": "巴基斯坦",
+"vn": "越南",
+"adam": "亚当·斯密",
+"wn": "国富论",
+"age": "年龄",
+"city": "城市",
+"ready": "准备好加入无货币经济了吗？",
+"registerfor": "注册以获取早期访问权限，成为首批使用 Pantrypoints 的社区之一。",
+"about": "关于我们",
+"services": "服务"
+
 }
+

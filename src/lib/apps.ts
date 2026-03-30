@@ -19,6 +19,7 @@ export interface App {
 export const apps: App[] = [
 	{
 		slug: 'circle',
+		url: 'https://play.google.com/store/apps/details?id=com.pantrypoints.circle',
 		name: 'Pantrypoints Circle',
 		shortName: 'Circle',
 		nameZh: '中心版',
@@ -29,9 +30,9 @@ export const apps: App[] = [
 		longDescriptionZh:
 			'Pantrypoints Circle 采用积分制估值。',
 		icon: '/icons/circle.png',
-		color: '#3c95d3',
+		color: '#2D45BE',
 		youtube: 'zLmW8KqL5SE',
-		tags: ['coordination', 'network', 'admin'],
+		tags: ['web', 'mobile'],
 		features: [
 			'Network-wide points ledger',
 			'Multi-stakeholder coordination',
@@ -46,16 +47,16 @@ export const apps: App[] = [
 		name: 'Points Banking',
 		shortName: 'Points Banking',
 		nameZh: '积分银行',
-		description: 'Points Banking uses multilateral clearing',
+		description: 'Points Banking implements multilateral clearing',
 		descriptionZh: '积分银行采用多边清算方式',
 		longDescription:
 			'Points Banking uses multilateral clearing to circulate value using points-valuation',
 		longDescriptionZh:
 			'积分银行利用多边清算，通过积分估值来流通价值',
 		icon: '/icons/banking.png',
-		color: '#FFA500',
+		color: '#DA1E10',
 		youtube: 'zOVoXqOcI7E',
-		tags: ['points-valuation', 'points-banking', 'community'],
+		tags: ['web', 'mobile', 'offline', 'desktop'],
 		features: [
 			'Product & service listings',
 			'Smart points pricing',
@@ -71,19 +72,19 @@ export const apps: App[] = [
 	},
 	{
 		slug: 'invesure',
-		name: 'Pantrypoints Invesure: Moneyless Investments and Insurance',
+		name: 'Pantrypoints Invesure',
 		shortName: 'Invesure',
 		nameZh: '基本收入版',
-		description: 'Pantrypoints Invesure is a moneyless investment system',
+		description: 'Moneyless Investments and Insurance',
 		descriptionZh: '由社区积分驱动的全民基本收入系统',
 		longDescription:
 			'Pantrypoints Invesure is a moneyless investment system that uses points-valuation',
 		longDescriptionZh:
 			'Pantrypoints Basic Income 为每位社区成员提供有保障的月度积分分配——无需货币的全民基本收入。这些积分可用于社区网络内的食物、服务、教育等，确保没有人被遗漏。',
 		icon: '/icons/invesure.png',
-		color: '#3c95d3',
+		color: '#157A78',
 		youtube: 'smeI8NEBJ4k',
-		tags: ['ubi', 'social', 'equity'],
+		tags: ['web'],
 		features: [
 			'Monthly points distribution',
 			'Eligibility verification',
@@ -106,9 +107,9 @@ export const apps: App[] = [
 		longDescriptionZh:
 			'Pantrypoints Trade 将无货币经济扩展到个别社区之外，使不同 Pantrypoints 网络之间能够进行贸易。使用通用积分汇率，社区可以交易剩余商品和专业服务，创建相互支持的网络。',
 		icon: '/icons/world.png',
-		color: '#18348f',
+		color: '#56186D',
 		youtube: 'LsWUjsr0paA',
-		tags: ['trade', 'inter-community', 'exchange'],
+		tags: ['web'],
 		features: [ 
 			'Cross-network trading',
 			'Points exchange rates',
@@ -133,9 +134,9 @@ export const apps: App[] = [
 		longDescriptionZh:
 			'Pantrypoints Match 是一套应用“超级物理学”（Superphysics）原理的匹配系统，可用于恋爱、健康、教育、就业及政治领域。',
 		icon: '/icons/pantrylitics.png',
-		color: '#a62100',
+		color: '#857C00',
 		youtube: 'KOl-RwPLXxY',
-		tags: ['analytics', 'economic mapping'],
+		tags: ['web'],
 		features: [
 			'Points Analytics',
 			'Supply and Demand Map',
@@ -143,6 +144,30 @@ export const apps: App[] = [
 		],
 		featuresZh: ['性格画像', '疾病预测', '政治倾向画像','职业匹配','约会服务'],
 		status: 'coming-soon',
+		screenshots: []
+	},
+	{
+		slug: 'galaxiv',
+		url: 'https://galaxiv.pantrypoints.com',
+		name: 'Galaxiv',
+		shortName: 'Galaxiv',
+		nameZh: '贸易版',
+		description: 'Real Time Strategy Game for Supereconomics',
+		descriptionZh: '社区间商品交换和贸易平台',
+		longDescription:
+			'Galaxiv is a Real Time Strategy Game for Supereconomics that plays out the four laws of value of Supereconomics, the science behind Pantrypoints',
+		longDescriptionZh:
+			'Pantrypoints Match 是一套应用“超级物理学”（Superphysics）原理的匹配系统，可用于恋爱、健康、教育、就业及政治领域。',
+		icon: '/icons/galaxiv.png',
+		color: '#000000',
+		// youtube: 'KOl-RwPLXxY',
+		tags: ['web'],
+		features: [
+			'Star Map',
+			'Resource Allocation'
+		],
+		featuresZh: ['性格画像', '疾病预测', '政治倾向画像','职业匹配','约会服务'],
+		status: 'beta',
 		screenshots: []
 	}	
 ];

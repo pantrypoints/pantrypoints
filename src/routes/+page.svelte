@@ -180,11 +180,11 @@
 				<!-- Author -->
 				<div class="flex items-center justify-center gap-4 mb-12">
 					<div class="w-12 h-12 rounded-full bg-gradient-to-br from-pastel-blue to-pastel-green flex items-center justify-center text-white font-bold">
-						AS
+						<img src="/icons/Adam Smith.jpg" alt="Adam Smith">
 					</div>
 					<div class="text-left">
-						<p class="font-bold text-gray-900 dark:text-white">Adam Smith</p>
-						<p class="text-sm text-gray-600 dark:text-gray-400">The Wealth of Nations, 1776</p>
+						<p class="font-bold text-gray-900 dark:text-white">{m.adam()}</p>
+						<p class="text-sm text-gray-600 dark:text-gray-400">{m.wn()}, 1776</p>
 					</div>
 				</div>
 			</div>
@@ -197,8 +197,8 @@
 <section class="py-24 bg-white dark:bg-gray-950 relative flex flex-col justify-between">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1">
 		<div class="mb-14 text-center">
-			<h2 class="font-display mb-3 text-4xl font-700 text-slate-900">{m.what()}</h2>
-			<p class="text-slate-500">{m.ppis()}</p>
+			<h2 class="font-display mb-3 text-4xl font-700 dark:text-white text-slate-900">{m.what()}</h2>
+			<p class="text-lg dark:text-slate-200 text-slate-700">{m.ppis()}</p>
 		</div>
 
 		<!-- YouTube Video -->
@@ -258,8 +258,7 @@
 				<div in:fly={{ y: 25, duration: 500, delay: i * 120 }}>
 					<div
 						class="font-display mb-3 text-5xl font-800"
-						style="color: {step.color}22; letter-spacing: -0.02em"
-					>
+						style="color: {step.color}22; letter-spacing: -0.02em">
 						Step {step.step}
 					</div>
 					<h3 class="font-display mb-2 text-lg font-600 text-slate-900">{step.titleFn()}</h3>
@@ -337,10 +336,10 @@
 	<div class="mx-auto max-w-3xl text-center text-white">
 	<div class="max-w-3xl mb-12 mx-auto px-4 text-center">
 		<h2 class="font-display font-900 text-4xl sm:text-5xl mb-5 text-white">
-			Current Locations
+			{m.current_locations()}
 		</h2>
 		<p class="text-white/80 text-base max-w-xl mx-auto leading-relaxed">
-			Here are where we have deployed our test prototypes
+			{m.deployed()}
 		</p>
 	<Locations />
 	</div>
@@ -349,10 +348,10 @@
 
 	<div id="register" class="max-w-3xl mx-auto px-4 text-center">
 		<h2 class="font-display font-900 text-4xl sm:text-5xl mb-5 text-white">
-			Ready to join the<br />moneyless economy?
+			{m.ready()}
 		</h2>
 		<p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
-			Register for early access and be among the first communities to go live with Pantrypoints.
+			{m.registerfor()}
 		</p>
 
 		{#if submitted || form?.success}
@@ -391,7 +390,7 @@
 
 					<div>
 						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="gender">
-							Gender
+							{m.gender()}
 						</label>
 						<div class="relative">
 							<select
@@ -422,7 +421,7 @@
 
 					<div class="text-left">
 						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="organization">
-							Age
+							{m.age()}
 						</label>
 						<input
 							id="age" name="age" type="number"
@@ -445,7 +444,7 @@
 
 					<div class="text-left">
 						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="organization">
-							City
+							{m.city()}
 						</label>
 						<input
 							id="city" name="city" type="text"

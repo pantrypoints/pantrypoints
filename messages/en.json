@@ -149,14 +149,13 @@
     "multilateral": "Multilateral for Scale",
     "farmer": "Farmer",
     "farmerdesc": "I want..",
-    "gender": "gender",
-    "male": "male",
-    "female": "female",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
     "which": "Which are you?",
     "ppisfor": "Pantrypoints is for everyone",
     "news_back_to_list": "Back",
     "ppservices": "Pantrypoints Services facilitate the points-based economic system",
-    "services": "Services",
     "trisactions": "Trisactions",
     "preneurapps": "Pantrypreneur Apps",
     "preneurdesc": "Pantrypreneur Apps are SaaS for micro-small businesses",
@@ -272,13 +271,26 @@
   
   "team_heading": "Our Team",
   "partners_heading": "Our Partners",
-  "services": "Services",
 
 "nav_docs": "Docs",
 
 "docs_title": "Documentation",
-"docs_sub": "Documentation for Pantrypoints and Superphysics Applications"
+"docs_sub": "Documentation for Pantrypoints and Superphysics Applications",
+"current_locations": "Current Locations",
+"deployed": "Here are where we have deployed our test prototypes",
 
+"ph": "Philippines",
+"bt": "Bhutan",
+"pk": "Pakistan",
+"vn": "Vietnam",
+"adam": "Adam Smith",
+"wn": "The Wealth of Nations",
+"age": "Age",
+"city": "City",
+"ready": "Ready to join the moneyless economy?",
+"registerfor": "Register for early access and be among the first communities to go live with Pantrypoints.",
 
+"about": "About",
+"services": "Services"
  
 }

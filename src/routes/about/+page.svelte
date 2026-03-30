@@ -27,7 +27,7 @@
 
 	const partners: Partner[] = [
 		{ name: 'Angels Shelter', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/angels.jpg', showname: false, url: 'https://angels.pantrypoints.com' },
-		{ name: 'Ayus', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/ayus.jpg', showname: false, url: 'https://www.facebook.com/p/Angels-Shelter-100081656782516/' },
+		{ name: 'Ayus', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/ayus.jpg', showname: false, url: 'https://www.facebook.com/ayushealthshop/' },
 		{ name: 'Capri Island Cafe', sector: { en: 'Food Service', zh: '技术' }, image: '/graphics/capri.jpg', showname: false, url: 'https://www.facebook.com/CapriArtCafe/' },
 		{ name: 'FINAC', sector: { en: 'Association', zh: '物流' }, image: '/graphics/finac.jpg', showname: false},
 		{ name: 'Food Rescue Philippines', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/foodrescue.jpg', showname: true, url: 'https://www.facebook.com/foodrescuephilippines/'},
