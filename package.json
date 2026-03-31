@@ -13,7 +13,8 @@
     "format": "prettier --write .",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "db:reset": "bun src/lib/db/reset.ts && bun run db:push"
   },
   "type": "module",
   "devDependencies": {

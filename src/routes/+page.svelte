@@ -266,11 +266,7 @@
 				</div>
 			{/each}
 		</div>
-		<Carousel 
-			steps={mySteps} 
-			textPosition="top"
-		/>
-
+		<Carousel steps={mySteps} textPosition="top"/>
 	</div>
 </section>
 
@@ -291,8 +287,7 @@
 					target={persona.url.startsWith('http') ? '_blank' : '_self'}
 					rel={persona.url.startsWith('http') ? 'noopener noreferrer' : undefined}
 					class="group flex flex-col items-center text-center p-10 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
-					in:fly={{ y: 30, delay: i * 150 }}
-				>
+					in:fly={{ y: 30, delay: i * 150 }}>
 					<div class="relative w-24 h-24 mb-8">
 						<div class="absolute inset-0 bg-gradient-to-tr from-pastel-blue-light to-pastel-purple-light dark:from-pastel-blue-dark dark:to-pastel-purple-dark rounded-3xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
 						<img 
@@ -302,12 +297,12 @@
 						/>
 					</div>
 
-        <h3 class="font-display font-800 text-2xl text-gray-900 dark:text-white mb-4">
-            {persona.titleFn()}
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-xs">
-            {persona.descFn()}
-        </p>
+			        <h3 class="font-display font-800 text-2xl text-gray-900 dark:text-white mb-4">
+			            {persona.titleFn()}
+			        </h3>
+			        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-xs">
+			            {persona.descFn()}
+			        </p>
 				</a>
 			{/each}
 		</div>
@@ -374,6 +369,9 @@
 						{getErrorMessage(form.error)}
 					</div>
 				{/if}
+
+				<input id="source" name="source" type="hidden" value="PP website root" >
+
 
 				<div class="grid gap-4 sm:grid-cols-2 text-left">
 					<div>
@@ -463,6 +461,17 @@
 							value={form?.city ?? ''}
 							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-gray-900 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"/>
 					</div>
+
+					<div class="text-left">
+						<label class="mb-1.5 block text-sm font-medium text-slate-700" for="organization">
+							{m.phone()}
+						</label>
+						<input
+							id="phone" name="phone" type="text"
+							placeholder="+84 1234 567 890"
+							value={form?.phone ?? ''}
+							class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-gray-900 text-sm transition-colors focus:border-brand-blue focus:ring-2 focus:ring-blue-100 focus:outline-none"/>
+					</div>					
 				</div>
 
 				<button

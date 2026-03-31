@@ -114,7 +114,7 @@
     "footer_tagline": "Building a world without money, one point at a time.",
     "footer_links": "Quick Links",
     "footer_contact": "Contact",
-    "footer_copyright": "© 2025 Pantrypoints. All rights reserved.",
+    "footer_copyright": "© 2026 Pantrypoints. All rights reserved.",
 
     "lang_en": "English",
     "lang_zh": "中文",
@@ -292,7 +292,7 @@
 
 "about": "About",
 "services": "Services",
-
+"phone": "Phone",
 "preflang": "Preferred Language"
  
 }

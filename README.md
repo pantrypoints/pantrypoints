@@ -1,4 +1,4 @@
-# Pantrypoints
+ # Pantrypoints
 
 Pantrypoints is a new economic system that uses points instead of money.
 
@@ -11,8 +11,6 @@ red DA1E10
 tea; 157A78
 purple 56186D
 gold 857C00
-
-
 
 
 A moneyless economy webapp built with SvelteKit 5, Tailwind CSS v4, Paraglide JS (i18n), Drizzle ORM + Turso, and deployed to Cloudflare Pages.

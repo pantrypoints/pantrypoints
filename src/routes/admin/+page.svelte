@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { fly, scale } from 'svelte/transition';
-	import { Shield, LogOut, Users, TrendingUp, Calendar, Search, Lock, Eye, EyeOff } from 'lucide-svelte';
+	import { Flower2, BicepsFlexed, Shield, LogOut, Users, TrendingUp, Calendar, Search, Lock, Eye, EyeOff } from 'lucide-svelte';
 	import * as m from '$lib/paraglide/messages';
 	import { languageTag } from '$lib/paraglide/runtime';
 
@@ -18,7 +18,8 @@
 				u.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				u.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				(u.country ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-				(u.city ?? '').toLowerCase().includes(searchQuery.toLowerCase())
+				(u.city ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+				(u.subj ?? '').toLowerCase().includes(searchQuery.toLowerCase())
 		) ?? []
 	);
 
@@ -32,11 +33,66 @@
 			return dateStr;
 		}
 	}
+
+	import { User, UserRound, Baby, UserRoundSearch } from 'lucide-svelte';
+	
+	// Helper function to get age-based color
+	function getAgeColor(age: number | null | undefined): string {
+		if (!age) return '#3c95d3'; // Default blue if no age
+		
+		if (age <= 19) return '#FFB6C1'; // Light pink for young
+		if (age <= 29) return '#FF69B4'; // Medium-light pink
+		if (age <= 39) return '#FF1493'; // Medium pink
+		if (age <= 49) return '#DB7093'; // Medium-dark pink
+		if (age <= 59) return '#C71585'; // Dark pink
+		if (age <= 69) return '#8B008B'; // Darker magenta
+		if (age <= 79) return '#800080'; // Very dark purple
+		return '#4B0082'; // Darkest indigo for 80-99
+	}
+	
+	// Helper function to get gender-based color
+	function getGenderColor(gender: string | null | undefined, age: number | null | undefined): string {
+		const ageColor = getAgeColor(age);
+		
+		if (gender === 'male') {
+			// Blue gradient with age-based darkness
+			if (!age) return 'linear-gradient(135deg, #3c95d3, #2a7ab8)';
+			if (age <= 19) return 'linear-gradient(135deg, #4aa3e0, #3c95d3)';
+			if (age <= 39) return 'linear-gradient(135deg, #3c95d3, #2a7ab8)';
+			if (age <= 59) return 'linear-gradient(135deg, #2a7ab8, #1a5a8a)';
+			if (age <= 79) return 'linear-gradient(135deg, #1a5a8a, #0f3a5a)';
+			return 'linear-gradient(135deg, #0f3a5a, #081f2f)';
+		} else if (gender === 'female') {
+			// Pink gradient with age-based darkness
+			if (!age) return 'linear-gradient(135deg, #FF69B4, #FF1493)';
+			if (age <= 19) return 'linear-gradient(135deg, #FFB6C1, #FF69B4)';
+			if (age <= 39) return 'linear-gradient(135deg, #FF69B4, #FF1493)';
+			if (age <= 59) return 'linear-gradient(135deg, #FF1493, #DB7093)';
+			if (age <= 79) return 'linear-gradient(135deg, #DB7093, #C71585)';
+			return 'linear-gradient(135deg, #C71585, #8B008B)';
+		} else {
+			// Neutral gradient for other/unspecified
+			return `linear-gradient(135deg, ${ageColor}, ${ageColor}cc)`;
+		}
+	}
+	
+	// Helper function to get icon based on gender and age
+	function getUserIcon(gender: string | null | undefined, age: number | null | undefined) {
+		if (!age || age < 13) return Baby;
+		if (gender === 'male') return User;
+		if (gender === 'female') return UserRound;
+		return UserRoundSearch;
+	}
+
+
 </script>
 
 <svelte:head>
 	<title>{m.admin_title()} — Pantrypoints</title>
 </svelte:head>
+
+
+
 
 <div class="page-transition min-h-screen bg-slate-50 dark:bg-slate-900">
 	{#if !data.isAuthenticated}
@@ -183,36 +239,57 @@
 								<tr>
 									<th class="px-6 py-3 text-left">{m.admin_col_name()}</th>
 									<th class="px-6 py-3 text-left">{m.admin_col_email()}</th>
-									<th class="px-6 py-3 text-left">{m.gender()}</th>
+									<th class="px-6 py-3 text-left">{m.phone()}</th>
 									<th class="px-6 py-3 text-left">{m.country()}</th>
 									<th class="px-6 py-3 text-left">{m.city()}</th>
 									<th class="px-6 py-3 text-left">{m.age()}</th>
 									<th class="px-6 py-3 text-left">{m.admin_col_lang()}</th>
+									<th class="px-6 py-3 text-left">Subject</th>
+									<th class="px-6 py-3 text-left">Message</th>
+									<th class="px-6 py-3 text-left">Source</th>
 									<th class="px-6 py-3 text-left">Registered on</th>
 								</tr>
 							</thead>
 							<tbody class="divide-y divide-slate-50 dark:divide-slate-700">
+
+
+
+
 								{#each filteredUsers as user, i}
-									<tr
-										in:fly={{ y: 8, duration: 200, delay: i * 20 }}
-										class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-700/50"
-									>
-										<td class="px-6 py-3.5">
-											<div class="flex items-center gap-2.5">
-												<div
-													class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
-													style="background: linear-gradient(135deg, #3c95d3, #00BD6C)">
-													{user.name.charAt(0).toUpperCase()}
-												</div>
-												<span class="font-medium text-slate-900 dark:text-white">{user.name}</span>
-											</div>
-										</td>
+									<tr in:fly={{ y: 8, duration: 200, delay: i * 20 }}
+										class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-700/50">
+
+<td class="px-6 py-3.5">
+	<div class="flex items-center gap-2.5">
+		<div
+			class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
+			style="background: {getGenderColor(user.gender, user.age)}"
+		>
+			{#if user.gender === 'male'}
+				<BicepsFlexed size={16} class="text-white" />
+			{:else if user.gender === 'female'}
+				<Flower2 size={16} class="text-white" />
+			{:else}
+				{#if user.age && user.age <= 12}
+					<Baby size={16} class="text-white" />
+				{:else}
+					<UserRoundSearch size={16} class="text-white" />
+				{/if}
+			{/if}
+		</div>
+		<span class="font-medium text-slate-900 dark:text-white">{user.name}</span>
+	</div>
+</td>
+
 										<td class="px-6 py-3.5 text-slate-600 dark:text-slate-400">{user.email}</td>
-										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.gender ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.phone ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.country ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.city ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.age ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.lang ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.subj ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.msg ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.source ?? '—'}</td>
 										<!-- <td class="px-6 py-3.5">
 											<span
 												class="rounded-md px-2 py-0.5 text-xs font-medium"
@@ -230,6 +307,13 @@
 										</td>
 									</tr>
 								{/each}
+
+
+
+
+
+
+
 							</tbody>
 						</table>
 					</div>
