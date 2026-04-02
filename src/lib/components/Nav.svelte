@@ -13,13 +13,14 @@
   let isDark = $derived($theme === 'dark');
 
   const navLinks = [
-    { href: '/',              labelFn: () => m.nav_home()  },
+    // { href: '/',              labelFn: () => m.nav_home()  },
     { href: '/trisactions',   labelFn: () => m.nav_apps()  },
     { href: '/pantrypreneur', labelFn: () => m.nav_preneur() },
     { href: '/services',      labelFn: () => m.services() },
     { href: '/news',          labelFn: () => m.nav_news()  },
     { href: '/docs',          labelFn: () => m.nav_docs()  },
-    { href: '/about',         labelFn: () => m.about()  }
+    { href: '/about',         labelFn: () => m.about()  },
+    { href: '/tags',         labelFn: () => m.tags()  }
   ];
 
   // Map of language codes to display text and flags

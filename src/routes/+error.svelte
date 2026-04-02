@@ -4,11 +4,22 @@
 	import * as m from '$lib/paraglide/messages';
 </script>
 
+
+<svelte:head>
+  <title>404</title>
+  <meta name="description" content="The page you are looking for could not be found." />
+  <meta name="robots" content="noindex, nofollow" />
+  
+  <meta property="og:title" content="404" />
+  <meta property="og:description" content="Page not found" />
+  <meta property="og:type" content="website" />
+  
+</svelte:head>
+
 <div class="flex min-h-[60vh] flex-col items-center justify-center px-4 py-20 text-center">
 	<div
 		class="font-display mb-4 text-8xl font-800"
-		style="background: linear-gradient(135deg, #3c95d3, #00BD6C); -webkit-background-clip: text; -webkit-text-fill-color: transparent"
-	>
+		style="background: linear-gradient(135deg, #3c95d3, #00BD6C); -webkit-background-clip: text; -webkit-text-fill-color: transparent">
 		{$page.status}
 	</div>
 	<h1 class="font-display mb-2 text-2xl font-700 text-slate-900">

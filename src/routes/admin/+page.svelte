@@ -259,27 +259,27 @@
 									<tr in:fly={{ y: 8, duration: 200, delay: i * 20 }}
 										class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-700/50">
 
-<td class="px-6 py-3.5">
-	<div class="flex items-center gap-2.5">
-		<div
-			class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
-			style="background: {getGenderColor(user.gender, user.age)}"
-		>
-			{#if user.gender === 'male'}
-				<BicepsFlexed size={16} class="text-white" />
-			{:else if user.gender === 'female'}
-				<Flower2 size={16} class="text-white" />
-			{:else}
-				{#if user.age && user.age <= 12}
-					<Baby size={16} class="text-white" />
-				{:else}
-					<UserRoundSearch size={16} class="text-white" />
-				{/if}
-			{/if}
-		</div>
-		<span class="font-medium text-slate-900 dark:text-white">{user.name}</span>
-	</div>
-</td>
+										<td class="px-6 py-3.5">
+											<div class="flex items-center gap-2.5">
+												<div
+													class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
+													style="background: {getGenderColor(user.gender, user.age)}"
+												>
+													{#if user.gender === 'male'}
+														<BicepsFlexed size={16} class="text-white" />
+													{:else if user.gender === 'female'}
+														<Flower2 size={16} class="text-white" />
+													{:else}
+														{#if user.age && user.age <= 12}
+															<Baby size={16} class="text-white" />
+														{:else}
+															<UserRoundSearch size={16} class="text-white" />
+														{/if}
+													{/if}
+												</div>
+												<span class="font-medium text-slate-900 dark:text-white">{user.name}</span>
+											</div>
+										</td>
 
 										<td class="px-6 py-3.5 text-slate-600 dark:text-slate-400">{user.email}</td>
 										<td class="px-6 py-3.5 text-slate-500 dark:text-slate-400">{user.phone ?? '—'}</td>

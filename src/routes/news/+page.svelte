@@ -1,4 +1,23 @@
 <script lang="ts">
+  import ContentList from '$lib/components/Contentlist.svelte';
+  import * as m from '$lib/paraglide/messages';
+  
+  let { data } = $props();
+</script>
+
+<ContentList
+  articles={data.articles}
+  contentType="news"
+  vid="/vid.mp4"
+  title={m.news_title()}
+  subtitle={m.news_subtitle()}
+  badgeText={m.news_badge()}
+/>
+
+
+
+
+<!-- <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import { Search, Newspaper, Calendar, Tag } from 'lucide-svelte';
 	import { searchContent, formatDate } from '$lib/content';
@@ -58,7 +77,7 @@
 </div>
 
 
-	<!-- Articles -->
+
 	<div class="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
 		{#if results.length === 0}
 			<div in:fade={{ duration: 200 }} class="py-20 text-center text-slate-400">
@@ -131,3 +150,4 @@
 		{/if}
 	</div>
 </div>
+ -->

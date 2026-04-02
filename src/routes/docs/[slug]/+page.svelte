@@ -1,4 +1,17 @@
 <script lang="ts">
+	import ContentDetail from '$lib/components/Content.svelte';
+	
+	let { data } = $props();
+</script>
+
+<ContentDetail 
+	article={data.article}
+	content={data.content}
+	contentType="docs"
+/>
+
+
+<!-- <script lang="ts">
 	import { Calendar, User, Tag, ArrowLeft } from 'lucide-svelte';
 	import { formatDate } from '$lib/content';
 	import * as m from '$lib/paraglide/messages';
@@ -93,4 +106,4 @@
 		text-wrap: balance;
 		line-height: 1.1;
 	}
-</style>
+</style> -->

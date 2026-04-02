@@ -246,7 +246,7 @@
   "terms_placeholder": "Terms and conditions will be available soon.",
   "back_to_home": "Back to Home",
 
-  "about_badge": "Platform Info",
+  "about_badge": "What We Do",
   "about_title": "Inside Pantrypoints",
   "about_subtitle": "Our mission, our people, and our network.",
   
@@ -273,7 +273,6 @@
   "partners_heading": "Our Partners",
 
 "nav_docs": "Docs",
-
 "docs_title": "Documentation",
 "docs_sub": "Documentation for Pantrypoints and Superphysics Applications",
 "current_locations": "Current Locations",
@@ -293,6 +292,8 @@
 "about": "About",
 "services": "Services",
 "phone": "Phone",
+"browse_tags": "Browse by Tags",
+"articles_by_tags": "Explore articles across all sections organized by topic",
+"tags": "Tags",
 "preflang": "Preferred Language"
- 
 }

@@ -33,15 +33,19 @@ const contentPaths: Record<ContentType, string> = {
 	terms: '/src/content/{lang}/terms.md'
 };
 
-/**
- * Load all articles of a specific content type for a given language
- * Filters out articles with draft: true
- */
+
+
+
+
+
+
 export async function loadContent(
 	type: ContentType, 
 	lang: string = 'en',
-	includeDrafts: boolean = false // Option to include drafts (for preview)
+	includeDrafts: boolean = false
 ): Promise<ContentArticle[]> {
+
+
 	// Dynamic import based on language
 	const modules = import.meta.glob('/src/content/**/*.md');
 	
@@ -67,7 +71,8 @@ export async function loadContent(
 				if (metadata.draft && !includeDrafts) {
 					continue;
 				}
-				
+
+	
 				articles.push({
 					slug,
 					title: metadata.title ?? slug,
@@ -77,8 +82,10 @@ export async function loadContent(
 					author: metadata.author ?? '',
 					tags: metadata.tags ?? [],
 					lang,
+					type, // Add this
 					draft: metadata.draft ?? false
 				});
+				
 			}
 		} catch (e) {
 			console.error(`Failed to load ${path}:`, e);
@@ -87,6 +94,64 @@ export async function loadContent(
 
 	return articles.sort((a, b) => b.date.localeCompare(a.date));
 }
+
+
+
+
+
+// export async function loadContent(
+// 	type: ContentType, 
+// 	lang: string = 'en',
+// 	includeDrafts: boolean = false // Option to include drafts (for preview)
+// ): Promise<ContentArticle[]> {
+
+// 	// Dynamic import based on language
+// 	const modules = import.meta.glob('/src/content/**/*.md');
+	
+// 	// Filter modules by language and type
+// 	const filteredModules: Record<string, () => Promise<unknown>> = {};
+	
+// 	for (const [path, loader] of Object.entries(modules)) {
+// 		if (path.includes(`/content/${lang}/${type}/`)) {
+// 			filteredModules[path] = loader;
+// 		}
+// 	}
+
+// 	const articles: ContentArticle[] = [];
+
+// 	for (const [path, loader] of Object.entries(filteredModules)) {
+// 		const slug = path.split('/').pop()?.replace('.md', '') ?? '';
+// 		try {
+// 			const mod = await loader();
+// 			const metadata = (mod as unknown as { metadata: ContentMetadata }).metadata;
+			
+// 			if (metadata) {
+// 				// Skip drafts unless explicitly included
+// 				if (metadata.draft && !includeDrafts) {
+// 					continue;
+// 				}
+				
+// 				articles.push({
+// 					slug,
+// 					title: metadata.title ?? slug,
+// 					description: metadata.description ?? '',
+// 					image: metadata.image ?? '',
+// 					date: metadata.date ?? '',
+// 					author: metadata.author ?? '',
+// 					tags: metadata.tags ?? [],
+// 					lang,
+// 					draft: metadata.draft ?? false
+// 				});
+// 			}
+// 		} catch (e) {
+// 			console.error(`Failed to load ${path}:`, e);
+// 		}
+// 	}
+
+// 	return articles.sort((a, b) => b.date.localeCompare(a.date));
+// }
+
+
 
 /**
  * Load a single article by slug
@@ -122,6 +187,7 @@ export async function loadContentBySlug(
 						author: metadata.author ?? '',
 						tags: metadata.tags ?? [],
 						lang,
+						type,
 						draft: metadata.draft ?? false,
 						content
 					};
@@ -225,3 +291,109 @@ export function isPublished(article: ContentArticle): boolean {
 	return !article.draft;
 }
 
+
+
+
+
+
+// Add these functions to /src/lib/content.ts
+
+/**
+ * Get all unique tags across ALL content types
+ */
+export async function getAllTags(lang: string = 'en'): Promise<string[]> {
+	const tagSet = new Set<string>();
+	const types = getContentTypes();
+	
+	for (const type of types) {
+		const articles = await loadPublishedContent(type, lang);
+		articles.forEach((article) => {
+			article.tags.forEach((tag) => tagSet.add(tag));
+		});
+	}
+	
+	return Array.from(tagSet).sort();
+}
+
+
+export async function getArticlesByTag(
+	lang: string = 'en'
+): Promise<Record<string, ContentArticle[]>> {
+	const grouped: Record<string, ContentArticle[]> = {};
+	const types = getContentTypes();
+	
+	for (const type of types) {
+		const articles = await loadPublishedContent(type, lang);
+		articles.forEach((article) => {
+			article.tags.forEach((tag) => {
+				if (!grouped[tag]) {
+					grouped[tag] = [];
+				}
+				grouped[tag].push(article);
+			});
+		});
+	}
+	
+	// Sort articles within each tag by date
+	for (const tag of Object.keys(grouped)) {
+		grouped[tag].sort((a, b) => b.date.localeCompare(a.date));
+	}
+	
+	return grouped;
+}
+
+
+export async function getTagCounts(lang: string = 'en'): Promise<Record<string, number>> {
+	const counts: Record<string, number> = {};
+	const types = getContentTypes();
+	
+	for (const type of types) {
+		const articles = await loadPublishedContent(type, lang);
+		articles.forEach((article) => {
+			article.tags.forEach((tag) => {
+				counts[tag] = (counts[tag] ?? 0) + 1;
+			});
+		});
+	}
+	
+	return counts;
+}
+
+
+export async function getTagsWithArticles(lang: string = 'en'): Promise<
+	Array<{
+		name: string;
+		count: number;
+		articles: ContentArticle[];
+	}>
+> {
+	const grouped = await getArticlesByTag(lang);
+	
+	return Object.entries(grouped)
+		.map(([name, articles]) => ({
+			name,
+			count: articles.length,
+			articles
+		}))
+		.sort((a, b) => b.count - a.count); // Sort by most articles first
+}
+
+
+export function getArticlePath(article: ContentArticle): string {
+	const typePath: Record<string, string> = {
+		news: '/news',
+		docs: '/docs',
+		privacy: '/privacy',
+		faq: '/faq',
+		terms: '/terms'
+	};
+	
+	const base = typePath[article.lang === 'zh' ? `zh-${article.lang}` : ''] || '';
+	
+	// For terms, there's no slug (single file)
+	if (article.slug === 'terms' || article.type === 'terms') {
+		return '/terms';
+	}
+	
+	return `/${article.lang === 'en' ? '' : article.lang + '/'}${article.type}/${article.slug}`;
+}

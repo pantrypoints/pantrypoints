@@ -16,8 +16,6 @@
 		{ name: 'Adrian', role: { en: 'App Developer', zh: 'App Developer' }, image: '/avatars/adrian.jpg' }
 	];
 
-
-
 	interface Partner {
 		name: string;
 		sector: { en: string; zh: string };
@@ -52,30 +50,26 @@
 		return 'bg-black/10'; // Subtle overlay for image-only cards
 	}
 
-
-
-
 	const tabs = [
-		// Internal Content Tabs
-		{ id: 'about', label: { en: 'About', zh: '关于' }, icon: Info, type: 'internal' },
-		{ id: 'team', label: { en: 'Team', zh: '团队' }, icon: Users, type: 'internal' },
-		{ id: 'partners', label: { en: 'Partners', zh: '合作伙伴' }, icon: Handshake, type: 'internal' },
-		
+		{ id: 'about', label: { en: 'About', zh: '关于', fr: 'À propos', es: 'Acerca de', vi: 'Giới thiệu' }, icon: Info, type: 'internal' },
+		{ id: 'team', label: { en: 'Team', zh: '团队', fr: 'Équipe', es: 'Equipo', vi: 'Đội ngũ' }, icon: Users, type: 'internal' },
+		{ id: 'partners', label: { en: 'Partners', zh: '合作伙伴', fr: 'Partenaires', es: 'Socios', vi: 'Đối tác' }, icon: Handshake, type: 'internal' },
+
 		// External/Link Tabs
 		{ 
-			id: 'privacy', 
-			label: { en: 'Privacy & Terms', zh: '隐私与条款' }, 
-			icon: ShieldCheck, 
-			type: 'link', 
-			href: '/privacy' 
+		    id: 'privacy', 
+		    label: { en: 'Privacy & Terms', zh: '隐私与条款', fr: 'Confidentialité et conditions', es: 'Privacidad y términos', vi: 'Quyền riêng tư và Điều khoản' }, 
+		    icon: ShieldCheck, 
+		    type: 'link', 
+		    href: '/privacy' 
 		},
 		{ 
-			id: 'youtube', 
-			label: { en: 'YouTube', zh: 'YouTube' }, 
-			icon: Youtube, 
-			type: 'link', 
-			href: 'https://youtube.com/@pantrypoints', 
-			external: true 
+		    id: 'youtube', 
+		    label: { en: 'YouTube', zh: 'YouTube', fr: 'YouTube', es: 'YouTube', vi: 'YouTube' }, 
+		    icon: Youtube, 
+		    type: 'link', 
+		    href: 'https://youtube.com/@pantrypoints', 
+		    external: true 
 		}
 	];
 

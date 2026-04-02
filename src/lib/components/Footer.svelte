@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Youtube, Leaf, Github, Twitter, Mail } from 'lucide-svelte';
+	import { Facebook, Youtube, Leaf, Github, Twitter, Mail } from 'lucide-svelte';
 	import * as m from '$lib/paraglide/messages';
 </script>
 
@@ -42,7 +42,13 @@
 						rel="noopener"
 						class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:border-brand-blue hover:text-brand-blue">
 						<Youtube size={15} />
-					</a>					
+					</a>
+					<a href="https://www.facebook.com/pantrypoints"
+						target="_blank"
+						rel="noopener"
+						class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:border-brand-blue hover:text-brand-blue">
+						<Facebook size={15} />
+					</a>										
 					<a
 						href="https://twitter.com/pantrypoints"
 						target="_blank"
