@@ -4,7 +4,7 @@ linkTitle: Investment Points
 subtitle: "The effort value of goods and services claimable in the future"
 date: 2020-07-05
 image: "/photos/team.jpg"
-description : "Investment Points are the conversion of goods and services into their corresponding value in effort claimable in the future"
+description: "Investment Points are the conversion of goods and services into their corresponding value in effort claimable in the future"
 author: Juan
 icon: https://superphysics.org/icons/pantry50.png
 ---
@@ -20,10 +20,9 @@ The current problem came as predicted because of the false idea that money is we
 This wrong focus then manifests as speculation which has caused every major crisis from the 1929 Great Crash to [the 1997 Asian Crisis](https://asia.nikkei.com/Economy/It-was-20-years-ago-that-the-Thai-central-bank-panicked) and 2008 Financial Crisis.
 
 
-{{< q a="Smith" >}}
-<p>Mr. Locke distinguished money from other movable goods. He says that all other movable goods are consumable in nature, that the wealth in them are not dependable. On the contrary, money is a steady friend which is not wasted and consumed. He thinks the great object of its political economy should be to multiply that money.</p>
-<cite>The Simple Wealth Of Nations, Book 4, Chapter 1</cite>
-{{< /q >}}
+> Mr. Locke distinguished money from other movable goods. He says that all other movable goods are consumable in nature, that the wealth in them are not dependable. On the contrary, money is a steady friend which is not wasted and consumed. He thinks the great object of its political economy should be to multiply that money.
+> — Adam Smith, The Simple Wealth Of Nations, Book 4, Chapter 1
+
 
 In the current situation, the money went to fuel deforestation which then increased the chances for viruses to be released. 
 
@@ -38,10 +37,9 @@ One of the most famous Covid bankruptcy was that of Virgin Airlines Australia, m
 
 Clearly, the current solution is not a win-win: the company loses control and the people lose benefits. Is there any better solution to insolvency? Adam Smith asked the same question over 200 years ago:
 
-{{< q a="Smith" >}}
-<p>It has been said that the Americans have no gold or silver money. Without gold and silver it is impossible to pay taxes. How can we draw from them what they do not have?</p>
-<cite>The Simple Wealth Of Nations, Book 5</cite>
-{{< /q >}}
+> It has been said that the Americans have no gold or silver money. Without gold and silver it is impossible to pay taxes. How can we draw from them what they do not have?</p>
+> — Adam Smith, The Simple Wealth Of Nations, Book 5
+
 
 
 ## A More Sustainable Solution -- Investment Points
@@ -52,10 +50,9 @@ Additional business closures will strain capital which, at that point, can only 
 
 An investment point is a right to a product or service of the issuer or beneficiary for a future time period. It is a version of Adam Smith's solution to the lack of money:
 
-{{< q a="Smith" >}}
-<p>It might be unnecessary to remit any part of the American revenue in gold and silver. It might be remitted in bills drawn on and accepted by particular merchants or companies in Great Britain to whom some of America's surplus produce was consigned. Those merchants and companies would pay into the treasury the American revenue in money after receiving the value of those goods. The whole business might frequently be transacted without exporting a single ounce of gold or silver from America.</p>
-<cite>The Simple Wealth Of Nations, Book 5</cite>
-{{< /q >}}
+> It might be unnecessary to remit any part of the American revenue in gold and silver. It might be remitted in bills drawn on and accepted by particular merchants or companies in Great Britain to whom some of America's surplus produce was consigned. Those merchants and companies would pay into the treasury the American revenue in money after receiving the value of those goods. The whole business might frequently be transacted without exporting a single ounce of gold or silver from America.</p>
+> — Adam Smith, The Simple Wealth Of Nations, Book 5
+
 
 
 An investment point can be offered in lieu of a money payment when cash is short. The recipient of the point, called a benefactor, can then claim whatever the points represent when the investee is back to productivity. 
@@ -100,7 +97,7 @@ The monitoring and administration of the points will then be its ownw industry, 
 
 Unlike regular banking where the bank merely accepts payments and checks balances, points banking* requires the point banker to audit or estimate the productive capacity or inventory of the beneficiaries. This will most likely entail physical checks on the company's production facilities or offices, or viewing a person's actual work.
 
-> *EF Schumacher applies this concept into international trade, with trade deficit countries being debtors, and surplus countries being creditors. What we call point-banks, he calls National Clearing Funds which are administered by an International Clearing Office
+*EF Schumacher applies this concept into international trade, with trade deficit countries being debtors, and surplus countries being creditors. What we call point-banks, he calls National Clearing Funds which are administered by an International Clearing Office
 
 
 Although the operations might sound easy, the actual IT system for facilitating such credits is quite complicated. The barter credit data must be very detailed and specificy the time frame for the product or service. 
@@ -128,5 +125,3 @@ A:
 - Points are for short-term or consumable items
 - Donation-Points are free points and do not require anything in return
 - Investment-Points are long-term points that have a fixed, noncompounding annual rate 
-
- 
