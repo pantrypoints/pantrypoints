@@ -74,24 +74,23 @@ export const apps: App[] = [
 		slug: 'invesure',
 		name: 'Pantrypoints Invesure',
 		shortName: 'Invesure',
-		nameZh: '基本收入版',
+		nameZh: 'Pantrypoints 投资保障',
 		description: 'Moneyless Investments and Insurance',
-		descriptionZh: '由社区积分驱动的全民基本收入系统',
+		descriptionZh: '无货币投资与保险',
 		longDescription:
 			'Pantrypoints Invesure is a moneyless investment system that uses points-valuation',
 		longDescriptionZh:
-			'Pantrypoints Basic Income 为每位社区成员提供有保障的月度积分分配——无需货币的全民基本收入。这些积分可用于社区网络内的食物、服务、教育等，确保没有人被遗漏。',
+			'Pantrypoints 投资保障是一套使用积分估值的无货币投资系统',
 		icon: '/icons/invesure.png',
 		color: '#157A78',
 		youtube: 'smeI8NEBJ4k',
 		tags: ['web'],
 		features: [
 			'Monthly points distribution',
-			'Eligibility verification',
-			'Transparent allocation rules',
-			'Impact reporting'
+			'Points Analytics',
+			'Investment Clearing'
 		],
-		featuresZh: ['月度积分分配', '资格验证', '透明的分配规则', '社区治理', '影响报告', '防囤积机制'],
+		featuresZh: ['月度积分分配', '积分分析', '投资清算'],
 		status: 'coming-soon',
 		screenshots: []
 	},
@@ -160,6 +159,7 @@ export const apps: App[] = [
 			'Pantrypoints Match 是一套应用“超级物理学”（Superphysics）原理的匹配系统，可用于恋爱、健康、教育、就业及政治领域。',
 		icon: '/icons/galaxiv.png',
 		color: '#000000',
+		img: '/screens/galaxiv.jpg',
 		// youtube: 'KOl-RwPLXxY',
 		tags: ['web'],
 		features: [

@@ -141,7 +141,7 @@
 			<div in:fade={{ duration: 200 }} class="prose prose-slate prose-green max-w-none">
 				<h2>{m.about_heading()}</h2>
 				<p class="text-lg leading-relaxed">
-					{m.about_description()}
+					{m.about_description()} <a href='https://www.superphysics.org/social/economics/' target="_blank">Economic Superphysics</a>
 				</p>
 				
 				<h3>{m.about_mission_heading()}</h3>

@@ -4,9 +4,10 @@
 	let { data } = $props();
 </script>
 
+
 <AppGridView 
 	items={data.items}
-	title={m.nav_preneur()}
+	title={m.services()}
 	subtitle={m.ppservices()}
 	badgeLabel={m.services()}
 	basePath="/services"

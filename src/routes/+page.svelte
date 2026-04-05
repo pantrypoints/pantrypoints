@@ -276,8 +276,8 @@
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">	
 
 		<div class="mb-14 text-center">
-			<h2 class="font-display mb-3 text-4xl font-700 text-slate-900">{m.which()}</h2>
-			<p class="text-slate-500">{m.ppisfor()}</p>
+			<h2 class="font-display mb-3 text-4xl font-700 dark:text-white text-slate-900">{m.which()}</h2>
+			<p class="text-lg text-slate-500">{m.ppisfor()}</p>
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -333,7 +333,7 @@
 		<h2 class="font-display font-900 text-4xl sm:text-5xl mb-5 text-white">
 			{m.current_locations()}
 		</h2>
-		<p class="text-white/80 text-base max-w-xl mx-auto leading-relaxed">
+		<p class="text-white/80 text-lg text-base max-w-xl mx-auto leading-relaxed">
 			{m.deployed()}
 		</p>
 	<Locations />
@@ -345,7 +345,7 @@
 		<h2 class="font-display font-900 text-4xl sm:text-5xl mb-5 text-white">
 			{m.ready()}
 		</h2>
-		<p class="text-white/80 text-base mb-10 max-w-xl mx-auto leading-relaxed">
+		<p class="text-white/80 text-lg text-base mb-10 max-w-xl mx-auto leading-relaxed">
 			{m.registerfor()}
 		</p>
 

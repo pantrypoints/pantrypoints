@@ -141,7 +141,7 @@ const textPositionClasses = {
 									
 									<!-- Step number badge (always visible) -->
 									<div class="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-display font-800 text-2xl border-2 border-white/50 shadow-lg">
-										{step.id} zz
+										{step.id}
 									</div>
 								</div>
 								

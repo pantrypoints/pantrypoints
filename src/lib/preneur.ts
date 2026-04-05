@@ -44,13 +44,14 @@ export const apps: Preneur[] = [
 	},
 	{
 		slug: 'farm',
+		url: 'https://play.google.com/store/apps/details?id=com.pantrypoints.farmsolo',
 		name: 'Pantrypreneur Farm',
 		shortName: 'Farm',
 		nameZh: '农场版',
 		description: 'Agricultural point management for farmers and producers',
 		descriptionZh: '为农民和生产者提供农业积分管理',
 		longDescription:
-			'Pantrypreneur Farm empowers local farmers and agricultural producers to participate in the points economy. Track your harvests, allocate production points, integrate with the local market, and build sustainable food networks without the barriers of traditional currency.',
+			'Pantrypreneur Farm Local empowers urban farmers and gardeners to track your harvests while having offline reference for crops and plant nutrition.',
 		longDescriptionZh:
 			'Pantrypreneur Farm 让本地农民和农业生产者能够参与积分经济。追踪您的收成、分配生产积分、与本地市场整合，并构建可持续的食物网络，无需传统货币的障碍。',
 		icon: '/icons/farm.png',
@@ -96,6 +97,7 @@ export const apps: Preneur[] = [
 	},
 	{
 		slug: 'health',
+		url: 'https://play.google.com/store/apps/details?id=com.pantrypoints.health',
 		name: 'Pantrypreneur Health',
 		shortName: 'Health',
 		nameZh: 'Health',

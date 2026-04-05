@@ -37,7 +37,6 @@ export const apps: App[] = [
 		],
 		featuresZh: ['Public-facing Website and Apps', 'Moneyless', 'Tech Consultancy'],
 		status: 'live',
-		url: '/services/build',
 		screenshots: []
 	},
 	{
@@ -68,11 +67,11 @@ export const apps: App[] = [
 			'Circular Economy',
 			'Donations'],
 		status: 'live',
-		url: '/services/cards',
 		screenshots: []
 	},
 	{
 		slug: 'match',
+		url: 'https://play.google.com/store/apps/details?id=org.superphysics.matchoff',
 		name: 'Pantrypoints Match',
 		shortName: 'Match',
 		nameZh: '健康版',

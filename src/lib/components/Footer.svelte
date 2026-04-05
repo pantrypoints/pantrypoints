@@ -69,7 +69,7 @@
 			<div>
 				<h4 class="font-display mb-3 text-sm font-600 text-slate-900">{m.footer_links()}</h4>
 				<ul class="space-y-2 text-sm text-slate-500">
-					<li><a href="/triscations" class="transition-colors hover:text-brand-blue">Pantrypoints</a></li>
+					<li><a href="/trisactions" class="transition-colors hover:text-brand-blue">Pantrypoints</a></li>
 					<li><a href="/pantrypreneur" class="transition-colors hover:text-brand-blue">Pantrypreneur</a></li>
 					<li><a href="/services" class="transition-colors hover:text-brand-blue">Services</a></li>
 				</ul>

@@ -9,7 +9,8 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 
 	// 1. Handle CORS Preflight
 	const origin = request.headers.get('origin');
-	const allowedOrigins = ['https://maharlika.superphysics.org', 'https://localhost:1313', 'http://localhost:5173'];
+	const allowedOrigins = ['https://maharlika.superphysics.org', 'https://superphysics.org', 'https://www.superphysics.org', 
+		'https://www.unladsaka.com', 'https://unladsaka.com', 'https://localhost:1313', 'http://localhost:5173', 'https://www.yogahoasen.com', 'https://yogahoasen.com',];
 	
 	if (origin && !allowedOrigins.includes(origin)) {
 		return new Response('Not allowed', { status: 403 });
@@ -73,4 +74,3 @@ export const OPTIONS: RequestHandler = async () => {
 		}
 	});
 };
-
