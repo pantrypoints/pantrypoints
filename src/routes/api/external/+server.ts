@@ -7,6 +7,8 @@ import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request, platform }) => {
 
+	export const csrf = false;
+
 	// 1. Handle CORS Preflight
 	const origin = request.headers.get('origin');
 	const allowedOrigins = ['https://maharlika.superphysics.org', 'https://superphysics.org', 'https://www.superphysics.org', 
@@ -45,6 +47,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 			msg: message || null,
 			lang: data.get('lang')?.toString() || 'en',
 			createdAt: new Date().toISOString(),
+			source: data.get('source')?.toString() || null,
 			// Defaulting other fields to null if not provided by the external form
 			country: data.get('country')?.toString() || null,
 			city: data.get('city')?.toString() || null
