@@ -62,7 +62,9 @@
 							{formatDate(article.date, languageTag())}
 						</span>
 						<span class="flex items-center gap-1.5">
-							<User size={16} class="text-white/70" />
+							{#if article.icon}
+								<img src="{article.icon}" class="h-12" />
+							{/if}
 							{article.author}
 						</span>
 					</div>
@@ -114,7 +116,9 @@
 						{formatDate(article.date, languageTag())}
 					</span>
 					<span class="flex items-center gap-1.5">
-						<User size={16} class="text-white/70" />
+						{#if article.icon}
+							<img src="{article.icon}" class="h-12" />
+						{/if}
 						{article.author}
 					</span>
 				</div>

@@ -4,7 +4,7 @@ linkTitle: Overview
 description: "Pantrypreneur Doc is a business platform for clinics"
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
-image: "/og/educate.jpg"
+image: "/og/preneur.jpg"
 weight: 130
 toc: true
 ---

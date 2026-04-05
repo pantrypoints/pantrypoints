@@ -37,7 +37,7 @@ One of the most famous Covid bankruptcy was that of Virgin Airlines Australia, m
 
 Clearly, the current solution is not a win-win: the company loses control and the people lose benefits. Is there any better solution to insolvency? Adam Smith asked the same question over 200 years ago:
 
-> It has been said that the Americans have no gold or silver money. Without gold and silver it is impossible to pay taxes. How can we draw from them what they do not have?</p>
+> It has been said that the Americans have no gold or silver money. Without gold and silver it is impossible to pay taxes. How can we draw from them what they do not have?
 > — Adam Smith, The Simple Wealth Of Nations, Book 5
 
 
@@ -50,7 +50,7 @@ Additional business closures will strain capital which, at that point, can only 
 
 An investment point is a right to a product or service of the issuer or beneficiary for a future time period. It is a version of Adam Smith's solution to the lack of money:
 
-> It might be unnecessary to remit any part of the American revenue in gold and silver. It might be remitted in bills drawn on and accepted by particular merchants or companies in Great Britain to whom some of America's surplus produce was consigned. Those merchants and companies would pay into the treasury the American revenue in money after receiving the value of those goods. The whole business might frequently be transacted without exporting a single ounce of gold or silver from America.</p>
+> It might be unnecessary to remit any part of the American revenue in gold and silver. It might be remitted in bills drawn on and accepted by particular merchants or companies in Great Britain to whom some of America's surplus produce was consigned. Those merchants and companies would pay into the treasury the American revenue in money after receiving the value of those goods. The whole business might frequently be transacted without exporting a single ounce of gold or silver from America.
 > — Adam Smith, The Simple Wealth Of Nations, Book 5
 
 
@@ -108,9 +108,7 @@ For example, the pay for a coder of some programming languages can decline quick
 
 The IT system should therefore also account for the risk for such fluctuations, on top of the usual risk of non-fulfillment of credit redemption or transfer. Fortunately, the advances in data science and machine learning can help us make this complexity more manageable.
 
-<!-- <br>
-
-### Timely Solutions
+<!-- ### Timely Solutions
 
 Now that the crisis years  are here, the solutions laid out by Adam Smith are more important than ever. Without them, the economic advances since World War II will likely be undone gradually through inflation, conflict, and other man-made disasters. We only have to look at the the Roman Empire which seemed so refined and civilized during its pax romana, only to revert to barbarity 200 years afterwards.
 

@@ -8,6 +8,7 @@ export interface ContentArticle {
 	author: string;
 	tags: string[];
 	lang: string;
+	icon: string;
 	draft?: boolean; // Add draft field
 	content?: string; // Optional for when you need the full content
 }
@@ -17,6 +18,7 @@ export interface ContentMetadata {
 	description: string;
 	date: string;
 	author: string;
+	icon: string;
 	tags: string[];
 	image?: string;
 	draft?: boolean; // Add draft to metadata
@@ -32,8 +34,6 @@ const contentPaths: Record<ContentType, string> = {
 	faq: '/src/content/{lang}/faq/*.md',
 	terms: '/src/content/{lang}/terms.md'
 };
-
-
 
 
 
@@ -71,13 +71,13 @@ export async function loadContent(
 				if (metadata.draft && !includeDrafts) {
 					continue;
 				}
-
 	
 				articles.push({
 					slug,
 					title: metadata.title ?? slug,
 					description: metadata.description ?? '',
 					image: metadata.image ?? '',
+					icon: metadata.icon || '/icons/pantry50.png',
 					date: metadata.date ?? '',
 					author: metadata.author ?? '',
 					tags: metadata.tags ?? [],
@@ -96,60 +96,6 @@ export async function loadContent(
 }
 
 
-
-
-
-// export async function loadContent(
-// 	type: ContentType, 
-// 	lang: string = 'en',
-// 	includeDrafts: boolean = false // Option to include drafts (for preview)
-// ): Promise<ContentArticle[]> {
-
-// 	// Dynamic import based on language
-// 	const modules = import.meta.glob('/src/content/**/*.md');
-	
-// 	// Filter modules by language and type
-// 	const filteredModules: Record<string, () => Promise<unknown>> = {};
-	
-// 	for (const [path, loader] of Object.entries(modules)) {
-// 		if (path.includes(`/content/${lang}/${type}/`)) {
-// 			filteredModules[path] = loader;
-// 		}
-// 	}
-
-// 	const articles: ContentArticle[] = [];
-
-// 	for (const [path, loader] of Object.entries(filteredModules)) {
-// 		const slug = path.split('/').pop()?.replace('.md', '') ?? '';
-// 		try {
-// 			const mod = await loader();
-// 			const metadata = (mod as unknown as { metadata: ContentMetadata }).metadata;
-			
-// 			if (metadata) {
-// 				// Skip drafts unless explicitly included
-// 				if (metadata.draft && !includeDrafts) {
-// 					continue;
-// 				}
-				
-// 				articles.push({
-// 					slug,
-// 					title: metadata.title ?? slug,
-// 					description: metadata.description ?? '',
-// 					image: metadata.image ?? '',
-// 					date: metadata.date ?? '',
-// 					author: metadata.author ?? '',
-// 					tags: metadata.tags ?? [],
-// 					lang,
-// 					draft: metadata.draft ?? false
-// 				});
-// 			}
-// 		} catch (e) {
-// 			console.error(`Failed to load ${path}:`, e);
-// 		}
-// 	}
-
-// 	return articles.sort((a, b) => b.date.localeCompare(a.date));
-// }
 
 
 
@@ -182,6 +128,7 @@ export async function loadContentBySlug(
 						slug,
 						title: metadata.title ?? slug,
 						image: metadata.image ?? '',
+						icon: metadata.icon ?? '',
 						description: metadata.description ?? '',
 						date: metadata.date ?? '',
 						author: metadata.author ?? '',
@@ -397,3 +344,5 @@ export function getArticlePath(article: ContentArticle): string {
 	
 	return `/${article.lang === 'en' ? '' : article.lang + '/'}${article.type}/${article.slug}`;
 }
+
+
