@@ -1,11 +1,12 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { getDb } from '$lib/db/index';
 import { registrations } from '$lib/db/schema';
-import { desc } from 'drizzle-orm';
-import { eq } from 'drizzle-orm';
+import { eq, inArray, desc } from 'drizzle-orm'; // Import inArray
 import type { Actions, PageServerLoad } from './$types';
 
+
 const ADMIN_SESSION_KEY = 'admin_session';
+
 
 export const load: PageServerLoad = async ({ cookies, platform }) => {
 	const session = cookies.get(ADMIN_SESSION_KEY);
@@ -83,5 +84,30 @@ export const actions: Actions = {
 	logout: async ({ cookies }) => {
 		cookies.delete(ADMIN_SESSION_KEY, { path: '/' });
 		redirect(303, '/admin');
-	}
+	},
+
+	delete: async ({ request, cookies, platform }) => {
+        // Auth check
+        const session = cookies.get(ADMIN_SESSION_KEY);
+        if (session !== 'authenticated') return fail(403);
+
+        const formData = await request.formData();
+        const ids = formData.getAll('ids').map(id => Number(id));
+
+        if (ids.length === 0) return fail(400, { error: 'no_ids_selected' });
+
+        const tursoUrl = platform?.env?.TURSO_URL;
+        const tursoToken = platform?.env?.TURSO_AUTH_TOKEN;
+
+        try {
+            const db = getDb(tursoUrl, tursoToken);
+            await db.delete(registrations).where(inArray(registrations.id, ids));
+            return { success: true };
+        } catch (err) {
+            console.error('Delete error:', err);
+            return fail(500, { error: 'delete_failed' });
+        }
+    }
 };
+
+
