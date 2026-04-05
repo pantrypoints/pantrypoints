@@ -59,9 +59,11 @@ An investment point can be offered in lieu of a money payment when cash is short
 
 In this way, the economy can restart and continue even without cash.
 
-{{< img src="https://sorasystem.sirv.com/graphics/bankruptcyemp.jpg" alt="Bankruptcy points creation" cap="Benefactor-companies can use their flight-points themselves for their employees" >}}
+![Bankruptcy points creation](https://sorasystem.sirv.com/graphics/bankruptcyemp.jpg)
+*Benefactor-companies can use their flight-points themselves for their employees*
 
-{{< img src="https://sorasystem.sirv.com/graphics/bankruptcash.jpg" alt="Bankruptcy points transfer" cap="Benefactor-companies can transfer their flight-points to other companies in exchange for their resources. This will be subject to taxation as capital gains." >}}
+![Bankruptcy points transfer](https://sorasystem.sirv.com/graphics/bankruptcash.jpg)
+*Benefactor-companies can transfer their flight-points to other companies in exchange for their resources. This will be subject to taxation as capital gains.*
 
 
 In our airline example, assuming Virgin needs the following to maintain its fleet during lockdown:
