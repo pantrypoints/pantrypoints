@@ -4,16 +4,28 @@ import { registrations } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
+// Move csrf export to top level (outside the handler)
+export const csrf = false;
 
 export const POST: RequestHandler = async ({ request, platform }) => {
-
-	export const csrf = false;
-
 	// 1. Handle CORS Preflight
 	const origin = request.headers.get('origin');
-	const allowedOrigins = ['https://maharlika.superphysics.org', 'https://superphysics.org', 'https://www.superphysics.org', 
-		'https://www.unladsaka.com', 'https://unladsaka.com', 'https://localhost:1313', 'http://localhost:5173', 'https://www.yogahoasen.com', 'https://yogahoasen.com',];
-	
+	const allowedOrigins = [
+		'https://lp.pantrypoints.com',
+		'https://makati.pantrypoints.com',
+		'https://manila.pantrypoints.com',
+		'https://saigon.pantrypoints.com',
+		'https://maharlika.superphysics.org',
+		'https://superphysics.org',
+		'https://www.superphysics.org',
+		'https://www.unladsaka.com',
+		'https://unladsaka.com',
+		'https://localhost:1313',
+		'http://localhost:5173',
+		'https://www.yogahoasen.com',
+		'https://yogahoasen.com',
+	];
+
 	if (origin && !allowedOrigins.includes(origin)) {
 		return new Response('Not allowed', { status: 403 });
 	}
@@ -36,6 +48,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 
 		// 2. Check for existing email
 		const existing = await db.select().from(registrations).where(eq(registrations.email, email)).limit(1);
+
 		if (existing.length > 0) {
 			return json({ error: 'Already registered' }, { status: 409 });
 		}
@@ -60,13 +73,12 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 				'Access-Control-Allow-Methods': 'POST'
 			}
 		});
+
 	} catch (err) {
 		console.error(err);
 		return json({ error: 'Server error' }, { status: 500 });
 	}
 };
-
-
 
 // Handle OPTIONS request for CORS preflight
 export const OPTIONS: RequestHandler = async () => {
@@ -78,3 +90,5 @@ export const OPTIONS: RequestHandler = async () => {
 		}
 	});
 };
+
+

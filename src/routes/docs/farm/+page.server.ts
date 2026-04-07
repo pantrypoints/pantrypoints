@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const lang = params.lang || 'en';
-	const articles = await loadContent('circle', lang);
+	const articles = await loadContent('farm', lang);
 	
 	return {
 		articles,

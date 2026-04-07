@@ -7,10 +7,10 @@
 
 <ContentList
   articles={data.articles}
-  contentType="docs"
+  contentType="educate"
   vid="/blog.mp4"
-  title="Documentation for Circle"
-  subtitle={m.docs_sub()}
+  title="Documentation for Pantrypreneur Educate"
+  subtitle='Pantrypreneur Educate is a micro-small SaaS for trainers'
   badgeText={m.reference()}
 />
 
