@@ -4,30 +4,31 @@ import { registrations } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
-// Move csrf export to top level (outside the handler)
-export const csrf = false;
-
 export const POST: RequestHandler = async ({ request, platform }) => {
 	// 1. Handle CORS Preflight
 	const origin = request.headers.get('origin');
 	const allowedOrigins = [
-		'https://lp.pantrypoints.com',
-		'https://makati.pantrypoints.com',
-		'https://manila.pantrypoints.com',
-		'https://saigon.pantrypoints.com',
-		'https://maharlika.superphysics.org',
-		'https://superphysics.org',
-		'https://www.superphysics.org',
-		'https://www.unladsaka.com',
-		'https://unladsaka.com',
-		'https://localhost:1313',
-		'http://localhost:5173',
-		'https://www.yogahoasen.com',
-		'https://yogahoasen.com',
+		'lp.pantrypoints.com',
+		'makati.pantrypoints.com',
+		'manila.pantrypoints.com',
+		'saigon.pantrypoints.com',
+		'maharlika.superphysics.org',
+		'superphysics.org',
+		'www.superphysics.org',
+		'www.unladsaka.com',
+		'unladsaka.com',
+		'localhost:1313',
+		'localhost:5173',
+		'www.yogahoasen.com',
+		'yogahoasen.com',
 	];
 
-	if (origin && !allowedOrigins.includes(origin)) {
-		return new Response('Not allowed', { status: 403 });
+	// Check if origin is allowed
+	if (origin) {
+		const isAllowed = allowedOrigins.some(allowed => origin.includes(allowed));
+		if (!isAllowed) {
+			return new Response('Not allowed', { status: 403 });
+		}
 	}
 
 	try {
@@ -61,8 +62,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 			msg: message || null,
 			lang: data.get('lang')?.toString() || 'en',
 			createdAt: new Date().toISOString(),
-			source: data.get('source')?.toString() || null,
-			// Defaulting other fields to null if not provided by the external form
+			source: source || null,
 			country: data.get('country')?.toString() || null,
 			city: data.get('city')?.toString() || null
 		});
@@ -81,14 +81,15 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 };
 
 // Handle OPTIONS request for CORS preflight
-export const OPTIONS: RequestHandler = async () => {
+export const OPTIONS: RequestHandler = async ({ request }) => {
+	const origin = request.headers.get('origin');
+	
 	return new Response(null, {
 		headers: {
-			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Origin': origin || '*',
 			'Access-Control-Allow-Methods': 'POST, OPTIONS',
 			'Access-Control-Allow-Headers': 'Content-Type'
 		}
 	});
 };
-
 
