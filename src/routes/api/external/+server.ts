@@ -22,9 +22,10 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		const data = await request.formData();
 		const email = data.get('email')?.toString().toLowerCase().trim();
 		const name = data.get('name')?.toString().trim();
+		const source = data.get('source')?.toString().trim();
 		
 		// Mapping Maharlika fields to your Drizzle schema
-		const subject = data.get('subject')?.toString() || data.get('source')?.toString();
+		const subject = data.get('subject')?.toString();
 		const message = data.get('message')?.toString();
 
 		if (!email || !name) {

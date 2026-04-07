@@ -4,7 +4,7 @@ description: "ISAIAH Predict uses Social Cycles of Superphysics to predict outco
 date: 2024-03-18T19:58:14+01:00
 lastmod: 2024-03-18T19:58:14+01:00
 image: "/graphics/predict.jpg"
-toc: true
+draft: true
 ---
 
 

@@ -1,12 +1,12 @@
-import { loadContent } from '$lib/content';
-import type { PageServerLoad } from './$types';
+// import { loadContent } from '$lib/content';
+// import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ params }) => {
-	const lang = params.lang || 'en';
-	const articles = await loadContent('docs', lang);
+// export const load: PageServerLoad = async ({ params }) => {
+// 	const lang = params.lang || 'en';
+// 	const articles = await loadContent('docs', lang);
 	
-	return {
-		articles,
-		lang
-	};
-};
+// 	return {
+// 		articles,
+// 		lang
+// 	};
+// };
