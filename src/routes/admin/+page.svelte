@@ -4,7 +4,7 @@
 	import { 
 		Flower2, BicepsFlexed, Shield, LogOut, Users, TrendingUp, 
 		Calendar, Search, Lock, Eye, EyeOff, Trash2, CheckSquare, Square,
-		User, UserRound, Baby, UserRoundSearch 
+		User, UserRound, Baby, UserRoundSearch, Download 
 	} from 'lucide-svelte';
 	import * as m from '$lib/paraglide/messages';
 	import { languageTag } from '$lib/paraglide/runtime';
@@ -74,6 +74,76 @@
 		}
 		return 'linear-gradient(135deg, #94a3b8, #64748b)';
 	}
+
+	// CSV Download Function
+	function downloadAsCSV() {
+		const usersToExport = selectedIds.length > 0 
+			? filteredUsers.filter(u => selectedIds.includes(u.id))
+			: filteredUsers;
+
+		if (usersToExport.length === 0) {
+			alert('No users to export');
+			return;
+		}
+
+		// Define CSV headers
+		const headers = [
+			'ID',
+			'Name',
+			'Email',
+			'Phone',
+			'Country',
+			'City',
+			'Gender',
+			'Age',
+			'Source',
+			'Subject',
+			'Message',
+			'Language',
+			'Created At'
+		];
+
+		// Prepare rows
+		const rows = usersToExport.map(user => [
+			user.id,
+			`"${user.name.replace(/"/g, '""')}"`, // Escape quotes
+			user.email,
+			user.phone || '',
+			user.country || '',
+			user.city || '',
+			user.gender || '',
+			user.age || '',
+			user.source || '',
+			`"${(user.subj || '').replace(/"/g, '""')}"`,
+			`"${(user.msg || '').replace(/"/g, '""')}"`,
+			user.lang || 'en',
+			user.createdAt
+		]);
+
+		// Combine headers and rows
+		const csvContent = [
+			headers.join(','),
+			...rows.map(row => row.join(','))
+		].join('\n');
+
+		// Add BOM for UTF-8 to handle special characters
+		const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+		
+		// Create download link
+		const link = document.createElement('a');
+		const url = URL.createObjectURL(blob);
+		link.setAttribute('href', url);
+		
+		// Generate filename with date
+		const date = new Date().toISOString().split('T')[0];
+		const suffix = selectedIds.length > 0 ? `selected_${selectedIds.length}` : 'all';
+		link.setAttribute('download', `registrations_${date}_${suffix}.csv`);
+		
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+		URL.revokeObjectURL(url);
+	}
 </script>
 
 <svelte:head>
@@ -117,11 +187,23 @@
 					<h1 class="font-display text-3xl font-800 text-slate-900 dark:text-white">{m.admin_title()}</h1>
 					<p class="mt-1 text-sm text-slate-500">Pantrypoints Admin Hub</p>
 				</div>
-				<form method="POST" action="?/logout">
-					<button type="submit" class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-red-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-						<LogOut size={15} /> {m.admin_logout()}
+				<div class="flex items-center gap-3">
+					<!-- Download CSV Button -->
+					<button 
+						onclick={downloadAsCSV}
+						disabled={filteredUsers.length === 0}
+						class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition-all hover:bg-brand-blue hover:text-white hover:border-brand-blue disabled:opacity-50 disabled:cursor-not-allowed dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+					>
+						<Download size={15} />
+						{selectedIds.length > 0 ? `Download Selected (${selectedIds.length})` : 'Download All CSV'}
 					</button>
-				</form>
+					
+					<form method="POST" action="?/logout">
+						<button type="submit" class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-red-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+							<LogOut size={15} /> {m.admin_logout()}
+						</button>
+					</form>
+				</div>
 			</div>
 
 			<div in:fly={{ y: 20, duration: 400, delay: 200 }} class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
@@ -163,7 +245,7 @@
 					</div>
 				{:else}
 					<div class="overflow-x-auto">
-						<table class="w-full min-w-[1000px] text-sm">
+						<table class="w-full text-sm">
 							<thead class="bg-slate-50 text-xs font-medium uppercase tracking-wide text-slate-500 dark:bg-slate-900/50 dark:text-slate-400">
 								<tr>
 									<th class="w-12 px-6 py-3">
@@ -180,8 +262,9 @@
 									<th class="px-6 py-3 text-left">{m.phone()}</th>
 									<th class="px-6 py-3 text-left">{m.country()}</th>
 									<th class="px-6 py-3 text-left">{m.age()}</th>
-									<th class="px-6 py-3 text-left">Subject</th>
 									<th class="px-6 py-3 text-left">Source</th>
+									<th class="px-6 py-3 text-left">Subject</th>
+									<th class="px-6 py-3 text-left">Message</th>
 									<th class="px-6 py-3 text-left">Date</th>
 								</tr>
 							</thead>
@@ -209,8 +292,9 @@
 										<td class="px-6 py-3.5 text-slate-500">{user.phone ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.country ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.age ?? '—'}</td>
-										<td class="px-6 py-3.5 text-slate-500">{user.subj ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.source ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500">{user.subj ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500">{user.msg ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-400">
 											<span class="flex items-center gap-1.5"><Calendar size={12} /> {formatDate(user.createdAt)}</span>
 										</td>
