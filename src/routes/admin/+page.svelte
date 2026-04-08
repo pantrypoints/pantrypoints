@@ -261,10 +261,12 @@
 									<th class="px-6 py-3 text-left">{m.admin_col_email()}</th>
 									<th class="px-6 py-3 text-left">{m.phone()}</th>
 									<th class="px-6 py-3 text-left">{m.country()}</th>
+									<th class="px-6 py-3 text-left">{m.city()}</th>
 									<th class="px-6 py-3 text-left">{m.age()}</th>
 									<th class="px-6 py-3 text-left">Source</th>
 									<th class="px-6 py-3 text-left">Subject</th>
 									<th class="px-6 py-3 text-left">Message</th>
+									<th class="px-6 py-3 text-left">Lang</th>
 									<th class="px-6 py-3 text-left">Date</th>
 								</tr>
 							</thead>
@@ -291,10 +293,12 @@
 										<td class="px-6 py-3.5 text-slate-600 dark:text-slate-400">{user.email}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.phone ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.country ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500">{user.city ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.age ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.source ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.subj ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-500">{user.msg ?? '—'}</td>
+										<td class="px-6 py-3.5 text-slate-500">{user.lang ?? '—'}</td>
 										<td class="px-6 py-3.5 text-slate-400">
 											<span class="flex items-center gap-1.5"><Calendar size={12} /> {formatDate(user.createdAt)}</span>
 										</td>
