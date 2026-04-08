@@ -259,14 +259,31 @@ export async function getTagsWithArticles(lang: string = 'en'): Promise<Array<{n
 
 
 
+// export function getArticlePath(article: ContentArticle): string {
+// 	if (article.slug === 'terms' || article.type === 'terms') {
+// 		return '/terms';
+// 	}
+	
+// 	// 5. UPDATED: Dynamically generate route based on nested structure
+// 	const folderRoute = getFolder(article.type);
+// 	const langPrefix = article.lang === 'en' ? '' : `/${article.lang}`;
+	
+// 	return `${langPrefix}/${folderRoute}/${article.slug}`;
+// }
+
+
 export function getArticlePath(article: ContentArticle): string {
-	if (article.slug === 'terms' || article.type === 'terms') {
-		return '/terms';
-	}
-	
-	// 5. UPDATED: Dynamically generate route based on nested structure
-	const folderRoute = getFolder(article.type);
-	const langPrefix = article.lang === 'en' ? '' : `/${article.lang}`;
-	
-	return `${langPrefix}/${folderRoute}/${article.slug}`;
+  // if (article.slug === 'terms' || article.type === 'terms') return '/terms';
+
+  const langPrefix = article.lang === 'en' ? '' : `/${article.lang}`;
+
+  // Nested doc sections have their own routes under /docs/<section>/
+  const nestedDocs = ['circle', 'health', 'supereconomics', 'farm', 
+    'match', 'world', 'preneur', 'educate', 'galaxiv', 'pantrylitics', 'predict'];
+
+  if (nestedDocs.includes(article.type)) {
+    return `${langPrefix}/docs/${article.type}/${article.slug}`;
+  }
+
+  return `${langPrefix}/${article.type}/${article.slug}`;
 }

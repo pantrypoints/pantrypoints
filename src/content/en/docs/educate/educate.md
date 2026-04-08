@@ -5,7 +5,6 @@ date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 image: "/og/educate.jpg"
 weight: 1
-draft: true
 ---
 
 
@@ -14,10 +13,10 @@ Type | Description
 Mobile  | Pantrypreneur  Educate is a small-school offline administration system
 
 
-## Changelog
+<!-- ## Changelog
 
 Date | Change | Notes
---- | --- | --- 
+--- | --- | ---  -->
 
 
 ## Intent
@@ -29,7 +28,6 @@ It focuses on helping teachers manage their students. It comes from our own expe
 - Jobs
 
 From the TESDA training in 2024, we put up the idea that it should do learning outcomes together with info guides and self-checks
-
 
 
 ---

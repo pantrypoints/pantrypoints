@@ -1,81 +1,87 @@
 <script lang="ts">
-  import { fly } from 'svelte/transition';
-  import { cubicOut } from 'svelte/easing';
-  import { onMount } from 'svelte';
-  import {
-    Eye, Sprout, Users, Handshake, GraduationCap, Landmark, 
-    ShieldCheck, Target, Globe, Leaf, TrendingUp,
-    Scale, Lightbulb, Heart
-  } from 'lucide-svelte';
-  import type { PageData } from './$types';
+	import { fade, fly } from 'svelte/transition';
+	import { Info, Users, Handshake, ShieldCheck, FileText, Youtube, Zap, Globe } from 'lucide-svelte';
+	import * as m from '$lib/paraglide/messages';
+	import { languageTag } from '$lib/paraglide/runtime';
 
-  let { data }: { data: PageData } = $props();
+	// Local state for the "Internal" tabs
+	let activeTab = $state('about');
 
-  // Handle Locales
-  let locale = $derived((data.locale ?? 'en') as 'en' | 'tl' | 'cb');
+	// Sample team data - replace with your actual team data
+	const teamMembers = [
+		{ name: 'Juan', role: { en: 'Founder', zh: '创始人' }, image: '/avatars/juan.jpg' },
+		{ name: 'Anh', role: { en: 'Content', zh: 'Content' }, image: '/avatars/anh.jpg' },
+		{ name: 'Jose', role: { en: 'Evangelist', zh: '社区经理' }, image: '/avatars/jing.jpg' },
+		{ name: 'Ehmil', role: { en: 'Research Volunteer', zh: '' }, image: '/avatars/ehmil.jpg' },
+		{ name: 'Adrian', role: { en: 'App Developer', zh: 'App Developer' }, image: '/avatars/adrian.jpg' }
+	];
 
-  const content = {
-    en: {
-      hero_badge: "About UNLADSAKA",
-      hero_title_1: "Empowering Filipino Farmers,",
-      hero_title_2: "Growing Together",
-      hero_desc: "UNLADSAKA is a unified association of farmers and landowners committed to transforming Philippine agriculture through collective action, shared knowledge, and sustainable practices.",
-      purpose_badge: "Our Purpose",
-      purpose_title: "Why We Exist",
-      purpose_desc: "The purpose of UNLADSAKA Association of Farmers and Land Owners is to empower members by increasing access to resources, capital, technology, and information...",
-      mission_title: "Our Mission",
-      mission_text: "To empower Filipino farmers and landowners by increasing access to resources, capital, technology, and information, while facilitating collective marketing and purchasing to increase income and efficiency.",
-      vision_title: "Our Vision",
-      vision_text: "A thriving agricultural sector where Filipino farmers are prosperous, empowered, and united, contributing to food security and sustainable rural development.",
-      functions_badge: "Core Functions",
-      functions_title: "Key Purposes & Functions",
-      functions_desc: "How we serve and empower our farming community",
-      f1_t: "Economic Empowerment", f1_d: "Reduce input costs through bulk purchasing of seeds and fertilizer. Increase profits through collective marketing.",
-      f2_t: "Knowledge & Technology", f2_d: "Facilitate training, workshops, and adoption of modern farming technologies and sustainable practices.",
-      f3_t: "Financial Services", f3_d: "Connect farmers with credit, loans, and financial services to support small-scale operations.",
-      f4_t: "Policy Advocacy", f4_d: "Represent farmers' voices at local and national levels for better agricultural policies.",
-      f5_t: "Networking & Support", f5_d: "Offer platforms for farmers to share experiences, build trust, and collaborate as a united group.",
-      f6_t: "Risk Management", f6_d: "Help farmers handle market fluctuations, crop diseases, and natural disasters through collaboration."
-    },
-    tl: { /* Add Tagalog translations here */ },
-    cb: { /* Add Cebuano translations here */ }
-  };
+	interface Partner {
+		name: string;
+		sector: { en: string; zh: string };
+		image?: string;
+		showname?: boolean;
+	}
 
-  // Helper function for translations
-  function t(key: keyof typeof content['en']) {
-    return content[locale][key] || content['en'][key];
-  }
+	const partners: Partner[] = [
+		{ name: 'Angels Shelter', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/angels.jpg', showname: false, url: 'https://angels.pantrypoints.com' },
+		{ name: 'Ayus', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/ayus.jpg', showname: false, url: 'https://www.facebook.com/ayushealthshop/' },
+		{ name: 'Capri Island Cafe', sector: { en: 'Food Service', zh: '技术' }, image: '/graphics/capri.jpg', showname: false, url: 'https://www.facebook.com/CapriArtCafe/' },
+		{ name: 'FINAC', sector: { en: 'Association', zh: '物流' }, image: '/graphics/finac.jpg', showname: false},
+		{ name: 'Food Rescue Philippines', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/foodrescue.jpg', showname: true, url: 'https://www.facebook.com/foodrescuephilippines/'},
+		{ name: 'Greenlife Coconut Products', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/greenlife.jpg', showname: false, url: "https://www.greenlifecocoph.com/" },
+		{ name: 'Himalayan Asia', sector: { en: 'Engineering', zh: '物流' }, image: '/graphics/hima.jpg', showname: false, url: 'https://www.facebook.com/Himalayanasia/'},
+		{ name: 'PDMSI', sector: { en: 'Association', zh: '技术' }, image: '/graphics/pdmsi.jpg', showname: false },
+		{ name: 'San Pedro CAO', sector: { en: 'Government', zh: '社区网络' }, image: '/graphics/cao.jpg', showname: false },
+		{ name: 'Unlad Saka', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/unlad.jpg', showname: false, url: "https://unladsaka.com/" },
+		{ name: 'Venezuela Gente Excelente', sector: { en: 'Association', zh: '技术' }, image: '/graphics/vge.jpg', showname: false },
+		{ name: 'Yoga Hoa Sen', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/hoasen.jpg', showname: false, url: "https://yogahoasen.com/" }
+	];
 
-  // Animation States
-  let visible = $state(false);
-  let statsVisible = $state(false);
-  let statsRef: HTMLElement | undefined;
+	function getCardStyle(partner: Partner): string {
+		if (!partner.image) return 'bg-teal-600';
+		if (partner.image && partner.showname) return 'bg-cover bg-center';
+		return 'bg-cover bg-center';
+	}
 
-  onMount(() => {
-    setTimeout(() => (visible = true), 80);
-    const obs = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        statsVisible = true;
-        obs.disconnect();
-      }
-    }, { threshold: 0.3 });
-    if (statsRef) obs.observe(statsRef);
-    return () => obs.disconnect();
-  });
+	function getOverlay(partner: Partner): string {
+		if (!partner.image) return '';
+		if (partner.showname) return 'bg-black/50';
+		return 'bg-black/10'; // Subtle overlay for image-only cards
+	}
 
-  // Icons are mapped separately to keep the content object clean
-  const functions = $derived([
-    { icon: Handshake, title: t('f1_t'), description: t('f1_d'), color: "from-amber-500 to-orange-500" },
-    { icon: GraduationCap, title: t('f2_t'), description: t('f2_d'), color: "from-emerald-500 to-teal-500" },
-    { icon: Landmark, title: t('f3_t'), description: t('f3_d'), color: "from-blue-500 to-cyan-500" },
-    { icon: Scale, title: t('f4_t'), description: t('f4_d'), color: "from-purple-500 to-violet-500" },
-    { icon: Heart, title: t('f5_t'), description: t('f5_d'), color: "from-rose-500 to-pink-500" },
-    { icon: ShieldCheck, title: t('f6_t'), description: t('f6_d'), color: "from-amber-600 to-orange-600" }
-  ]);
+	const tabs = [
+		{ id: 'about', label: { en: 'About', zh: '关于', fr: 'À propos', es: 'Acerca de', vi: 'Giới thiệu' }, icon: Info, type: 'internal' },
+		{ id: 'team', label: { en: 'Team', zh: '团队', fr: 'Équipe', es: 'Equipo', vi: 'Đội ngũ' }, icon: Users, type: 'internal' },
+		{ id: 'partners', label: { en: 'Partners', zh: '合作伙伴', fr: 'Partenaires', es: 'Socios', vi: 'Đối tác' }, icon: Handshake, type: 'internal' },
+
+		// External/Link Tabs
+		{ 
+		    id: 'privacy', 
+		    label: { en: 'Privacy & Terms', zh: '隐私与条款', fr: 'Confidentialité et conditions', es: 'Privacidad y términos', vi: 'Quyền riêng tư và Điều khoản' }, 
+		    icon: ShieldCheck, 
+		    type: 'link', 
+		    href: '/privacy' 
+		},
+		{ 
+		    id: 'youtube', 
+		    label: { en: 'YouTube', zh: 'YouTube', fr: 'YouTube', es: 'YouTube', vi: 'YouTube' }, 
+		    icon: Youtube, 
+		    type: 'link', 
+		    href: 'https://youtube.com/@pantrypoints', 
+		    external: true 
+		}
+	];
+
+	// Helper to get localized label
+	function getLabel(tab: typeof tabs[0]): string {
+		return tab.label[languageTag()] || tab.label.en;
+	}
+
+	function getSectorText(partner: Partner): string {
+		return partner.sector[languageTag()] || partner.sector.en;
+	}
 </script>
-
-
-
 
 <div class="page-transition min-h-screen bg-slate-50/50">
 	<header class="relative overflow-hidden border-b border-slate-100">

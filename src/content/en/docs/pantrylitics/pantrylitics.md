@@ -5,7 +5,6 @@ lead: "Pantrylitics is the visualization platform for the Pantrypoints system"
 date: 2022-01-18T19:58:14+01:00
 lastmod: 2022-01-18T19:58:14+01:00
 image: "/og/pantrylitics.jpg"
-draft: true
 ---
 
 
@@ -15,7 +14,7 @@ Pantrylitics is the visualization platform for the Pantrypoints system
 
 
 
-## Models
+<!-- ## Models
 
 
 
@@ -23,3 +22,4 @@ Pantrylitics is the visualization platform for the Pantrypoints system
 
 Date | Change | Notes
 --- | --- | --- 
+ -->

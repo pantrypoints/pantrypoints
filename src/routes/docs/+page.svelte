@@ -17,8 +17,8 @@
       slug: 'circle',
       name: 'Circle',
       nameZh: '圈子 (Circle)',
-      description: 'Documentation for community hubs, local networks, and social resource pooling.',
-      descriptionZh: '关于社区枢纽、本地网络和社会资源池的文档。',
+      description: 'How to use Pantrypoints Circle and make barter-credit transactions',
+      descriptionZh: '如何使用 Pantrypoints Circle 并进行易货信用交易。',
       icon: '/icons/pantry50.png',
       status: 'live',
       tags: ['Community', 'Social']
@@ -27,8 +27,8 @@
       slug: 'educate',
       name: 'Educate',
       nameZh: '教育 (Educate)',
-      description: 'Learning materials, wave-based Cartesian science, and effort-based educational modules.',
-      descriptionZh: '学习材料、基于波的笛卡尔科学和基于努力的教育模块。',
+      description: 'How to use Pantrypreneur Educate to manage your class',
+      descriptionZh: '如何使用 Pantrypoints Educate 管理您的班级。',
       icon: '/icons/educate.png',
       status: 'beta',
       tags: ['Learning', 'Science']
@@ -37,8 +37,8 @@
       slug: 'farm',
       name: 'Farm',
       nameZh: '农业 (Farm)',
-      description: 'Agricultural systems, crop yields, and low-frequency technology applications.',
-      descriptionZh: '农业系统、农作物产量和低频技术的应用。',
+      description: 'How to use Pantrypreneur Farm to manage your plots and crops',
+      descriptionZh: '如何使用 Pantrypoints Farm 管理您的田地和作物。',
       icon: '/icons/farm.png',
       status: 'beta',
       tags: ['Agriculture', 'Food']
@@ -47,8 +47,8 @@
       slug: 'health',
       name: 'Health',
       nameZh: '健康 (Health)',
-      description: 'Guidelines on wellness, diagnostics, and preventative healthcare models.',
-      descriptionZh: '关于健康、诊断和预防性医疗保健模型的指南。',
+      description: 'How to use Pantrypreneur Health to stay healthy',
+      descriptionZh: '如何使用 Pantrypreneur Health 保持健康。',
       icon: '/icons/health.png',
       status: 'beta',
       tags: ['Wellness', 'Medical']
@@ -57,8 +57,8 @@
       slug: 'match',
       name: 'Match',
       nameZh: '匹配 (Match)',
-      description: 'The core engine for B2B/B2C trade, matching effort value with goods and services.',
-      descriptionZh: 'B2B/B2C 贸易的核心引擎，将努力价值与商品和服务相匹配。',
+      description: 'How to use Pantrypoints Match to find a match.',
+      descriptionZh: '如何使用 Pantrypoints Match 寻找合适的关系对象。',
       icon: '/icons/match.png',
       status: 'live',
       tags: ['Trade', 'Economy']
@@ -67,42 +67,62 @@
       slug: 'predict',
       name: 'Predict',
       nameZh: '预测 (Predict)',
-      description: 'Socio-economic forecasting, crisis prediction, and trend analysis tools.',
-      descriptionZh: '社会经济预测、危机预测和趋势分析工具。',
+      description: 'How to use Superphysics Predict to predict events in society',
+      descriptionZh: '如何使用 Superphysics Predict 预测社会事件。',
       icon: '/icons/predict.png',
       status: 'beta',
       tags: ['Analytics', 'Forecasting']
     },
     {
       slug: 'preneur',
-      name: 'Preneur',
-      nameZh: '创业 (Preneur)',
-      description: 'Resources for founders building moneyless startups and circular economy businesses.',
-      descriptionZh: '为建立无货币初创公司和循环经济企业的创始人提供的资源。',
+      name: 'Pantrypreneur',
+      nameZh: 'Pantrypreneur',
+      description: 'How to use Pantrypreneur for your business',
+      descriptionZh: '如何使用 Pantrypreneur 经营您的业务。',
       icon: '/icons/p.png',
       status: 'live',
       tags: ['Business', 'Startups']
     },
     {
+      slug: 'pantrylitics',
+      name: 'Pantrylitics',
+      nameZh: 'Pantrylitics',
+      description: 'How to use Pantrylitics for your business',
+      descriptionZh: '如何使用 Pantrylitics 经营您的业务。',
+      icon: '/icons/pantrylitics.png',
+      status: 'live',
+      tags: ['Business', 'Startups']
+    },    
+    {
       slug: 'supereconomics',
       name: 'Supereconomics',
-      nameZh: 'supereconomics',
-      description: 'Macro-economic policies, global trade frameworks, and system principles.',
-      descriptionZh: '宏观经济政策、全球贸易框架和系统原则。',
+      nameZh: 'Supereconomics',
+      description: 'How we use Supereconomics concepts in Pantrypoints',
+      descriptionZh: '我们如何在 Pantrypoints 中运用 Supereconomics 的概念。',
       icon: '/icons/spsocial.png',
       status: 'coming-soon',
       tags: ['Macro', 'Global']
-    }
-    // {
-    //   slug: 'world',
-    //   name: 'World',
-    //   nameZh: '世界 (World)',
-    //   description: 'Macro-economic policies, global trade frameworks, and system principles.',
-    //   descriptionZh: '宏观经济政策、全球贸易框架和系统原则。',
-    //   icon: '/icons/world.png',
-    //   status: 'coming-soon',
-    //   tags: ['Macro', 'Global']
-    // }
+    },
+    {
+      slug: 'world',
+      name: 'World',
+      nameZh: '世界 (World)',
+      description: 'How to use Pantrypoints World for cross border trade.',
+      descriptionZh: 'antrypoints World – 跨境贸易使用指南',
+      icon: '/icons/world.png',
+      status: 'coming-soon',
+      tags: ['Macro', 'Global']
+    },
+    {
+      slug: 'galaxiv',
+      name: 'Galaxiv',
+      nameZh: 'Galaxiv',
+      description: 'How to play Galaxiv',
+      descriptionZh: '如何玩 Galaxiv 游戏。',
+      icon: '/icons/galaxiv.png',
+      status: 'live',
+      tags: ['Business', 'Startups']
+    },    
   ];
 
   let query = $state('');
@@ -173,7 +193,7 @@
           <input
             type="search"
             bind:value={query}
-            placeholder={m.apps_search_placeholder ? m.apps_search_placeholder() : "Search documentation..."}
+            placeholder={m.search()}
             class="w-full rounded-xl border border-white/30 bg-white/20 py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 backdrop-blur-sm transition-colors focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30"
           />
         </div>
@@ -199,12 +219,12 @@
               <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 p-2 dark:bg-slate-800">
                 <img src={item.icon} alt="" class="h-full w-full object-contain" />
               </div>
-              <span
+              <!-- <span
                 class="rounded-full px-2.5 py-0.5 text-xs font-medium"
                 style="background: {statusColors[item.status]}18; color: {statusColors[item.status]}"
               >
                 {statusLabel(item.status)}
-              </span>
+              </span> -->
             </div>
 
             <h3 class="font-display mb-1.5 text-xl font-bold transition-colors group-hover:text-brand-blue dark:text-white">
@@ -214,19 +234,6 @@
             <p class="mb-4 line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               {getDesc(item)}
             </p>
-
-            <div class="mb-5 flex flex-wrap gap-1.5">
-              {#each item.tags as tag}
-                <span class="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
-                  {tag}
-                </span>
-              {/each}
-            </div>
-
-            <div class="flex items-center gap-1 text-sm font-semibold text-brand-blue">
-              {m.apps_learn_more ? m.apps_learn_more() : "Learn more"}
-              <ArrowRight size={14} class="transition-transform group-hover:translate-x-1" />
-            </div>
           </a>
         {/each}
       </div>

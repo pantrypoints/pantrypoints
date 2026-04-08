@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly, fade } from 'svelte/transition';
   import { Search, Newspaper, Calendar, Tag, ChevronLeft, ChevronRight } from 'lucide-svelte';
-  import { searchContent, formatDate } from '$lib/content';
+  import { searchContent, formatDate, getArticlePath } from '$lib/content';
   import * as m from '$lib/paraglide/messages';
   import { languageTag } from '$lib/paraglide/runtime';
   
@@ -32,7 +32,7 @@
     currentPage = 1;
   });
   
-  const getHref = (slug: string) => `/${contentType}/${slug}`;
+  // const getHref = (slug: string) => `/${contentType}/${slug}`;
   
   const goToPage = (page: number) => {
     if (page >= 1 && page <= totalPages) {
@@ -99,7 +99,7 @@
           <input
             type="search"
             bind:value={query}
-            placeholder={m.news_search_placeholder()}
+            placeholder={m.search()}
             class="w-full rounded-xl border border-white/30 bg-white/20 py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 backdrop-blur-md transition-colors focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30"
           />
         </div>
@@ -119,12 +119,13 @@
       <div class="mb-6 text-sm text-slate-500">
         Showing {((currentPage - 1) * itemsPerPage) + 1} to {Math.min(currentPage * itemsPerPage, allResults.length)} of {allResults.length} articles
       </div>
-      
+      <!-- href={getHref(article.slug)} -->
       <div class="space-y-6">
         {#each paginatedResults as article, i (article.slug)}
           <a
             in:fly={{ y: 15, duration: 350, delay: i * 60 }}
-            href={getHref(article.slug)}
+            
+            href={getArticlePath(article)}
             class="card-hover group flex flex-col overflow-hidden rounded-2xl border border-2 border-slate-400 dark:bg-gray-800 bg-white shadow-sm transition-all sm:flex-row"
           >
             <div class="relative h-48 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48 md:w-64">
