@@ -4,6 +4,7 @@ import { registrations } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
+
 export const POST: RequestHandler = async ({ request, platform, url }) => {
 	// 1. Handle CORS Preflight
 	const origin = request.headers.get('origin');
@@ -38,10 +39,6 @@ export const POST: RequestHandler = async ({ request, platform, url }) => {
 		const data = await request.formData();
 		const email = data.get('email')?.toString().toLowerCase().trim();
 		const name = data.get('name')?.toString().trim();
-		const source = data.get('source')?.toString().trim();
-		
-		const subject = data.get('subject')?.toString();
-		const message = data.get('message')?.toString();
 
 		if (!email || !name) {
 			return json({ error: 'Missing required fields' }, { status: 400 });
@@ -57,13 +54,16 @@ export const POST: RequestHandler = async ({ request, platform, url }) => {
 		await db.insert(registrations).values({
 			name,
 			email,
-			subj: subject || 'External Registration',
-			msg: message || null,
-			lang: data.get('lang')?.toString() || 'en',
-			createdAt: new Date().toISOString(),
-			source: source || null,
+			phone: data.get('phone')?.toString().trim() || null,
 			country: data.get('country')?.toString() || null,
-			city: data.get('city')?.toString() || null
+			city: data.get('city')?.toString() || null,			
+			gender: data.get('gender')?.toString() || null,
+			age: data.get('age')?.toString().trim() || null,			
+			msg: data.get('msg')?.toString().trim() || null,
+			subj: data.get('subj')?.toString().trim() || null,
+			source: data.get('source')?.toString().trim() || 'external',
+			lang: data.get('lang')?.toString() || 'en',
+			createdAt: new Date().toISOString()
 		});
 
 		// Return success with data that client can use for redirect

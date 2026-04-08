@@ -371,7 +371,7 @@
 					</div>
 				{/if}
 
-				<input id="source" name="source" type="hidden" value="PP website root" >
+				<input id="source" name="source" type="hidden" value="PP website root" />
 
 
 				<div class="grid gap-4 sm:grid-cols-2 text-left">
