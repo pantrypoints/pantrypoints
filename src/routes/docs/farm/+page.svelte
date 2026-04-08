@@ -9,8 +9,8 @@
   articles={data.articles}
   contentType="docs"
   vid="/blog.mp4"
-  title="Documentation for Circle"
-  subtitle={m.docs_sub()}
+  title="Documentation for Pantrypreneur Farm"
+  subtitle="Pantrypreneur Farm Solo is small plot management app"
   badgeText={m.reference()}
 />
 

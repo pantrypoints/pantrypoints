@@ -1,10 +1,10 @@
-import { json } from '@sveltejs/kit';
+import { json, redirect } from '@sveltejs/kit';
 import { getDb } from '$lib/db/index';
 import { registrations } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
-export const POST: RequestHandler = async ({ request, platform }) => {
+export const POST: RequestHandler = async ({ request, platform, url }) => {
 	// 1. Handle CORS Preflight
 	const origin = request.headers.get('origin');
 	const allowedOrigins = [
@@ -18,6 +18,7 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		'www.unladsaka.com',
 		'unladsaka.com',
 		'localhost:1313',
+		'localhost:1313/help',
 		'localhost:5173',
 		'www.yogahoasen.com',
 		'yogahoasen.com',
@@ -31,13 +32,14 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		}
 	}
 
+
+
 	try {
 		const data = await request.formData();
 		const email = data.get('email')?.toString().toLowerCase().trim();
 		const name = data.get('name')?.toString().trim();
 		const source = data.get('source')?.toString().trim();
 		
-		// Mapping Maharlika fields to your Drizzle schema
 		const subject = data.get('subject')?.toString();
 		const message = data.get('message')?.toString();
 
@@ -46,15 +48,12 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		}
 
 		const db = getDb(platform?.env?.TURSO_URL, platform?.env?.TURSO_AUTH_TOKEN);
-
-		// 2. Check for existing email
 		const existing = await db.select().from(registrations).where(eq(registrations.email, email)).limit(1);
 
 		if (existing.length > 0) {
 			return json({ error: 'Already registered' }, { status: 409 });
 		}
 
-		// 3. Insert into DB
 		await db.insert(registrations).values({
 			name,
 			email,
@@ -67,7 +66,12 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 			city: data.get('city')?.toString() || null
 		});
 
-		return json({ success: true }, {
+		// Return success with data that client can use for redirect
+		return json({ 
+			success: true, 
+			message: 'Registration successful',
+			redirectUrl: `/help/thanks?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
+		}, {
 			headers: {
 				'Access-Control-Allow-Origin': origin || '*',
 				'Access-Control-Allow-Methods': 'POST'
@@ -80,7 +84,6 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 	}
 };
 
-// Handle OPTIONS request for CORS preflight
 export const OPTIONS: RequestHandler = async ({ request }) => {
 	const origin = request.headers.get('origin');
 	
@@ -92,4 +95,80 @@ export const OPTIONS: RequestHandler = async ({ request }) => {
 		}
 	});
 };
+
+
+// 	try {
+// 		const data = await request.formData();
+// 		const email = data.get('email')?.toString().toLowerCase().trim();
+// 		const name = data.get('name')?.toString().trim();
+// 		const source = data.get('source')?.toString().trim();
+		
+// 		// Mapping Maharlika fields to your Drizzle schema
+// 		const subject = data.get('subject')?.toString();
+// 		const message = data.get('message')?.toString();
+
+// 		if (!email || !name) {
+// 			// Return to form with error message
+// 			const referer = request.headers.get('referer') || '/help';
+// 			throw redirect(303, `${referer}?error=missing-fields`);
+// 		}
+
+// 		const db = getDb(platform?.env?.TURSO_URL, platform?.env?.TURSO_AUTH_TOKEN);
+
+// 		// 2. Check for existing email
+// 		const existing = await db.select().from(registrations).where(eq(registrations.email, email)).limit(1);
+
+// 		if (existing.length > 0) {
+// 			const referer = request.headers.get('referer') || '/help';
+// 			throw redirect(303, `${referer}?error=already-registered`);
+// 		}
+
+// 		// 3. Insert into DB
+// 		await db.insert(registrations).values({
+// 			name,
+// 			email,
+// 			subj: subject || 'External Registration',
+// 			msg: message || null,
+// 			lang: data.get('lang')?.toString() || 'en',
+// 			createdAt: new Date().toISOString(),
+// 			source: source || null,
+// 			country: data.get('country')?.toString() || null,
+// 			city: data.get('city')?.toString() || null
+// 		});
+
+// 		// Get the base URL for redirect
+// 		const baseUrl = origin || 'https://www.pantrypoints.com';
+		
+// 		// Redirect to congratulations page with success parameter
+// 		throw redirect(303, `${baseUrl}/thanks?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`);
+		
+// 		// Alternative: Redirect to a generic thank you page
+// 		// throw redirect(303, `${baseUrl}/thank-you`);
+
+// 	} catch (err) {
+// 		// If it's already a redirect, re-throw it
+// 		if (err.status === 303) {
+// 			throw err;
+// 		}
+		
+// 		console.error(err);
+// 		const referer = request.headers.get('referer') || '/help';
+// 		throw redirect(303, `${referer}?error=server-error`);
+// 	}
+// };
+
+// // Handle OPTIONS request for CORS preflight
+// export const OPTIONS: RequestHandler = async ({ request }) => {
+// 	const origin = request.headers.get('origin');
+	
+// 	return new Response(null, {
+// 		headers: {
+// 			'Access-Control-Allow-Origin': origin || '*',
+// 			'Access-Control-Allow-Methods': 'POST, OPTIONS',
+// 			'Access-Control-Allow-Headers': 'Content-Type'
+// 		}
+// 	});
+// };
+
+
 

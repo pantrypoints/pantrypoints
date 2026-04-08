@@ -9,8 +9,8 @@
   articles={data.articles}
   contentType="docs"
   vid="/blog.mp4"
-  title="Documentation for Circle"
-  subtitle={m.docs_sub()}
+  title="Documentation for Galaxiv"
+  subtitle="Galaxiv is a realtime web-based strategy game that implements interstellar Supereconomics"
   badgeText={m.reference()}
 />
 
