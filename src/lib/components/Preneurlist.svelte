@@ -86,7 +86,7 @@
 					<a 
 						in:fly={{ y: 20, duration: 350, delay: i * 60 }} 
 						href="{basePath}/{item.slug}" 
-						class="group block rounded-2xl border-t-4 border-sky-500 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"> 
+						class="group block rounded-2xl border-t-4 border-teal-500 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"> 
 						<div class="mb-4 flex items-start justify-between">
 							<div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 p-2 dark:bg-slate-800">
 								<img src={item.icon} alt="" class="h-full w-full object-contain">
