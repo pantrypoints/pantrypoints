@@ -7,15 +7,15 @@
 	import Carousel from '$lib/components/Carousel.svelte';
 	import Locations from '$lib/components/Locations.svelte';
 	import { cubicOut } from 'svelte/easing';
-
+	import AwardsTicker from '$lib/components/Awards.svelte';
 
   	import { languageTag } from '$lib/paraglide/runtime';
 
 
 	let { data, form } = $props();
 
-  // Force reactivity — re-evaluates all messages when lang changes
-  let lang = $derived(data.lang);
+	  // Force reactivity — re-evaluates all messages when lang changes
+	  let lang = $derived(data.lang);
 
 
 	let submitting = $state(false);
@@ -91,7 +91,120 @@
 		};
 		return (map[error] ?? (() => error))();
 	}
+
+
+
+	const awardsData = [
+		{
+			id: '150',
+			icon: '/icons/hatch.jpg',
+			title: 'Top 10, 2015',
+			subtitle: 'Hack for Social Good',
+			url: '/news/15-10-24'
+		},		
+		{
+			id: '162',
+			icon: '/icons/magic.jpg',
+			title: 'Top 20, 2016',
+			subtitle: 'ASEANs Next Great Idea',
+			url: '/news/16-12-09'
+		},
+		{
+			id: '172',
+			icon: '/icons/slush.jpg',
+			title: 'Semifinalist, 2017',
+			subtitle: 'Slush Global Impact Accelerator Vietnam',
+			url: '/news/17-10-28'
+		},
+		{
+			id: '177',
+			icon: '/icons/blockathon.jpg',
+			title: '2nd Place, 2017',
+			subtitle: 'Vietnam Blockathon',
+			url: '/news/17-11-26'
+		},
+		{
+			id: '180',
+			icon: '/icons/nasa.jpg',
+			title: 'Most Inspiring, 2018',
+			subtitle: 'NASA Hackathon',
+			url: '/news/18-10-21'
+		},		
+		{
+			id: '181',
+			icon: '/icons/techfest.jpg',
+			title: 'Top 10, 2018',
+			subtitle: 'Aboitiz Decode Hackathon',
+			url: '/news/18-11-10'
+		},
+		{
+			id: '188',
+			icon: '/icons/blockdevs.jpg',
+			title: 'Special Prize, 2018',
+			subtitle: 'DISH Hackathon Manila',
+			url: '/news/18-11-24'
+		},		
+		{
+			id: '196',
+			icon: '/icons/impact.jpg',
+			title: 'Top 10, 2019',
+			subtitle: 'Impacthub Hackathon',
+			url: '/news/19-10-31'
+		},
+		{
+			id: '192',
+			icon: '/icons/wv2.jpg',
+			subtitle: 'Social Innovation Challenge, World Vision Philippines',
+			title: '2nd Place, 2019',
+			url: '/news/19-08-14'
+		},
+		{
+			id: '201',
+			icon: '/icons/hackdays.jpg',
+			title: 'Top 5, 2020',
+			subtitle: 'AWS Hackdays',
+			url: '/news/20-07-23'
+		},
+		{
+			id: '200',
+			icon: '/icons/ninja.jpg',
+			title: 'Participant, 2020',
+			subtitle: 'Project NINJA by JICA',
+			url: '/news/20-12-10'
+		},					
+		{
+			id: '216',
+			icon: '/icons/habitat.jpg',
+			title: 'Preliminary Round, 2021',
+			subtitle: 'Plastics Hackathon by UN Habitat',
+			url: '/news/21-06-05'
+		},		
+		{
+			id: '230',
+			icon: '/icons/searca.jpg',
+			title: 'Top 40, 2023',
+			subtitle: 'SEARCA FLExPHD Planetary Health Diet',
+			url: '/news/23-04-28'
+		},
+		{
+			id: '233',
+			icon: '/icons/fish.jpg',
+			title: 'Finalist, 2023',
+			subtitle: 'Fishackathon',
+			url: '/news/20-07-23'
+		},		
+		{
+			id: '240',
+			icon: '/icons/rotary.jpg',
+			title: 'Participant, 2024',
+			subtitle: 'Hatch Project by Rotary Club',
+			url: '/news/24-08-10'
+		},				
+	];
 </script>
+
+
+
 
 <svelte:head>
 	<title>Pantrypoints — {m.nav_tagline()}</title>
@@ -245,6 +358,14 @@
 		</div>
 	</div>
 </section>
+
+
+<AwardsTicker 
+	awards={awardsData} 
+	title="Our Awards & Rankings"
+/>
+
+
 
 
 <!-- How it works -->
@@ -490,3 +611,4 @@
 	</div>
 	</div>
 </section>
+
