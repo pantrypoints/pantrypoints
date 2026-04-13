@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy for Superphysics Match"
-image: "/logos/pantry.png"
+image: "/graphics/policies.jpg"
 description: "Privacy Policy of Superphysics Match"
 date: 2025-11-01
 layout: "privacy"

@@ -10,8 +10,8 @@
 	// Sample team data - replace with your actual team data
 	const teamMembers = [
 		{ name: 'Juan', role: { en: 'Founder', zh: '创始人' }, image: '/avatars/juan.jpg' },
-		{ name: 'Anh', role: { en: 'Content', zh: 'Content' }, image: '/avatars/anh.jpg' },
 		{ name: 'Jose', role: { en: 'Evangelist', zh: '社区经理' }, image: '/avatars/jing.jpg' },
+		{ name: 'Anh', role: { en: 'Content', zh: 'Content' }, image: '/avatars/anh.jpg' },
 		{ name: 'Ehmil', role: { en: 'Research Volunteer', zh: '' }, image: '/avatars/ehmil.jpg' },
 		{ name: 'Adrian', role: { en: 'App Developer', zh: 'App Developer' }, image: '/avatars/adrian.jpg' }
 	];

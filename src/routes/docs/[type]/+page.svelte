@@ -3,17 +3,17 @@
   let { data } = $props();
 
   const titles: Record<string, string> = {
-    circle: 'Circle Documentation',
-    health: 'Health Documentation',
+    circle: 'Pantrypoints Circle Documentation',
+    health: 'Pantrypreneur Health Documentation',
     supereconomics: 'Supereconomics',
-    farm: 'Farm Documentation',
-    match: 'Match Documentation',
-    world: 'World Documentation',
-    preneur: 'Preneur Documentation',
-    educate: 'Educate Documentation',
+    farm: 'Pantrypreneur Farm Documentation',
+    match: 'Pantrypreneur Match Documentation',
+    world: 'Pantrypoints World Documentation',
+    preneur: 'Pantrypreneur Documentation',
+    educate: 'Pantrypreneur Educate Documentation',
     galaxiv: 'Galaxiv Documentation',
     pantrylitics: 'Pantrylitics Documentation',
-    predict: 'Predict Documentation',
+    predict: 'Superphysics Predict Documentation',
   };
 </script>
 

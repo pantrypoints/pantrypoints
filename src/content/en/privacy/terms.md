@@ -1,6 +1,6 @@
 ---
 title: "Terms of Service"
-image: "/logos/pantry.png"
+image: "/graphics/policies.jpg"
 description: "Terms of Service"
 # date: 2025-11-01
 date: 2026-04-01

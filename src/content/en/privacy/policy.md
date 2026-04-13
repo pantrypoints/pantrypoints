@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy for Pantrypoints Circle"
-image: "/logos/pantry.png"
+image: "/graphics/policies.jpg"
 description: "Privacy Policy of Pantry"
 # date: 2025-11-01
 date: 2026-04-01

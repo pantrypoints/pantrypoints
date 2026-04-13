@@ -1,6 +1,6 @@
 ---
-title: "Privacy Policy for the Pantrypoints Health Offline Reference App"
-image: "/logos/pantry.png"
+title: "Privacy Policy for the Pantrypoints Health"
+image: "/graphics/policies.jpg"
 description: "Privacy Policy of Pantrypoints Health"
 date: 2025-11-01
 layout: "privacy"
