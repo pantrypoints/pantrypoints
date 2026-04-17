@@ -199,7 +199,15 @@
 			title: 'Participant, 2024',
 			subtitle: 'Hatch Project by Rotary Club',
 			url: '/news/24-08-10'
-		},				
+		},
+		{
+			id: '241',
+			icon: '/icons/caiec.jpg',
+			title: 'Participant, 2024',
+			subtitle: 'CAIEC China-ASEAN Innovation',
+			url: '/news/24-03-12'
+		},	
+
 	];
 </script>
 
