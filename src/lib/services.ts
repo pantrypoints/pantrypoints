@@ -80,10 +80,10 @@ export const apps: App[] = [
 		longDescription:
 			'Pantrypoints Match is a matching system using the principles of Superphysics. It can be used for love, health, education, employment, and politics',
 		longDescriptionZh:
-			'',
+			'Pantrypoints Match 是一个运用超级物理学原理的匹配系统，可用于爱情、健康、教育、就业和政治领域。',
 		icon: '/icons/match.png',
 		color: '#FF6666',
-		youtube: 'oBQO5xWr4',
+		youtube: 'A-oBQO5xWr4',
 		tags: ['health', 'wellness', 'community'],
 		features: [
 			'Personality Profiling',
@@ -93,6 +93,32 @@ export const apps: App[] = [
 			'Dating Service'
 		],
 		featuresZh: ['健康服务市场', '预防保健奖励', '社区健康基金', '从业者档案', '预约日程安排', '健康记录摘要'],
+		status: 'beta',
+		screenshots: []
+	},
+	{
+		slug: 'palm',
+		url: 'https://palm.pantrypoints.com',
+		name: 'Pantrypoints Palm',
+		shortName: 'Palm',
+		nameZh: '手掌',
+		description: 'Pantrypoints Palm lets you know yourself',
+		descriptionZh: 'Pantrypoints Palm 助您了解自己。',
+		longDescription:
+			'Pantrypoints Palm lets you ask questions and get answers based on your palm prints',
+		longDescriptionZh:
+			'Pantrypoints Palm 让您通过掌纹提问并获取答案。',
+		icon: '/icons/palm.png',
+		color: '#FF6666',
+		youtube: 'tilGRZvUEJI',
+		tags: ['personality', 'health', 'prediction'],
+		features: [
+			'Personality Profiling',
+			'General Prediction',
+			'Career Matching',
+			'Dating Service'
+		],
+		featuresZh: ['性格分析', '通用预测', '职业匹配', '约会服务'],
 		status: 'beta',
 		screenshots: []
 	},

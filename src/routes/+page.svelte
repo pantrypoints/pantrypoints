@@ -180,6 +180,13 @@
 			url: '/news/21-06-05'
 		},		
 		{
+			id: '222',
+			icon: '/icons/fish.jpg',
+			title: 'Finalist, 2022',
+			subtitle: 'Fishackathon',
+			url: '/news/22-02-01'
+		},				
+		{
 			id: '230',
 			icon: '/icons/searca.jpg',
 			title: 'Top 40, 2023',
@@ -187,12 +194,12 @@
 			url: '/news/23-04-28'
 		},
 		{
-			id: '233',
-			icon: '/icons/fish.jpg',
-			title: 'Finalist, 2023',
-			subtitle: 'Fishackathon',
-			url: '/news/20-07-23'
-		},		
+			id: '231',
+			icon: '/icons/pioneer.png',
+			title: 'Top 40, 2023',
+			subtitle: 'Pioneer',
+			url: 'https://pioneer.app/'
+		},				
 		{
 			id: '240',
 			icon: '/icons/rotary.jpg',
@@ -376,22 +383,20 @@
 
 
 
-<!-- How it works -->
-<section class="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
+<!-- How it works style="color: {step.color}22; letter-spacing: -0.02em" -->
+<section class="dark:bg-black bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
 	<div class="mx-auto max-w-4xl">
 		<div class="mb-14 text-center">
-			<h2 class="font-display mb-3 text-4xl font-700 text-slate-900">{m.home_how_title()}</h2>
+			<h2 class="dark:text-white font-display mb-3 text-4xl font-700 text-slate-900">{m.home_how_title()}</h2>
 		</div>
 		<div class="grid gap-8 md:grid-cols-3">
 			{#each steps as step, i}
 				<div in:fly={{ y: 25, duration: 500, delay: i * 120 }}>
-					<div
-						class="font-display mb-3 text-5xl font-800"
-						style="color: {step.color}22; letter-spacing: -0.02em">
+					<div class="font-display mb-3 text-lg font-800 dark:text-slate-200 text-slate-800">
 						Step {step.step}
 					</div>
-					<h3 class="font-display mb-2 text-lg font-600 text-slate-900">{step.titleFn()}</h3>
-					<p class="text-sm leading-relaxed text-slate-500">{step.descFn()}</p>
+					<h3 class="font-display mb-2 text-4xl font-600 text-slate-900 dark:text-slate-300">{step.titleFn()}</h3>
+					<p class="leading-relaxed text-slate-500">{step.descFn()}</p>
 				</div>
 			{/each}
 		</div>
