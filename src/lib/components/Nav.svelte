@@ -18,8 +18,8 @@
     { href: '/pantrypreneur', labelFn: () => m.nav_preneur() },
     { href: '/services',      labelFn: () => m.services() },
     { href: '/news',          labelFn: () => m.nav_news()  },
-    { href: '/docs',          labelFn: () => m.nav_docs()  },
     { href: '/about',         labelFn: () => m.about()  },
+    { href: '/docs',          labelFn: () => m.nav_docs()  },
     { href: '/tags',         labelFn: () => m.tags()  }
   ];
 
