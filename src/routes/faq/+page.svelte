@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { t, locale } from '$lib/i18n';
 	import { HelpCircle, Mail, ChevronDown } from 'lucide-svelte';
-	import { languageTag } from '$lib/paraglide/runtime'; // Or your new locale logic
 
 	let { data } = $props();
 	let openSections = $state<Record<number, boolean>>({});
@@ -131,4 +130,3 @@
 		</a>
 	</div>
 </div>
-
