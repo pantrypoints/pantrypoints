@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { Calendar, User, Tag, ArrowLeft } from 'lucide-svelte';
 	import { formatDate } from '$lib/content';
-	import * as m from '$lib/paraglide/messages';
-	import { languageTag } from '$lib/paraglide/runtime';
+	import { t, getLocale } from '$lib/i18n';
 
 	let { data } = $props();
 	
 	const article = $derived(data.article);
 	const content = $derived(data.content);
-
-	// Determine if we have a hero image
 	const hasImage = $derived(article.image && article.image.length > 0);
 </script>
 
@@ -40,36 +37,28 @@
 		{/if}
 
 		<div class="relative bg-black/80 p-4 rounded-xl z-20 mx-auto w-full max-w-3xl">
-		
-			<a href="/privacy"	
-				class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white">
+			<a href="/privacy" class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white">
 				<ArrowLeft size={16} />
-				{m.news_back_to_list()}
+				{t('news_back_to_list')}
 			</a>
-
 			<h1 class="font-display text-4xl font-800 text-white sm:text-5xl lg:text-6xl">
 				{article.title}
 			</h1>
-
-
-		{#if article.description}
-			<div class="text-xl text-white pb-6">
-				<p>{article.description}</p>
-			</div>
-		{/if}
-
-
+			{#if article.description}
+				<div class="text-xl text-white pb-6">
+					<p>{article.description}</p>
+				</div>
+			{/if}
 			<div class="flex flex-wrap items-center gap-6 text-sm font-medium text-white/90">
 				<span class="flex items-center gap-1.5">
 					<Calendar size={16} class="text-white/70" />
-					{formatDate(article.date, languageTag())}
+					{formatDate(article.date, getLocale())}
 				</span>
 				<span class="flex items-center gap-1.5">
 					<User size={16} class="text-white/70" />
 					{article.author}
 				</span>
 			</div>
-
 			{#if article.tags?.length > 0}
 				<div class="mt-6 flex flex-wrap gap-2">
 					{#each article.tags as tag}
@@ -84,7 +73,6 @@
 	</div>
 
 	<article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-
 		<div class="prose prose-slate prose-green max-w-none dark:prose-invert md:prose-lg">
 			{@html content}
 		</div>
@@ -92,7 +80,6 @@
 </div>
 
 <style>
-	/* Ensures the hero remains punchy but readable */
 	.font-display {
 		text-wrap: balance;
 		line-height: 1.1;

@@ -1,10 +1,11 @@
 <script lang="ts">
 	import AppDetailView from '$lib/components/App.svelte';
-	import * as m from '$lib/paraglide/messages';
+	import { t } from '$lib/i18n';
 	let { data } = $props();
 </script>
+
 
 <AppDetailView 
 	app={data.app} 
 	categoryUrl="/pantrypreneur" 
-	categoryLabel={m.preneurapps()} />
+	categoryLabel={t('preneurapps')} />

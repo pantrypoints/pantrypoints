@@ -1,6 +1,5 @@
 <script lang="ts">
   import ContentList from '$lib/components/Contentlist.svelte';
-  import * as m from '$lib/paraglide/messages';
   
   let { data } = $props();
 </script>

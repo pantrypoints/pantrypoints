@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import TagCard from '$lib/components/Tagcard.svelte';
-	import * as m from '$lib/paraglide/messages';
 	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
 	let { data }: { data: PageData } = $props();
@@ -94,9 +93,9 @@
 </svelte:head>
 
 <div class="max-w-6xl mx-auto px-4 py-8">
-	<h1 class="text-3xl font-bold mb-2">{m.browse_tags()}</h1>
+	<h1 class="text-3xl font-bold mb-2">Browse Tags</h1>
 	<p class="text-gray-600 dark:text-gray-400 mb-8">
-		{m.articles_by_tags()}
+		Articles by Tags
 	</p>
 
 	{#if uniqueArticles.length === 0}

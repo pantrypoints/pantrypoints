@@ -1,21 +1,32 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
 declare global {
-	namespace App {
-		interface Platform {
-			env: {
-				TURSO_URL: string;
-				TURSO_AUTH_TOKEN: string;
-				ADMIN_PASSWORD: string;
-			};
-			context: {
-				waitUntil(promise: Promise<unknown>): void;
-			};
-			caches: CacheStorage & { default: Cache };
-		}
-		interface Locals {
-		  lang: 'en' | 'zh' | 'fr' | 'es' | 'vi';
-		}
-	}
+  namespace App {
+    interface Locals {
+      lang: import('$lib/types').Locale;
+    }
+  }
 }
 
 export {};
+
+
+// See https://svelte.dev/docs/kit/types#app.d.ts
+// declare global {
+// 	namespace App {
+// 		interface Platform {
+// 			env: {
+// 				TURSO_URL: string;
+// 				TURSO_AUTH_TOKEN: string;
+// 				ADMIN_PASSWORD: string;
+// 			};
+// 			context: {
+// 				waitUntil(promise: Promise<unknown>): void;
+// 			};
+// 			caches: CacheStorage & { default: Cache };
+// 		}
+// 		interface Locals {
+// 		  lang: 'en' | 'zh' | 'fr' | 'es' | 'vi';
+// 		}
+// 	}
+// }
+
+// export {};

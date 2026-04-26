@@ -1,17 +1,14 @@
 <script lang="ts">
   import { fly, fade } from 'svelte/transition';
   import { Search, ArrowRight, BookOpen } from 'lucide-svelte';
-  import * as m from '$lib/paraglide/messages';
-  import { languageTag } from '$lib/paraglide/runtime';
+  import { t, getLocale } from '$lib/i18n';
 
-  // Page configuration
   let title = 'Pantrypoints Documentation';
   let subtitle = 'Guides, API references, and system models for the moneyless economy';
   let badgeLabel = 'Documentation Hub';
   let videoSrc = '/app.mp4';
   let basePath = '/docs';
 
-  // Documentation modules
   const docsItems = [
     {
       slug: 'circle',
@@ -136,7 +133,7 @@
         item.description.toLowerCase().includes(q) ||
         item.nameZh?.includes(q) ||
         item.descriptionZh?.includes(q) ||
-        item.tags.some((t: string) => t.toLowerCase().includes(q))
+        item.tags.some((tag: string) => tag.toLowerCase().includes(q))
       );
     })
   );
@@ -147,20 +144,21 @@
     'coming-soon': '#94a3b8'
   };
 
-  // Fallbacks included in case some paraglide keys don't exist yet
   function statusLabel(status: string): string {
     try {
-      if (status === 'live') return m.status_live();
-      if (status === 'beta') return m.status_beta();
-      return m.status_coming_soon();
+      if (status === 'live') return t('status_live');
+      if (status === 'beta') return t('status_beta');
+      return t('status_coming_soon');
     } catch {
       return status === 'coming-soon' ? 'Coming Soon' : status.charAt(0).toUpperCase() + status.slice(1);
     }
   }
 
-  const getName = (item: any) => (languageTag() === 'zh' ? item.nameZh : item.name);
-  const getDesc = (item: any) => (languageTag() === 'zh' ? item.descriptionZh : item.description);
+  const getName = (item: any) => getLocale() === 'zh' ? item.nameZh : item.name;
+  const getDesc = (item: any) => getLocale() === 'zh' ? item.descriptionZh : item.description;
 </script>
+
+
 
 <div class="page-transition">
   <div class="relative overflow-hidden border-b border-slate-100">
@@ -193,7 +191,7 @@
           <input
             type="search"
             bind:value={query}
-            placeholder={m.search()}
+            placeholder={t('search')}
             class="w-full rounded-xl border border-white/30 bg-white/20 py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 backdrop-blur-sm transition-colors focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30"
           />
         </div>
@@ -205,7 +203,7 @@
     {#if results.length === 0}
       <div in:fade={{ duration: 200 }} class="py-20 text-center text-slate-400">
         <Search size={40} class="mx-auto mb-4 opacity-40" />
-        <p>{m.apps_none_found ? m.apps_none_found() : "No documentation found matching your search."}</p>
+        <p>{t('apps_none_found') || "No documentation found matching your search."}</p>
       </div>
     {:else}
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -241,23 +239,3 @@
   </div>
 </div>
 
-
-
-<!-- <script lang="ts">
-  import ContentList from '$lib/components/Contentlist.svelte';
-  import * as m from '$lib/paraglide/messages';
-  
-  let { data } = $props();
-</script>
-
-<ContentList
-  articles={data.articles}
-  contentType="docs"
-  vid="/blog.mp4"
-  title={m.docs_title()}
-  subtitle={m.docs_sub()}
-  badgeText={m.reference()}
-/>
-
-
- -->

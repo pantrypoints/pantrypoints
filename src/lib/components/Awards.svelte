@@ -1,7 +1,5 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import * as m from '$lib/paraglide/messages';
-  import { languageTag } from '$lib/paraglide/runtime';
 
   interface Award {
     id: string;
@@ -125,7 +123,6 @@
 <div class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
   <div class="text-center pb-6">
     <h2 class="font-display mb-4 text-4xl md:text-5xl font-700 bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-      <!-- {m.awards()} -->
       Our Awards & Rankings
     </h2>
     

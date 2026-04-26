@@ -1,12 +1,12 @@
 <script lang="ts">
 	import AppGridView from '$lib/components/Preneurlist.svelte';
-	import * as m from '$lib/paraglide/messages';
+	import { t } from '$lib/i18n';
 	let { data } = $props();
 </script>
 
 <AppGridView 
 	items={data.items}
-	title={m.nav_preneur()}
+	title={t('nav_preneur')}
 	subtitle="SaaS for micro-small businesses"
 	badgeLabel="Pantrypreneur"
 	basePath="/pantrypreneur"

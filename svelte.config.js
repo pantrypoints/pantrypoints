@@ -1,8 +1,6 @@
 import adapter from '@sveltejs/adapter-cloudflare';
-import { paraglide } from '@inlang/paraglide-sveltekit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
-
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,9 +13,9 @@ const config = {
 		})
 	],
 	kit: {
-	    csrf: {
-	      checkOrigin: false,
-	    },
+		csrf: {
+			checkOrigin: false,
+		},
 		adapter: adapter({
 			routes: {
 				include: ['/*'],
@@ -28,4 +26,3 @@ const config = {
 };
 
 export default config;
-

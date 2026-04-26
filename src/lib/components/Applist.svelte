@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { fly, fade } from 'svelte/transition';
 	import { Search, ArrowRight, Zap } from 'lucide-svelte';
-	import * as m from '$lib/paraglide/messages';
-	import { languageTag } from '$lib/paraglide/runtime';
+	import { t, getLocale } from '$lib/i18n';
 
 	let { 
 		items, 
@@ -15,7 +14,6 @@
 
 	let query = $state('');
 
-	// Centralized search logic for all collections
 	const results = $derived(
 		items.filter((item: any) => {
 			const q = query.toLowerCase().trim();
@@ -25,7 +23,7 @@
 				item.description.toLowerCase().includes(q) ||
 				item.nameZh?.includes(q) ||
 				item.descriptionZh?.includes(q) ||
-				item.tags.some((t: string) => t.toLowerCase().includes(q))
+				item.tags.some((tag: string) => tag.toLowerCase().includes(q))
 			);
 		})
 	);
@@ -37,14 +35,16 @@
 	};
 
 	function statusLabel(status: string): string {
-		if (status === 'live') return m.status_live();
-		if (status === 'beta') return m.status_beta();
-		return m.status_coming_soon();
+		if (status === 'live') return t('status_live');
+		if (status === 'beta') return t('status_beta');
+		return t('status_coming_soon');
 	}
 
-	const getName = (item: any) => languageTag() === 'zh' ? item.nameZh : item.name;
-	const getDesc = (item: any) => languageTag() === 'zh' ? item.descriptionZh : item.description;
+	const getName = (item: any) => getLocale() === 'zh' ? item.nameZh : item.name;
+	const getDesc = (item: any) => getLocale() === 'zh' ? item.descriptionZh : item.description;
 </script>
+
+
 
 <div class="page-transition">
 	<div class="relative border-b border-slate-100 overflow-hidden">
@@ -66,7 +66,7 @@
 					<input 
 						type="search" 
 						bind:value={query} 
-						placeholder={m.apps_search_placeholder()} 
+						placeholder={t('apps_search_placeholder')} 
 						class="w-full rounded-xl border border-white/30 bg-white/20 backdrop-blur-sm py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 transition-colors focus:border-white focus:ring-2 focus:ring-white/30 focus:outline-none" 
 					/>
 				</div>
@@ -78,7 +78,7 @@
 		{#if results.length === 0}
 			<div in:fade={{ duration: 200 }} class="py-20 text-center text-slate-400">
 				<Search size={40} class="mx-auto mb-4 opacity-40" />
-				<p>{m.apps_none_found()}</p>
+				<p>{t('apps_none_found')}</p>
 			</div>
 		{:else}
 			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -112,7 +112,7 @@
 						</div>
 
 						<div class="flex items-center gap-1 text-sm font-semibold text-brand-blue">
-							{m.apps_learn_more()} <ArrowRight size={14} />
+							{t('apps_learn_more')} <ArrowRight size={14} />
 						</div>
 					</a>
 				{/each}

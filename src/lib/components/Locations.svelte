@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { MapPin } from 'lucide-svelte';
-	import * as m from '$lib/paraglide/messages';
+	import { t } from '$lib/i18n';
 
 	const locations = [
 		{ id: 'laspinas', cityKey: 'laspinas', country: 'Philippines', flag: '/flags/ph.png', url: 'https://maps.app.goo.gl/example1' },
@@ -26,7 +26,7 @@
 						<img src={location.flag} alt={location.country} class="w-full h-full object-cover">
 					</div>
 					<h3 class="font-bold text-lg group-hover:text-pastel-blue-dark transition-colors">
-						{m[location.cityKey]}
+						{t(location.cityKey)}
 					</h3>
 					<p class="text-sm text-white">{location.country}</p>
 				</div>
@@ -35,4 +35,3 @@
 		
 	</div>
 </section>
-

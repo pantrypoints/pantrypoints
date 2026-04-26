@@ -11,7 +11,7 @@ const DOC_TYPES = [
 
 export const load: PageServerLoad = async ({ params }) => {
   const { type, slug } = params;
-  const lang = 'en'; // swap for paraglide lang detection if needed
+  const lang = 'en';
 
   if (!DOC_TYPES.includes(type as any)) {
     throw error(404, `Unknown doc type: ${type}`);

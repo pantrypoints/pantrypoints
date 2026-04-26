@@ -1,23 +1,15 @@
 import type { Handle } from '@sveltejs/kit';
-import { sequence } from '@sveltejs/kit/hooks';
-import { setLanguageTag, isAvailableLanguageTag } from '$lib/paraglide/runtime';
-import { createI18n } from '@inlang/paraglide-sveltekit';
-import * as runtime from '$lib/paraglide/runtime';
-
-
+import { setLocale, LOCALES, DEFAULT_LOCALE } from '$lib/i18n';
+import type { Locale } from '$lib/types';
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const cookieLang = event.cookies.get('lang') ?? 'en';
+  const cookieLang = event.cookies.get('lang') as Locale | undefined;
+  const lang: Locale = LOCALES.includes(cookieLang as Locale) ? (cookieLang as Locale) : DEFAULT_LOCALE;
 
-  console.log('COOKIE LANG:', cookieLang); // ← add this
-  const lang = isAvailableLanguageTag(cookieLang) ? cookieLang : 'en';
-  console.log('RESOLVED LANG:', lang); // ← and this
-
-
+  setLocale(lang);
   event.locals.lang = lang;
-  setLanguageTag(() => event.locals.lang as 'en' | 'zh' | 'fr' | 'es' | 'vi' );
 
   return resolve(event, {
-    transformPageChunk: ({ html }) => html.replace('%lang%', lang)
+    transformPageChunk: ({ html }) => html.replace('%lang%', lang),
   });
 };

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Calendar, User, Tag, ArrowLeft } from 'lucide-svelte';
 	import { formatDate } from '$lib/content';
-	import * as m from '$lib/paraglide/messages';
-	import { languageTag } from '$lib/paraglide/runtime';
+	import { t, getLocale } from '$lib/i18n';
 	
 	let { 
 		article,
@@ -10,10 +9,10 @@
 		contentType = 'news' as 'news' | 'docs'
 	} = $props();
 	
-	// Determine if we have a hero image
 	const hasImage = $derived(article.image && article.image.length > 0);
 	const backLink = $derived(`/${contentType}`);
 </script>
+
 
 <svelte:head>
 	<title>{article.title} — Pantrypoints</title>
@@ -43,7 +42,7 @@
 						class="mb-6 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
 					>
 						<ArrowLeft size={16} />
-						{m.news_back_to_list()}
+						{t('news_back_to_list')}
 					</a>
 
 					<h1 class="font-display mb-4 text-4xl font-800 text-white sm:text-5xl lg:text-6xl">
@@ -59,7 +58,7 @@
 					<div class="flex flex-wrap items-center pt-6 gap-6 text-sm font-medium text-white/90">
 						<span class="flex items-center gap-1.5">
 							<Calendar size={16} class="text-white/70" />
-							{formatDate(article.date, languageTag())}
+							{formatDate(article.date, getLocale())}
 						</span>
 						<span class="flex items-center gap-1.5">
 							{#if article.icon}
@@ -97,7 +96,7 @@
 					class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
 				>
 					<ArrowLeft size={16} />
-					{m.news_back_to_list()}
+					{t('news_back_to_list')}
 				</a>
 
 				<h1 class="font-display mb-6 text-4xl font-800 text-white sm:text-5xl lg:text-6xl">
@@ -113,7 +112,7 @@
 				<div class="flex flex-wrap items-center gap-6 text-sm font-medium text-white/90">
 					<span class="flex items-center gap-1.5">
 						<Calendar size={16} class="text-white/70" />
-						{formatDate(article.date, languageTag())}
+						{formatDate(article.date, getLocale())}
 					</span>
 					<span class="flex items-center gap-1.5">
 						{#if article.icon}

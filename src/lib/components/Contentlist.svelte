@@ -2,8 +2,7 @@
   import { fly, fade } from 'svelte/transition';
   import { Search, Newspaper, Calendar, Tag, ChevronLeft, ChevronRight } from 'lucide-svelte';
   import { searchContent, formatDate, getArticlePath } from '$lib/content';
-  import * as m from '$lib/paraglide/messages';
-  import { languageTag } from '$lib/paraglide/runtime';
+  import { t, getLocale } from '$lib/i18n';
   
   let { 
     articles = [],
@@ -99,7 +98,7 @@
           <input
             type="search"
             bind:value={query}
-            placeholder={m.search()}
+            placeholder={t('search')}
             class="w-full rounded-xl border border-white/30 bg-white/20 py-3 pl-11 pr-4 text-sm text-white placeholder-white/70 backdrop-blur-md transition-colors focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30"
           />
         </div>
@@ -112,7 +111,7 @@
     {#if allResults.length === 0}
       <div in:fade={{ duration: 200 }} class="py-20 text-center text-slate-400">
         <Newspaper size={40} class="mx-auto mb-4 opacity-40" />
-        <p>{m.news_none_found()}</p>
+        <p>{t('news_none_found')}</p>
       </div>
     {:else}
       <!-- Results count info -->
@@ -160,7 +159,7 @@
                 <div class="flex flex-wrap items-center gap-3 text-xs text-slate-400">
                   <span class="flex items-center gap-1">
                     <Calendar size={12} />
-                    {formatDate(article.date, languageTag())}
+                    {formatDate(article.date, getLocale())}
                   </span>
                   {#if article.tags}
                     {#each article.tags.slice(0, 3) as tag}
@@ -176,7 +175,7 @@
                   class="shrink-0 self-start rounded-xl px-4 py-2 text-sm font-semibold transition-all group-hover:bg-brand-green group-hover:text-white"
                   style="background: #00BD6C12; color: #00BD6C"
                 >
-                  {m.news_read_more()}
+                  {t('news_read_more')}
                 </div>
               </div>
             </div>
@@ -242,3 +241,4 @@
     {/if}
   </div>
 </div>
+

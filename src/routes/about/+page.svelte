@@ -1,13 +1,10 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import { Info, Users, Handshake, ShieldCheck, FileText, Youtube, Zap, Globe } from 'lucide-svelte';
-	import * as m from '$lib/paraglide/messages';
-	import { languageTag } from '$lib/paraglide/runtime';
+	import { t, getLocale } from '$lib/i18n';
 
-	// Local state for the "Internal" tabs
 	let activeTab = $state('about');
 
-	// Sample team data - replace with your actual team data
 	const teamMembers = [
 		{ name: 'Juan', role: { en: 'Founder', zh: '创始人' }, image: '/avatars/juan.jpg' },
 		{ name: 'Jose', role: { en: 'Evangelist', zh: '社区经理' }, image: '/avatars/jing.jpg' },
@@ -21,6 +18,7 @@
 		sector: { en: string; zh: string };
 		image?: string;
 		showname?: boolean;
+		url?: string;
 	}
 
 	const partners: Partner[] = [
@@ -28,63 +26,44 @@
 		{ name: 'Ayus', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/ayus.jpg', showname: false, url: 'https://www.facebook.com/ayushealthshop/' },
 		{ name: 'Capri Island Cafe', sector: { en: 'Food Service', zh: '技术' }, image: '/graphics/capri.jpg', showname: false, url: 'https://www.facebook.com/CapriArtCafe/' },
 		{ name: 'Care for Tribes International', sector: { en: 'NGO', zh: '' }, image: '/graphics/cfti.jpg', showname: false, url: 'https://www.facebook.com/carefortribes/' },
-		{ name: 'FINAC', sector: { en: 'Association', zh: '物流' }, image: '/graphics/finac.jpg', showname: false},
-		{ name: 'Food Rescue Philippines', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/foodrescue.jpg', showname: true, url: 'https://www.facebook.com/foodrescuephilippines/'},
-		{ name: 'Greenlife Coconut Products', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/greenlife.jpg', showname: false, url: "https://www.greenlifecocoph.com/" },
+		{ name: 'FINAC', sector: { en: 'Association', zh: '物流' }, image: '/graphics/finac.jpg', showname: false },
+		{ name: 'Food Rescue Philippines', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/foodrescue.jpg', showname: true, url: 'https://www.facebook.com/foodrescuephilippines/' },
+		{ name: 'Greenlife Coconut Products', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/greenlife.jpg', showname: false, url: 'https://www.greenlifecocoph.com/' },
 		{ name: 'Himalayan Asia', sector: { en: 'Engineering', zh: '物流' }, image: '/graphics/hima.jpg', showname: false, url: 'https://www.facebook.com/Himalayanasia/' },
 		{ name: 'PDMSI', sector: { en: 'Association', zh: '技术' }, image: '/graphics/pdmsi.jpg', showname: false },
 		{ name: 'Neo-Holistic Yoga', sector: { en: 'Yoga Studio', zh: '' }, image: '/graphics/neo.jpg', showname: false, url: 'https://www.facebook.com/neoholisticyoga/' },
 		{ name: 'San Pedro CAO', sector: { en: 'Government', zh: '社区网络' }, image: '/graphics/cao.jpg', showname: false },
 		{ name: 'SCENAC', sector: { en: 'NGO', zh: '' }, image: '/graphics/scenac.jpg', showname: false, url: 'https://www.facebook.com/scenacph/' },
-		{ name: 'Unlad Saka', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/unlad.jpg', showname: false, url: "https://unladsaka.com/" },
+		{ name: 'Unlad Saka', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/unlad.jpg', showname: false, url: 'https://unladsaka.com/' },
 		{ name: 'Venezuela Gente Excelente', sector: { en: 'Association', zh: '技术' }, image: '/graphics/vge.jpg', showname: false },
-		{ name: 'Yoga Hoa Sen', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/hoasen.jpg', showname: false, url: "https://yogahoasen.com/" }
+		{ name: 'Yoga Hoa Sen', sector: { en: 'Wellness', zh: '技术' }, image: '/graphics/hoasen.jpg', showname: false, url: 'https://yogahoasen.com/' }
 	];
-
-	function getCardStyle(partner: Partner): string {
-		if (!partner.image) return 'bg-teal-600';
-		if (partner.image && partner.showname) return 'bg-cover bg-center';
-		return 'bg-cover bg-center';
-	}
-
-	function getOverlay(partner: Partner): string {
-		if (!partner.image) return '';
-		if (partner.showname) return 'bg-black/50';
-		return 'bg-black/10'; // Subtle overlay for image-only cards
-	}
 
 	const tabs = [
 		{ id: 'about', label: { en: 'About', zh: '关于', fr: 'À propos', es: 'Acerca de', vi: 'Giới thiệu' }, icon: Info, type: 'internal' },
 		{ id: 'team', label: { en: 'Team', zh: '团队', fr: 'Équipe', es: 'Equipo', vi: 'Đội ngũ' }, icon: Users, type: 'internal' },
 		{ id: 'partners', label: { en: 'Partners', zh: '合作伙伴', fr: 'Partenaires', es: 'Socios', vi: 'Đối tác' }, icon: Handshake, type: 'internal' },
-
-		// External/Link Tabs
-		{ 
-		    id: 'privacy', 
-		    label: { en: 'Privacy & Terms', zh: '隐私与条款', fr: 'Confidentialité et conditions', es: 'Privacidad y términos', vi: 'Quyền riêng tư và Điều khoản' }, 
-		    icon: ShieldCheck, 
-		    type: 'link', 
-		    href: '/privacy' 
-		},
-		{ 
-		    id: 'youtube', 
-		    label: { en: 'YouTube', zh: 'YouTube', fr: 'YouTube', es: 'YouTube', vi: 'YouTube' }, 
-		    icon: Youtube, 
-		    type: 'link', 
-		    href: 'https://youtube.com/@pantrypoints', 
-		    external: true 
-		}
+		{ id: 'privacy', label: { en: 'Privacy & Terms', zh: '隐私与条款', fr: 'Confidentialité et conditions', es: 'Privacidad y términos', vi: 'Quyền riêng tư và Điều khoản' }, icon: ShieldCheck, type: 'link', href: '/privacy' },
+		{ id: 'youtube', label: { en: 'YouTube', zh: 'YouTube', fr: 'YouTube', es: 'YouTube', vi: 'YouTube' }, icon: Youtube, type: 'link', href: 'https://youtube.com/@pantrypoints', external: true }
 	];
 
-	// Helper to get localized label
 	function getLabel(tab: typeof tabs[0]): string {
-		return tab.label[languageTag()] || tab.label.en;
+		const locale = getLocale() as keyof typeof tab.label;
+		return tab.label[locale] || tab.label.en;
 	}
 
 	function getSectorText(partner: Partner): string {
-		return partner.sector[languageTag()] || partner.sector.en;
+		const locale = getLocale() as keyof Partner['sector'];
+		return partner.sector[locale] || partner.sector.en;
+	}
+
+	function getCardStyle(partner: Partner): string {
+		if (!partner.image) return 'bg-teal-600';
+		return 'bg-cover bg-center';
 	}
 </script>
+
+
 
 <div class="page-transition min-h-screen bg-slate-50/50">
 	<header class="relative overflow-hidden border-b border-slate-100">
@@ -97,13 +76,13 @@
 			<div class="mx-auto max-w-3xl">
 				<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-md">
 					<Globe size={13} class="text-brand-green" />
-					{m.about_badge()}
+					{t('about_badge')}
 				</div>
 				<h1 class="mb-3 text-4xl font-800 text-white sm:text-5xl drop-shadow-lg">
-					{m.about_title()}
+					{t('about_title')}
 				</h1>
 				<p class="text-lg text-white/90">
-					{m.about_subtitle()}
+					{t('about_subtitle')}
 				</p>
 			</div>
 		</div>
@@ -142,29 +121,29 @@
 	<main class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
 		{#if activeTab === 'about'}
 			<div in:fade={{ duration: 200 }} class="prose prose-slate prose-green max-w-none">
-				<h2>{m.about_heading()}</h2>
+				<h2>{t('about_heading')}</h2>
 				<p class="text-lg leading-relaxed">
-					{m.about_description()} <a href='https://www.superphysics.org/social/economics/' target="_blank">Economic Superphysics</a>
+					{t('about_description')} <a href='https://www.superphysics.org/social/economics/' target="_blank">Economic Superphysics</a>
 				</p>
 				
-				<h3>{m.about_mission_heading()}</h3>
-				<p>{m.about_mission_text()}</p>
+				<h3>{t('about_mission_heading')}</h3>
+				<p>{t('about_mission_text')}</p>
 				
-				<h3>{m.about_vision_heading()}</h3>
-				<p>{m.about_vision_text()}</p>
+				<h3>{t('about_vision_heading')}</h3>
+				<p>{t('about_vision_text')}</p>
 				
-				<h3>{m.about_values_heading()}</h3>
+				<h3>{t('about_values_heading')}</h3>
 				<ul>
-					<li><strong>{m.about_value_1_title()}:</strong> {m.about_value_1_desc()}</li>
-					<li><strong>{m.about_value_2_title()}:</strong> {m.about_value_2_desc()}</li>
-					<li><strong>{m.about_value_3_title()}:</strong> {m.about_value_3_desc()}</li>
-					<li><strong>{m.about_value_4_title()}:</strong> {m.about_value_4_desc()}</li>
+					<li><strong>{t('about_value_1_title')}:</strong> {t('about_value_1_desc')}</li>
+					<li><strong>{t('about_value_2_title')}:</strong> {t('about_value_2_desc')}</li>
+					<li><strong>{t('about_value_3_title')}:</strong> {t('about_value_3_desc')}</li>
+					<li><strong>{t('about_value_4_title')}:</strong> {t('about_value_4_desc')}</li>
 				</ul>
 			</div>
 
 		{:else if activeTab === 'team'}
 			<div in:fly={{ y: 20, duration: 300 }}>
-				<h2 class="mb-8 text-2xl font-700 text-slate-900">{m.team_heading()}</h2>
+				<h2 class="mb-8 text-2xl font-700 text-slate-900">{t('team_heading')}</h2>
 				<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{#each teamMembers as member}
 						<div class="group rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-lg">
@@ -175,7 +154,7 @@
 							</div>
 							<h3 class="text-lg font-bold text-slate-900">{member.name}</h3>
 							<p class="text-sm text-brand-green">
-								{member.role[languageTag()] || member.role.en}
+								{member.role[getLocale()] || member.role.en}
 							</p>
 						</div>
 					{/each}
@@ -184,7 +163,7 @@
 
 		{:else if activeTab === 'partners'}
 			<div in:fade>
-				<h2 class="mb-8 text-2xl font-700 text-slate-900">{m.partners_heading()}</h2>
+				<h2 class="mb-8 text-2xl font-700 text-slate-900">{t('partners_heading')}</h2>
 
 				<div class="grid gap-4 sm:grid-cols-2">
 					{#each partners as partner}

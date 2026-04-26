@@ -1,15 +1,14 @@
 <script lang="ts">
 	import AppGridView from '$lib/components/Applist.svelte';
-	import * as m from '$lib/paraglide/messages';
+	import { t } from '$lib/i18n';
 	let { data } = $props();
 </script>
 
 <AppGridView 
 	items={data.items}
-	title={m.apps_title()}
-	subtitle={m.apps_subtitle()}
-	badgeLabel={m.trisactions()}
+	title={t('apps_title')}
+	subtitle={t('apps_subtitle')}
+	badgeLabel={t('trisactions')}
 	basePath="/trisactions"
 	videoSrc="/app.mp4" 
 />
-
