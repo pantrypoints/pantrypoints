@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t, locale } from '$lib/i18n';
+	import { t } from '$lib/i18n';
 	import { HelpCircle, Mail, ChevronDown } from 'lucide-svelte';
 
 	let { data } = $props();
@@ -9,8 +9,6 @@
 		openSections[index] = !openSections[index];
 	}
 
-	// In Rosetta, we define the keys. The actual translation happens in the template.
-	// This makes the array static and prevents re-run issues.
 	const sections = [
 		{ titleKey: 'q1', contentKey: 'a1', video: 'ZLxiwg2-tUc' },
 		{ titleKey: 'q2', contentKey: 'a2' },
@@ -36,28 +34,28 @@
 </script>
 
 <svelte:head>
-	<title>{$t('faq_title')} | Pantrypoints</title>
-	<meta name="description" content={$t('faq_subtitle')} />
+	<title>{t('faq_title')} | Pantrypoints</title>
+	<meta name="description" content={t('faq_subtitle')} />
 	<meta property="og:image" content="/og/pantrypoints.jpg" />
 </svelte:head>
 
 <div class="relative z-0 overflow-hidden border-b border-slate-100 bg-gradient-to-br from-brand-blue/90 to-brand-green/90">
-	<div class="absolute inset-0 opacity-10">
+	<!-- <div class="absolute inset-0 opacity-10">
 		<div class="absolute inset-0" style="background-image: url('/graphics/pattern-grid.svg'); background-size: 30px 30px;"></div>
-	</div>
+	</div> -->
 	<div class="absolute inset-0 z-0 bg-black/40"></div>
 
 	<div class="relative z-10 px-4 py-20 text-center sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl">
 			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm">
 				<HelpCircle size={13} />
-				{$t('faq_badge')}
+				{t('faq_badge')}
 			</div>
 			<h1 class="font-display mb-3 text-4xl font-800 text-white drop-shadow-lg sm:text-5xl">
-				{$t('faq_title')}
+				{t('faq_title')}
 			</h1>
 			<p class="mb-8 text-lg text-white/90 drop-shadow">
-				{$t('faq_subtitle')}
+				{t('faq_subtitle')}
 			</p>
 		</div>
 	</div>
@@ -69,7 +67,7 @@
 			{#if section.subheadingKey}
 				<div class="pb-2 pt-8">
 					<h2 class="font-display border-b border-slate-200 pb-3 text-2xl font-700 text-slate-900">
-						{$t(section.subheadingKey)}
+						{t(section.subheadingKey)}
 					</h2>
 				</div>
 			{/if}
@@ -84,7 +82,7 @@
 							{index + 1}
 						</span>
 						<span class="font-display font-600 text-slate-900">
-							{$t(section.titleKey)}
+							{t(section.titleKey)}
 						</span>
 					</div>
 					<ChevronDown size={20} class="text-slate-400 transition-transform duration-300 {openSections[index] ? 'rotate-180' : ''}" />
@@ -94,7 +92,7 @@
 					<div class="animate-fadeIn border-t border-slate-100 bg-slate-50/50 px-6 py-5">
 						<div class="prose prose-slate max-w-none">
 							<div class="leading-relaxed text-slate-600">
-								{@html $t(section.contentKey)
+								{@html t(section.contentKey)
 									.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
 									.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-brand-blue hover:underline">$1</a>')}
 							</div>
@@ -117,16 +115,5 @@
 			</div>
 		{/each}
 	</div>
-
-	<div class="mt-16 border border-slate-100 bg-gradient-to-br from-brand-blue/5 to-brand-green/5 p-10 text-center rounded-2xl">
-		<h2 class="font-display mb-2 text-2xl font-700 text-slate-900">{$t('still_have_questions')}</h2>
-		<p class="mb-6 text-slate-600">{$t('well_be_happy_to_help')}</p>
-		<a 
-			href="/{$locale}/contact" 
-			class="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-brand-blue/90 hover:shadow-lg"
-		>
-			<Mail size={16} />
-			{$t('get_in_touch')}
-		</a>
-	</div>
 </div>
+

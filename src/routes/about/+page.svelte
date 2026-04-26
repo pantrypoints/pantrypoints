@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
-	import { Info, Users, Handshake, ShieldCheck, FileText, Youtube, Zap, Globe } from 'lucide-svelte';
+	import { CircleQuestionMark, Info, Users, Handshake, ShieldCheck, FileText, Youtube, Zap, Globe } from 'lucide-svelte';
 	import { t, getLocale } from '$lib/i18n';
 
 	let activeTab = $state('about');
@@ -44,6 +44,7 @@
 		{ id: 'team', label: { en: 'Team', zh: '团队', fr: 'Équipe', es: 'Equipo', vi: 'Đội ngũ' }, icon: Users, type: 'internal' },
 		{ id: 'partners', label: { en: 'Partners', zh: '合作伙伴', fr: 'Partenaires', es: 'Socios', vi: 'Đối tác' }, icon: Handshake, type: 'internal' },
 		{ id: 'privacy', label: { en: 'Privacy & Terms', zh: '隐私与条款', fr: 'Confidentialité et conditions', es: 'Privacidad y términos', vi: 'Quyền riêng tư và Điều khoản' }, icon: ShieldCheck, type: 'link', href: '/privacy' },
+		{ id: 'faq', label: { en: 'FAQ', zh: 'FAQ', fr: 'FAQ', es: 'FAQ', vi: 'FAQ' }, icon: CircleQuestionMark, type: 'link', href: '/faq' },
 		{ id: 'youtube', label: { en: 'YouTube', zh: 'YouTube', fr: 'YouTube', es: 'YouTube', vi: 'YouTube' }, icon: Youtube, type: 'link', href: 'https://youtube.com/@pantrypoints', external: true }
 	];
 
