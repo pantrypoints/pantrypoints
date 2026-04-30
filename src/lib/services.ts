@@ -153,7 +153,38 @@ export const apps: App[] = [
 			'Tax analytics'],
 		status: 'coming-soon',
 		screenshots: []
-	}
+	},
+	{
+		slug: 'manilakbay',
+		name: 'Manilakbay',
+		shortName: 'Manilakbay',
+		nameZh: 'Manilakbay',
+		description: 'Manilakbay is a public transportation routes map',
+		descriptionZh: 'Manilakbay is a public transportation routes map',
+		longDescription:
+			'Manilakbay is a public transportation routes map',
+		longDescriptionZh:
+			'Manilakbay is a public transportation routes map',
+		longDescriptionEs: 'Manilakbay is a public transportation routes map',
+		longDescriptionFr: 'Manilakbay is a public transportation routes map',
+		longDescriptionVi: 'Manilakbay is a public transportation routes map',
+		longDescriptionZh: 'Manilakbay is a public transportation routes map',
+		// icon: '/icons/t.png',
+		img: '/og/manilakbay.jpg',
+		color: '#26B2F7',
+		// youtube: 'HOtK8qR7LYI',
+		tags: [],
+		features: [
+			'Routes',
+			'Sidewalks Passability',
+		],
+		featuresZh: [
+			'Routes',
+			'Sidewalks Passability',
+		],
+		status: 'coming-soon',
+		screenshots: []
+	}	
 ];
 
 export function getApp(slug: string): App | undefined {
