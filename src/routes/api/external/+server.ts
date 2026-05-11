@@ -47,11 +47,11 @@ export const POST: RequestHandler = async ({ request, platform, url }) => {
 		}
 
 		const db = getDb(platform?.env?.TURSO_URL, platform?.env?.TURSO_AUTH_TOKEN);
-		const existing = await db.select().from(registrations).where(eq(registrations.email, email)).limit(1);
+		// const existing = await db.select().from(registrations).where(eq(registrations.email, email)).limit(1);
 
-		if (existing.length > 0) {
-			return json({ error: 'Already registered' }, { status: 409 });
-		}
+		// if (existing.length > 0) {
+		// 	return json({ error: 'Already registered' }, { status: 409 });
+		// }
 
 		await db.insert(registrations).values({
 			name,
