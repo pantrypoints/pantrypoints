@@ -72,7 +72,7 @@ export const POST: RequestHandler = async ({ request, platform, url }) => {
 		return json({ 
 			success: true, 
 			message: 'Registration successful',
-			redirectUrl: `/help/thanks?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
+			redirectUrl: `/thanks?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
 		}, {
 			headers: {
 				'Access-Control-Allow-Origin': origin || '*',
