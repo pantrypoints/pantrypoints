@@ -30,8 +30,7 @@
 <div class="page-transition">
 	<div 
 		class="relative flex min-h-[400px] items-end overflow-hidden px-4 py-16 text-white sm:px-6 lg:px-8"
-		style:background-color={app.color || '#00BD6C'}
-	>
+		style:background-color={app.color || '#00BD6C'}>
 		<div class="absolute inset-0 z-0 flex items-center justify-center opacity-10">
 			<img src={app.icon} alt="" class="h-96 w-96 object-contain grayscale brightness-0 invert" />
 		</div>

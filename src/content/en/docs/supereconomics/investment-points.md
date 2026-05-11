@@ -3,12 +3,11 @@ title: "What are Investment Points?"
 linkTitle: Investment Points
 subtitle: "The effort value of goods and services claimable in the future"
 date: 2020-07-05
-image: "/photos/team.jpg"
+image: "/photos/types.jpg"
 description: "Investment Points are the conversion of goods and services into their corresponding value in effort claimable in the future"
 author: Juan
-icon: https://superphysics.org/icons/pantry50.png
+icon: Juan
 ---
-
 
 
 Last week, we were invited to join the SIS Online Hackathon, wherein the organizers were looking for a tech solution for B2B cash management. The Covid pandemic has wreaked havoc on cash and many customers are unable to pay their suppliers.
@@ -36,6 +35,7 @@ The Covid pandemic caused travel and tourism to stop, which then created a domin
 One of the most famous Covid bankruptcy was that of Virgin Airlines Australia, made insolvent by a massive $7b debt. It was later [rescued by Bain Capital](https://www.smh.com.au/business/companies/virgin-australia-bondholder-launches-court-action-to-unveil-secret-bain-deal-20200707-p559v2.html) after failing to get a bailout from the Australian government. Bain will likely cut jobs, lower wages, and raise prices in order to recover its risky investment -- to the detriment of Australian citizens.
 
 Clearly, the current solution is not a win-win: the company loses control and the people lose benefits. Is there any better solution to insolvency? Adam Smith asked the same question over 200 years ago:
+
 
 > It has been said that the Americans have no gold or silver money. Without gold and silver it is impossible to pay taxes. How can we draw from them what they do not have?
 > — Adam Smith, The Simple Wealth Of Nations, Book 5

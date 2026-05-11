@@ -24,7 +24,7 @@
       { id: '201', icon: '/icons/hackdays.jpg', title: 'Top 5, 2020', subtitle: 'AWS Hackdays', url: '/news/20-07-23', flag: 'Philippines' },
       { id: '200', icon: '/icons/ninja.jpg', title: 'Participant, 2020', subtitle: 'Project NINJA by JICA', url: '/news/20-12-10', flag: 'Singapore' },
       { id: '216', icon: '/icons/habitat.jpg', title: 'Preliminary Round, 2021', subtitle: 'Plastics Hackathon by UN Habitat', url: '/news/21-06-05', flag: 'Philippines' },
-      { id: '222', icon: '/icons/fish.jpg', title: 'Finalist, 2022', subtitle: 'Fishackathon', url: '/news/22-02-01' },
+      { id: '222', icon: '/icons/fish.jpg', title: 'Finalist, 2022', subtitle: 'Fishackathon', url: '/news/22-02-01', flag: 'Singapore' },
       { id: '230', icon: '/icons/searca.jpg', title: 'Top 40, 2023', subtitle: 'SEARCA FLExPHD Planetary Health Diet', url: '/news/23-04-28', flag: 'Philippines' },
       { id: '231', icon: '/icons/pioneer.png', title: 'Top 40, 2023', subtitle: 'Pioneer', url: 'https://pioneer.app/' },
       { id: '240', icon: '/icons/rotary.jpg', title: 'Participant, 2024', subtitle: 'Hatch Project by Rotary Club', url: '/news/24-08-10', flag: 'Philippines' },

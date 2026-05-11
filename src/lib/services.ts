@@ -70,6 +70,37 @@ export const apps: App[] = [
 		screenshots: []
 	},
 	{
+		slug: 'manilakbay',
+		name: 'Manilakbay',
+		shortName: 'Manilakbay',
+		nameZh: 'Manilakbay',
+		description: 'Manilakbay is a public transportation routes map',
+		descriptionZh: 'Manilakbay is a public transportation routes map',
+		longDescription:
+			'Manilakbay is a public transportation routes map',
+		longDescriptionZh:
+			'Manilakbay is a public transportation routes map',
+		longDescriptionEs: 'Manilakbay is a public transportation routes map',
+		longDescriptionFr: 'Manilakbay is a public transportation routes map',
+		longDescriptionVi: 'Manilakbay is a public transportation routes map',
+		longDescriptionZh: 'Manilakbay is a public transportation routes map',
+		icon: '/icons/m.png',
+		img: '/og/manilakbay.jpg',
+		color: '#0185A2',
+		// youtube: 'HOtK8qR7LYI',
+		tags: [],
+		features: [
+			'Routes',
+			'Sidewalks Passability',
+		],
+		featuresZh: [
+			'Routes',
+			'Sidewalks Passability',
+		],
+		status: 'coming-soon',
+		screenshots: []
+	},	
+	{
 		slug: 'match',
 		url: 'https://play.google.com/store/apps/details?id=org.superphysics.matchoff',
 		name: 'Pantrypoints Match',
@@ -151,40 +182,9 @@ export const apps: App[] = [
 			'Surplus goods matching',
 			'Moneyless',
 			'Tax analytics'],
-		status: 'coming-soon',
+		status: 'beta',
 		screenshots: []
-	},
-	{
-		slug: 'manilakbay',
-		name: 'Manilakbay',
-		shortName: 'Manilakbay',
-		nameZh: 'Manilakbay',
-		description: 'Manilakbay is a public transportation routes map',
-		descriptionZh: 'Manilakbay is a public transportation routes map',
-		longDescription:
-			'Manilakbay is a public transportation routes map',
-		longDescriptionZh:
-			'Manilakbay is a public transportation routes map',
-		longDescriptionEs: 'Manilakbay is a public transportation routes map',
-		longDescriptionFr: 'Manilakbay is a public transportation routes map',
-		longDescriptionVi: 'Manilakbay is a public transportation routes map',
-		longDescriptionZh: 'Manilakbay is a public transportation routes map',
-		// icon: '/icons/t.png',
-		img: '/og/manilakbay.jpg',
-		color: '#26B2F7',
-		// youtube: 'HOtK8qR7LYI',
-		tags: [],
-		features: [
-			'Routes',
-			'Sidewalks Passability',
-		],
-		featuresZh: [
-			'Routes',
-			'Sidewalks Passability',
-		],
-		status: 'coming-soon',
-		screenshots: []
-	}	
+	}
 ];
 
 export function getApp(slug: string): App | undefined {

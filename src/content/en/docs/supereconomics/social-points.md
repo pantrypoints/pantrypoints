@@ -1,6 +1,6 @@
 ---
 title: "What are Social Points?"
-image: "/photos/pantry.jpg"
+image: "/photos/types.jpg"
 description: "Social Points implement the moneyless version of nominal prices as the First Law of Value"
 tags: ['Points']
 date: 2022-07-20
@@ -24,9 +24,9 @@ Trade Points | [market value](https://superphysics.org/social/economics/principl
 
 ## Valuing the Valueless
 
-Social points represent the abstract nominal value of anything, under the Supereconomics principle that everything that exists has a value otherwise it wouldn't exist. 
+Social points represent the abstract nominal value of anything, under the Supereconomics principle that exchangeable value is based on relational desire. 
 
-![Law 1]("/graphics/law1.jpg")
+![Law 1](https://superphysics.org/graphics/econ/law1.jpg)
 
 A thing might have no value to Person A. But it might have a value to Person Z. 
 - We say that its nominal value to `A` is 0, but its nominal value to `Z` is something as some positive integer. 
@@ -59,9 +59,13 @@ To incentivize food sellers to dispose of their food waste earlier, we propose t
 
 ## What are Social Points? 
 
-Social Points are stores of value done between 2 parties for a social purpose. 
+Social Points are stores of value done between 2 parties for a social purpose. It represents the commonality property of waves.
 
-Unlike trade points, [loyalty points](/docs/supereconomics/loyalty-points), and investment points, **there is no obligation or duty to pay back social points**. 
+![Types](/photos/types.jpg)
+
+
+Unlike exchange points, [loyalty points](/docs/supereconomics/loyalty-points), and investment points, **there is no obligation or duty to pay back social points**. 
+- Social points are the most benevolent of the point types, just as Exchange points are the most exacting and demanding (opposite of benevolence)
 
 Rather, social points carry a slight moral obligation which is powered by the common interest. **The weaker the common interest, the weaker the moral obligation.** 
 
@@ -70,7 +74,7 @@ Rather, social points carry a slight moral obligation which is powered by the co
 Assuming the food owner has 50 kilos of unsold tomatoes which are no longer sellable but still edible for 3 days with refrigeration and processing (cleaning and removing the moldy ones). 
 
 
-![Tomatoes]("/photos/tomatoes.jpg")
+
 
 
 

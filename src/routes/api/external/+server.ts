@@ -21,6 +21,8 @@ export const POST: RequestHandler = async ({ request, platform, url }) => {
 		'localhost:1313',
 		'localhost:1313/help',
 		'localhost:5173',
+		'localhost:5173/#contact',
+		'jholash.pantrypoints.com',
 		'www.yogahoasen.com',
 		'yogahoasen.com',
 	];

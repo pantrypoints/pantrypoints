@@ -30,6 +30,7 @@
 		{ name: 'Food Rescue Philippines', sector: { en: 'Charity', zh: '物流' }, image: '/graphics/foodrescue.jpg', showname: true, url: 'https://www.facebook.com/foodrescuephilippines/' },
 		{ name: 'Greenlife Coconut Products', sector: { en: 'Agriculture', zh: '技术' }, image: '/graphics/greenlife.jpg', showname: false, url: 'https://www.greenlifecocoph.com/' },
 		{ name: 'Himalayan Asia', sector: { en: 'Engineering', zh: '物流' }, image: '/graphics/hima.jpg', showname: false, url: 'https://www.facebook.com/Himalayanasia/' },
+		{ name: 'Jho Lash Brows', sector: { en: 'Wellness', zh: '' }, image: '/graphics/jho.jpg', showname: false, url: 'https://jho.pantrypoints.com/' },
 		{ name: 'PDMSI', sector: { en: 'Association', zh: '技术' }, image: '/graphics/pdmsi.jpg', showname: false },
 		{ name: 'Neo-Holistic Yoga', sector: { en: 'Yoga Studio', zh: '' }, image: '/graphics/neo.jpg', showname: false, url: 'https://www.facebook.com/neoholisticyoga/' },
 		{ name: 'San Pedro CAO', sector: { en: 'Government', zh: '社区网络' }, image: '/graphics/cao.jpg', showname: false },

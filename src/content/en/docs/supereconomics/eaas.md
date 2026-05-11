@@ -2,7 +2,7 @@
 title: "What is Economy-as-a-Service or EAAS?"
 linkTitle: EaaS
 subtitle: "A Rapidly-deployable Economic System"
-image: "https://sorasystem.sirv.com/photos/pawns.jpg"
+image: "/photos/eaas.jpg"
 description: "An Economy as a Service is a rapidly-deployable cloud-based economic system"
 tags: ['Supereconomics']
 date: 2020-06-25

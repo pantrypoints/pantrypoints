@@ -4,7 +4,7 @@ linkTitle: Circle
 description: "Pantrypoints Circle is the base platform for Pantrypoints"
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
-image: "/og/circle.jpg"
+image: "/graphics/diet.jpg"
 tags: ['circle']
 weight: 5
 toc: true
