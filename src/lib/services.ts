@@ -103,15 +103,15 @@ export const apps: App[] = [
 	{
 		slug: 'match',
 		url: 'https://play.google.com/store/apps/details?id=org.superphysics.matchoff',
-		name: 'Pantrypoints Match',
+		name: 'Superphysics Match',
 		shortName: 'Match',
 		nameZh: '健康版',
-		description: 'Pantrypoints Match is our matching system',
+		description: 'Superphysics Match is our matching system',
 		descriptionZh: '',
 		longDescription:
-			'Pantrypoints Match is a matching system using the principles of Superphysics. It can be used for love, health, education, employment, and politics',
+			'Superphysics Match is a matching system using the principles of Superphysics. It can be used for love, health, education, employment, and politics',
 		longDescriptionZh:
-			'Pantrypoints Match 是一个运用超级物理学原理的匹配系统，可用于爱情、健康、教育、就业和政治领域。',
+			'Superphysics Match 是一个运用超级物理学原理的匹配系统，可用于爱情、健康、教育、就业和政治领域。',
 		icon: '/icons/match.png',
 		color: '#FF6666',
 		youtube: 'A-oBQO5xWr4',
