@@ -16,7 +16,8 @@ export interface Preneur {
 	featuresZh: string[];
 }
 
-
+// 	'Practitioner profiles',
+// 'Disease Profiling'
 
 export const apps: Preneur[] = [
 	{
@@ -97,35 +98,28 @@ export const apps: Preneur[] = [
 	},
 	{
 		slug: 'health',
-		url: 'https://play.google.com/store/apps/details?id=com.pantrypoints.health',
-		name: 'Pantrypreneur Health',
-		shortName: 'Health',
+		url: 'https://play.google.com/store/apps/details?id=com.pantrypoints.food',
+		name: 'Pantrypreneur Diet',
+		shortName: 'Diet',
 		nameZh: 'Health',
-		description: 'Personal health management using points and Bio Superphysics',
-		descriptionZh: 'Personal health management using points and Bio Superphysics',
+		description: 'Diet management based on Bio Superphysics',
+		descriptionZh: 'Diet management based on Bio Superphysics',
 		longDescription:
-			'The idea for Pantrypreneur Health arose during the pandemic when people were looking for Covid solutions, and health services were strained. Our solution integrates an offline disease and nutrition reference that focuses on alternative medicine, as well as a points marketplace for herbal remedies',
+			'The idea for Pantrypreneur Diet arose during the pandemic when people were looking for Covid solutions, and health services were strained. Our solution integrates an offline disease and nutrition reference that focuses on alternative medicine',
 		longDescriptionZh:
-			'The idea for Pantrypreneur Health arose during the pandemic when people were looking for Covid solutions, and health services were strained. Our solution integrates an offline disease and nutrition reference that focuses on alternative medicine, as well as a points marketplace for herbal remedies',
+			'The idea for Pantrypreneur Diet arose during the pandemic when people were looking for Covid solutions, and health services were strained. Our solution integrates an offline disease and nutrition reference that focuses on alternative medicine',
 		icon: '/icons/health.png',
 		color: '#FF6666',
 		youtube: 'M8ztGBQOVDM',
-		tags: ['health', 'wellness', 'community'],
+		tags: ['diet', 'disease reference', 'nutrition reference'],
 		features: [
-			'Health service points marketplace',
-			'Alternative medicine points marketplace',
-			'Offline Disease and Nutrition Reference',
-			'Community health fund',
-			'Practitioner profiles',
-			'Disease Profiling'
+			'Diet Monitoring',
+			'Offline Disease and Nutrition Reference'
 		],
 		featuresZh: [			
-			'Health service points marketplace',
-			'Alternative medicine points marketplace',
 			'Offline Disease and Nutrition Reference',
-			'Community health fund',
-			'Practitioner profiles',
-			'Disease Profiling'],
+			'Diet Monitoring'
+		],
 		status: 'beta',
 		screenshots: []
 	},
