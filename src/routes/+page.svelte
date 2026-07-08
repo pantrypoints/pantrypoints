@@ -232,6 +232,33 @@ function getErrorMessage(error: string | undefined): string {
   </div>
 </section>
 
+
+
+<section id="quote" class="relative py-20 px-4 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-4xl mx-auto text-center">
+    <div transition:fade={{ duration: 1000 }}>
+      <!-- Quote -->
+      <blockquote class="mb-8">
+        <p class="text-2xl md:text-3xl font-serif italic text-gray-800 dark:text-gray-200 leading-relaxed">
+          Countries which have a lot of non-varied commodities to sell will find barter profitable. Otherwise, their reserves of gold bullion may get exhausted very quickly. Barter trade is advantageous for countries like Indonesia, Bangladesh, Malaysia, Cambodia, Tibet.
+        </p>
+      </blockquote>
+      <!-- Author -->
+      <div class="flex items-center justify-center gap-4 mb-12">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pastel-blue to-pastel-green flex items-center justify-center text-white font-bold">
+          <img src="/icons/PR Sarkar.jpg" alt="PR Sarkar">
+        </div>
+        <div class="text-left">
+          <p class="font-bold text-gray-900 dark:text-white">PR Sarkar</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Trade and Barter in Ancient Bengal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <!-- CTA strip -->
 <section class="px-4 py-16 sm:px-6 lg:px-8" style="background: linear-gradient(135deg, #3c95d3, #00BD6C)">
   <div class="mx-auto max-w-3xl text-center text-white">
